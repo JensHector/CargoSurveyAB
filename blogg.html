@@ -1,0 +1,300 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artiklar & Tankar – Ledarskap & Grupputveckling | Ignicon AB</title>
+    <meta name="description" content="Artiklar och insikter om ledarskap, grupputveckling och organisationsutveckling från Ignicon AB. Praktiska tips direkt från fältet.">
+    <link rel="canonical" href="https://ignicon.se/blogg.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Artiklar & Tankar – Ledarskap & Grupputveckling | Ignicon AB">
+    <meta property="og:description" content="Praktiska insikter om ledarskap, gruppdynamik och organisationsutveckling – direkt från fältet.">
+    <meta property="og:url" content="https://ignicon.se/blogg.html">
+    <meta property="og:site_name" content="Ignicon AB">
+    <meta property="og:locale" content="sv_SE">
+    <meta property="og:image" content="https://ignicon.se/jens-hector.jpg">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Artiklar & Tankar",
+      "description": "Praktiska insikter om ledarskap, gruppdynamik och organisationsutveckling.",
+      "url": "https://ignicon.se/blogg.html",
+      "inLanguage": "sv-SE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ignicon AB",
+        "url": "https://ignicon.se"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Jens Hector",
+        "url": "https://ignicon.se/#about"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Hem", "item": "https://ignicon.se/"},
+        {"@type": "ListItem", "position": 2, "name": "Artiklar & Tankar"}
+      ]
+    }
+    </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #202032;
+      --orange: #E8571A;
+      --white: #FFFFFF;
+      --beige: #F5F0E8;
+      --light-gray: #F8F8F6;
+      --text-muted: rgba(255,255,255,0.55);
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--navy); }
+
+    /* === NAVBAR (identisk med startsidan) === */
+    .nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      background: var(--navy); height: 68px;
+      display: flex; align-items: center; padding: 0 48px;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-inner {
+      width: 100%; max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+    }
+    .nav-logo { display: flex; flex-direction: column; text-decoration: none; gap: 0; }
+    .logo-wordmark { font-size: 17px; font-weight: 700; letter-spacing: 0.18em; color: var(--white); text-transform: uppercase; }
+    .logo-wordmark span { color: var(--orange); }
+    .logo-tagline { font-size: 9px; letter-spacing: 0.1em; color: var(--orange); font-style: italic; font-weight: 300; }
+    .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
+    .nav-links a {
+      display: block; padding: 8px 14px; font-size: 13px; font-weight: 500;
+      color: rgba(255,255,255,0.65); text-decoration: none; letter-spacing: 0.03em;
+      border-radius: 4px; transition: color 0.2s, background 0.2s; white-space: nowrap;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); background: rgba(255,255,255,0.08); }
+    .nav-cta {
+      background: var(--orange) !important; color: var(--white) !important;
+      border-radius: 6px !important; font-weight: 600 !important; padding: 8px 20px !important;
+    }
+    .nav-cta:hover { background: #d44e16 !important; }
+
+    /* === HERO === */
+    .hero {
+      background: var(--navy); padding: 140px 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 600; letter-spacing: 0.2em;
+      color: var(--orange); text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px); font-weight: 700;
+      color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.7; }
+    .hero-bg-text {
+      position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+      font-size: clamp(80px, 12vw, 160px); font-weight: 900; letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.04); pointer-events: none; white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    /* === FILTER === */
+    .filter-section { background: var(--white); padding: 32px 48px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .filter-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; }
+    .filter-tag {
+      padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 500;
+      border: 1.5px solid rgba(0,0,0,0.15); color: var(--navy); text-decoration: none;
+      transition: all 0.2s; cursor: pointer; background: transparent;
+    }
+    .filter-tag:hover { border-color: var(--orange); color: var(--orange); }
+    .filter-tag.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    /* === BLOGG-INNEHÅLL === */
+    .blog-section { max-width: 1200px; margin: 0 auto; padding: 60px 48px 80px; }
+
+    /* Featured-kort (stort) */
+    .post-featured {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--navy); border-radius: 12px; overflow: hidden;
+      margin-bottom: 48px; min-height: 380px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+    .post-featured-image { display: none; }
+    .post-featured-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .post-cat {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+      color: var(--orange); text-transform: uppercase; margin-bottom: 14px;
+    }
+    .post-featured-content h2 {
+      font-size: 28px; font-weight: 700; color: var(--white);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .post-featured-content p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 28px; }
+    .post-featured-meta { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 24px; }
+    .post-read-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--orange); font-size: 14px; font-weight: 600;
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: gap 0.2s;
+    }
+    .post-read-link:hover { gap: 12px; }
+
+    /* Grid med kortare inlägg */
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .post-card {
+      background: var(--light-gray); border-radius: 10px; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .post-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .post-card-image { display: none; }
+    .post-card-content { padding: 24px; }
+    .post-card-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; color: var(--navy); }
+    .post-card-content p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .post-card-meta { font-size: 11px; color: #999; margin-bottom: 16px; }
+
+    /* Empty / loading */
+    .loading { text-align: center; padding: 80px; color: #999; font-size: 15px; }
+    .empty-state { text-align: center; padding: 80px 20px; }
+    .empty-state h3 { font-size: 22px; margin-bottom: 10px; }
+    .empty-state p { color: #666; }
+
+    /* === FOOTER === */
+    footer { background: var(--navy); padding: 32px 48px; text-align: center; }
+    footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
+
+    /* === RESPONSIV === */
+    @media (max-width: 768px) {
+      .nav { padding: 0 20px; }
+      .nav-links { display: none; }
+      .hero { padding: 110px 20px 60px; }
+      .filter-section { padding: 24px 20px; }
+      .blog-section { padding: 40px 20px 60px; }
+      .post-featured { grid-template-columns: 1fr; }
+      .post-featured-image { display: none; }
+      .post-featured-content { padding: 28px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+  </style>
+</head>
+<body>
+
+<!-- NAVBAR -->
+<nav class="nav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">
+      <span class="logo-wordmark">IGNICON<span>.</span></span>
+      <span class="logo-tagline">Everything Starts With A Choice</span>
+    </a>
+    <ul class="nav-links">
+      <li><a href="/index.html#hero">Hem</a></li>
+      <li><a href="/index.html#services">Tjänster</a></li>
+      <li><a href="/blogg.html" class="active">Artiklar &amp; Tankar</a></li>
+      <li><a href="/index.html#about">Om oss</a></li>
+      <li><a href="/index.html#contact" class="nav-cta">Kontakt</a></li>
+    </ul>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">INSIKTER</div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Artiklar &amp; Tankar</p>
+    <h1>Ledarskap som<br><em>faktiskt fungerar</em></h1>
+    <p>Praktiska insikter om ledarskap, gruppdynamik och organisationsutveckling — direkt från fältet.</p>
+  </div>
+</section>
+
+<!-- FILTER -->
+<div class="filter-section">
+  <div class="filter-inner">
+    <a href="#" class="filter-tag active" data-filter="Alla">Alla</a>
+    <a href="#" class="filter-tag" data-filter="Ledarskap">Ledarskap</a>
+    <a href="#" class="filter-tag" data-filter="Grupputveckling">Grupputveckling</a>
+    <a href="#" class="filter-tag" data-filter="Ledningsgrupp">Ledningsgrupp</a>
+    <a href="#" class="filter-tag" data-filter="Coaching">Coaching</a>
+    <a href="#" class="filter-tag" data-filter="Organisation">Organisation</a>
+  </div>
+</div>
+
+<!-- INLÄGG -->
+<main class="blog-section" id="blog-container">
+  <div class="loading">Laddar inlägg…</div>
+</main>
+
+<!-- FOOTER -->
+<footer>
+  <p>Copyright Ignicon AB 2026. Alla rättigheter förbehållna.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
+<script>
+
+const categoryEmoji = { 'Ledarskap': '🎧', 'Grupputveckling': '👥', 'Ledningsgrupp': '🏢', 'Coaching': '💡', 'Organisation': '🔥', 'default': '📖' };
+function formatDate(dateStr) { const months = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec']; const d = new Date(dateStr); return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`; }
+function parseFrontmatter(text) { const match = text.match(/^---\n([\s\S]*?)\n---\n([\s\S]*)$/); if (!match) return { data: {}, content: text }; const data = {}; match[1].split('\n').forEach(line => { const [key, ...val] = line.split(':'); if (key && val.length) data[key.trim()] = val.join(':').trim().replace(/^["']|["']$/g, ''); }); return { data, content: match[2] }; }
+function fileToSlug(filename) { return filename.replace(/^\d{4}-\d{2}-\d{2}-/, '').replace(/\.md$/, ''); }
+async function loadPosts() { try { const res = await fetch('_posts/index.json').catch(() => null); if (res && res.ok) { const files = await res.json(); return await Promise.all(files.map(f => loadPost(f))); } const indexRes = await fetch('_posts/posts.json').catch(() => null); if (indexRes && indexRes.ok) { const files = await indexRes.json(); return await Promise.all(files.map(f => loadPost(f))); } return []; } catch(e) { return []; } }
+async function loadPost(filename) { const res = await fetch(`_posts/${filename}`); const text = await res.text(); const { data, content } = parseFrontmatter(text); return { ...data, filename, slug: fileToSlug(filename), content }; }
+function renderPosts(posts) {
+  const container = document.getElementById('blog-container');
+  const activeFilter = document.querySelector('.filter-tag.active')?.dataset.filter || 'Alla';
+  const filtered = activeFilter === 'Alla' ? posts : posts.filter(p => p.category === activeFilter);
+  if (!filtered.length) {
+    container.innerHTML = '<div class="empty-state"><h3>Inga inlägg ännu</h3><p>Kom snart tillbaka!</p></div>';
+    return;
+  }
+  filtered.sort((a, b) => new Date(b.date) - new Date(a.date));
+  const featured = filtered.find(p => p.featured === 'true') || filtered[0];
+  const rest = filtered.filter(p => p !== featured);
+  const emojiMap = {'Ledarskap':'🎧','Grupputveckling':'👥','Ledningsgrupp':'🏢','Coaching':'💡','Organisation':'🔥'};
+  const emoji = emojiMap[featured.category] || '📖';
+  let out = `<div class="post-featured">
+    <div class="post-featured-content">
+      <p class="post-cat">★ Senaste inlägg · ${featured.category || ''}</p>
+      <h2><a href="inlagg.html?post=${featured.filename}" style="color:inherit;text-decoration:none;">${featured.title}</a></h2>
+      <p>${featured.excerpt || ''}</p>
+      <p class="post-featured-meta">${featured.author || 'Ignicon'} · ${formatDate(featured.date)} · ${featured.readtime || '5 min läsning'}</p>
+      <a href="inlagg.html?post=${featured.filename}" class="post-read-link">Läs inlägget →</a>
+    </div>
+  </div>`;
+  if (rest.length) {
+    out += '<div class="posts-grid">';
+    rest.forEach(p => {
+      const em = emojiMap[p.category] || '📖';
+      out += `<div class="post-card">
+        <div class="post-card-content">
+          <p class="post-cat">${p.category || ''}</p>
+          <h3><a href="inlagg.html?post=${p.filename}" style="color:inherit;text-decoration:none;">${p.title}</a></h3>
+          <p>${p.excerpt || ''}</p>
+          <p class="post-card-meta">${p.author || 'Ignicon'} · ${formatDate(p.date)}</p>
+          <a href="inlagg.html?post=${p.filename}" class="post-read-link">Läs inlägget →</a>
+        </div>
+      </div>`;
+    });
+    out += '</div>';
+  }
+  container.innerHTML = out;
+}
+document.querySelectorAll('.filter-tag').forEach(tag => { tag.addEventListener('click', e => { e.preventDefault(); document.querySelectorAll('.filter-tag').forEach(t => t.classList.remove('active')); tag.classList.add('active'); const filter = tag.dataset.filter; document.querySelectorAll('[data-category]').forEach(el => { el.style.display = (filter === 'alla' || el.dataset.category === filter) ? '' : 'none'; }); }); });
+if (window.netlifyIdentity) { window.netlifyIdentity.on("init", user => { if (!user) { window.netlifyIdentity.on("login", () => { document.location.href = "/admin/"; }); } }); }
+loadPosts().then(renderPosts);
+
+</script>
+</body>
+</html>
