@@ -418,6 +418,10 @@
       transition: background 0.15s;
     }
 
+    .mega-item > div {
+      min-width: 0;
+    }
+
     .mega-item:hover { background: var(--beige); }
     .mega-item:hover .mega-item-title { color: var(--orange); }
 
@@ -449,6 +453,8 @@
       color: var(--navy);
       margin-bottom: 2px;
       transition: color 0.15s;
+      overflow-wrap: break-word;
+      hyphens: auto;
     }
 
     .mega-item-desc {
