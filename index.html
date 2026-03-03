@@ -285,6 +285,9 @@
       position: relative;
     }
 
+    /* Mega-dropdown positioneras relativt nav, inte li */
+    .has-dropdown { position: static; }
+
     .nav-links a {
       display: block;
       padding: 8px 14px;
@@ -323,8 +326,8 @@
     /* ── MEGA DROPDOWN ── */
     .mega-dropdown {
       position: absolute;
-      top: calc(100% + 8px);
-      left: 0;
+      top: 68px;
+      left: 48px;
       width: 640px;
       background: var(--white);
       border-radius: 12px;
