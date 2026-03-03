@@ -3,8 +3,8 @@
   "configurations": [
     {
       "name": "ignicon-hemsida",
-      "runtimeExecutable": "ruby",
-      "runtimeArgs": ["-run", "-e", "httpd", "--", "-p", "4500", "/Users/jenshector/Documents/GitHub/ignicon hemsida"],
+      "runtimeExecutable": "python3",
+      "runtimeArgs": ["-m", "http.server", "4500", "--directory", "/Users/jenshector/Documents/GitHub/ignicon hemsida"],
       "port": 4500
     }
   ]
