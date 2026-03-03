@@ -9,26 +9,34 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Ignicon AB">
     <meta property="og:locale" content="sv_SE">
+    <link rel="icon" type="image/svg+xml" href="/logga_transparent.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
     <style>
         :root {  
             --navy: #202032;
-            --orange: #E8571A;
+            --orange: #E36020;
             --white: #FFFFFF;
             --light-gray: #F8F8F6;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
-        body { font-family: 'Inter', sans-serif; background: var(--white); color: var(--navy); }
+        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); }
 
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0 48px; border-bottom: 1px solid rgba(255,255,255,0.06); }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0 48px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
+        .nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
         .nav-inner { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; }
         .nav-logo { display: flex; align-items: center; text-decoration: none; }
+        .nav-mobile-only { display: none; }
         .nav-links { display: flex; align-items: center; gap: 4px; list-style: none; }
         .nav-links a { display: block; padding: 8px 14px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.65); text-decoration: none; border-radius: 4px; transition: color 0.2s, background 0.2s; }
         .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.08); }
-        .nav-cta { background: var(--orange) !important; color: var(--white) !important; border-radius: 6px !important; font-weight: 600 !important; padding: 8px 20px !important; }
-        .nav-cta:hover { background: #d44e16 !important; }
+        .nav-cta { background: var(--orange) !important; color: var(--white) !important; border-radius: 4px !important; font-size: 13px !important; font-weight: 600 !important; padding: 8px 18px !important; letter-spacing: 0.04em !important; transition: background 0.2s, transform 0.1s !important; }
+        .nav-cta:hover { background: #cc5519 !important; transform: translateY(-1px); }
+        .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+        .nav-burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
+        .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+        .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+        .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
         .post-hero { background: var(--navy); padding: 120px 48px 60px; position: relative; overflow: hidden; }
         .post-hero-inner { max-width: 800px; margin: 0 auto; }
@@ -68,7 +76,18 @@
 
         @media (max-width: 768px) {
             .nav { padding: 0 20px; }
-            .nav-links { display: none; }
+            .nav-links {
+                display: flex; flex-direction: column;
+                position: absolute; top: 68px; left: 0; right: 0; transform: none;
+                background: var(--navy); padding: 16px 24px 24px;
+                border-bottom: 1px solid rgba(255,255,255,0.08);
+                gap: 4px; opacity: 0; visibility: hidden; pointer-events: none;
+                transition: opacity 0.25s ease, visibility 0.25s ease;
+            }
+            .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; }
+            .nav-cta-right { display: none; }
+            .nav-mobile-only { display: list-item; }
+            .nav-burger { display: flex; }
             .post-hero { padding: 100px 20px 48px; }
             .post-body { padding: 40px 20px 60px; }
             .post-cta { margin: 0 20px 60px; padding: 32px 24px; }
@@ -78,18 +97,22 @@
 </head>
 <body>
 
-<nav class="nav">
+<nav class="nav" id="mainNav">
     <div class="nav-inner">
         <a href="/index.html" class="nav-logo">
             <img src="/logga_transparent.svg" alt="Ignicon AB – Everything Starts With A Choice" height="56" style="display:block;">
         </a>
-        <ul class="nav-links">
+        <ul class="nav-links" id="navLinks">
             <li><a href="/index.html#hero">Hem</a></li>
             <li><a href="/index.html#services">Tjänster</a></li>
             <li><a href="/blogg.html">Artiklar &amp; Tankar</a></li>
             <li><a href="/index.html#about">Om oss</a></li>
-            <li><a href="/index.html#contact" class="nav-cta">Kontakt</a></li>
+            <li class="nav-mobile-only"><a href="/index.html#contact" class="nav-cta">Kontakt</a></li>
         </ul>
+        <a href="/index.html#contact" class="nav-cta nav-cta-right">Kontakt</a>
+        <div class="nav-burger" id="navBurger" onclick="toggleMenu()">
+            <span></span><span></span><span></span>
+        </div>
     </div>
 </nav>
 
@@ -138,7 +161,7 @@ function injectArticleSchema(data, filename) {
             "url": "https://ignicon.se",
             "logo": {
                 "@type": "ImageObject",
-                "url": "https://ignicon.se/jens-hector.jpg"
+                "url": "https://ignicon.se/logga_transparent.svg"
             }
         },
         "datePublished": data.date || "",
@@ -269,6 +292,28 @@ function renderError(msg) {
 }
 
 loadPost();
+
+// ── Sticky nav shadow
+const nav = document.getElementById('mainNav');
+window.addEventListener('scroll', () => {
+    nav.classList.toggle('scrolled', window.scrollY > 20);
+});
+
+// ── Mobile menu
+function toggleMenu() {
+    const links  = document.getElementById('navLinks');
+    const burger = document.getElementById('navBurger');
+    links.classList.toggle('open');
+    burger.classList.toggle('open');
+}
+document.addEventListener('click', function(e) {
+    const burger = document.getElementById('navBurger');
+    const links  = document.getElementById('navLinks');
+    if (!burger.contains(e.target) && !links.contains(e.target)) {
+        links.classList.remove('open');
+        burger.classList.remove('open');
+    }
+});
 </script>
 </body>
 </html>
