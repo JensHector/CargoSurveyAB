@@ -1,0 +1,11 @@
+{
+  "version": "0.0.1",
+  "configurations": [
+    {
+      "name": "ignicon-hemsida",
+      "runtimeExecutable": "ruby",
+      "runtimeArgs": ["-run", "-e", "httpd", "--", "-p", "4500", "/Users/jenshector/Documents/GitHub/ignicon hemsida"],
+      "port": 4500
+    }
+  ]
+}
