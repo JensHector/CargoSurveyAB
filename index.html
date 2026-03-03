@@ -813,7 +813,7 @@
       border: 1px solid rgba(0,0,0,0.06);
       border-radius: 10px;
       padding: 32px;
-      transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+      transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative;
       overflow: hidden;
     }
@@ -821,7 +821,6 @@
     .service-card:hover {
       transform: translateY(-3px);
       box-shadow: 0 8px 30px rgba(0,0,0,0.10);
-      border-color: rgba(227,96,32,0.20);
     }
 
     .service-number {
@@ -1751,14 +1750,14 @@
       border-radius: 10px;
     }
 
-    .card, .service-card, .how-item {
+    .card, .how-item {
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
       border: 1px solid rgba(226,232,240,.95);
       box-shadow: 0 12px 30px rgba(15,23,42,.06);
       border-radius: 14px;
     }
 
-    .card:hover, .service-card:hover, .how-item:hover {
+    .card:hover, .how-item:hover {
       transform: translateY(-3px);
       box-shadow: 0 18px 46px rgba(15,23,42,.10);
       border-color: rgba(232,87,26,.30);
