@@ -824,13 +824,23 @@
     }
 
     .service-number {
-      font-size: 0.8rem;
-      font-weight: 600;
-      color: var(--orange);
-      opacity: 0.50;
-      letter-spacing: 0.08em;
-      line-height: 1;
-      margin-bottom: 14px;
+      width: 44px;
+      height: 44px;
+      background: rgba(227, 96, 32, 0.10);
+      border-radius: 10px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin-bottom: 18px;
+    }
+    .service-number svg {
+      width: 22px;
+      height: 22px;
+      stroke: var(--orange);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
     }
 
     .service-title {
@@ -878,7 +888,7 @@
       border-color: var(--navy);
     }
 
-    .service-card.featured .service-number { color: rgba(255,255,255,0.80); opacity: 1; }
+    .service-card.featured .service-number { background: rgba(255,255,255,0.12); }
     .service-card.featured .service-title { color: var(--white); }
 
     .service-card.featured .service-text {
@@ -1917,21 +1927,21 @@
 
       <div class="services-grid">
         <div id="service-ledarskap" id="service-ledarskap" class="service-card animate">
-          <div class="service-number">01</div>
+          <div class="service-number"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
           <h3 class="service-title">Ledarskapsträning</h3>
           <p class="service-text">Våra program för ledarskapsutveckling utrustar dig med den kompetens och förståelse som krävs för att vägleda en individ, ett team eller en organisation mot er vision och ambition. Med våra innovativa kurser och program kan du effektivt förverkliga dina eller era mål.</p>
           <button onclick="openModal('modal-ledarskap')" class="service-link" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-coaching" id="service-coaching" class="service-card animate">
-          <div class="service-number">02</div>
+          <div class="service-number"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
           <h3 class="service-title">Ledarskapscoaching</h3>
           <p class="service-text">Ledarskapscoaching ger dig möjlighet att finslipa dina färdigheter och förbättra dina förmågor som chef eller ledare. Vi hjälper dig att sätta upp mål, övervinna utmaningar, utveckla bättre precision i ledarskapet och skapa nya strategier för svåra situationer.</p>
           <button onclick="openModal('modal-coaching')" class="service-link" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-ledningsgrupp" id="service-ledningsgrupp" class="service-card animate">
-          <div class="service-number">03</div>
+          <div class="service-number"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
           <h3 class="service-title">Ledningsgruppsutveckling</h3>
           <ul class="service-list">
             <li>Tydliggör uppdrag, mandat och förväntningar</li>
@@ -1945,21 +1955,21 @@
         </div>
 
         <div id="service-grupputveckling" id="service-grupputveckling" class="service-card animate">
-          <div class="service-number">04</div>
+          <div class="service-number"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
           <h3 class="service-title">Grupputveckling</h3>
           <p class="service-text">Våra grupp- och teamutvecklingsprogram är utformade för att hjälpa team att övervinna de 5 vanligaste problemen som hindrar dem från att bli riktigt effektiva. Din grupp utrustas med de färdigheter de behöver för att nå era strategiska mål.</p>
           <button onclick="openModal('modal-grupputveckling')" class="service-link" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-workshops" id="service-workshops" class="service-card animate">
-          <div class="service-number">05</div>
+          <div class="service-number"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
           <h3 class="service-title">Workshops</h3>
           <p class="service-text">Kämpar ni med hur ni ska gå vidare? Hur åstadkommer vi bäst förändring? Vilken kultur bör förstärkas? Med hjälp av våra workshopmetoder guidar vi er till svar på strategiska frågor och skapar konkreta handlingsplaner.</p>
           <button onclick="openModal('modal-workshops')" class="service-link" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-forelasningar" id="service-forelasningar" class="service-card animate">
-          <div class="service-number">06</div>
+          <div class="service-number"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
           <h3 class="service-title">Föreläsningar</h3>
           <p class="service-text">Utnyttja kraften i en inspirerande föreläsning vid ditt nästa möte eller konferens. Våra föreläsningar ger ett unikt och tankeväckande inslag som lyfter och förstärker er fortsatta dialog kring ledarskap, motivation och grupputveckling.</p>
           <button onclick="openModal('modal-forelasningar')" class="service-link" style="background:none;border:none;cursor:pointer;padding:0;font-family:inherit;">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
