@@ -2499,6 +2499,11 @@
     });
 
     // ── Center target vertically in viewport on #services / #service-* clicks
+    function getDocTop(el) {
+      let top = 0;
+      while (el) { top += el.offsetTop; el = el.offsetParent; }
+      return top;
+    }
     document.querySelectorAll('a[href="#services"], a[href^="#service-"]').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
@@ -2507,8 +2512,7 @@
           ? document.querySelector('.services-grid')
           : document.querySelector(href);
         if (!target) return;
-        const rect = target.getBoundingClientRect();
-        const scrollTop = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
+        const scrollTop = getDocTop(target) - (window.innerHeight / 2) + (target.offsetHeight / 2);
         window.scrollTo({ top: Math.max(0, scrollTop), behavior: 'smooth' });
       });
     });
