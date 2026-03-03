@@ -2498,13 +2498,16 @@
       });
     });
 
-    // ── Center services grid vertically in viewport on #services click
-    document.querySelectorAll('a[href="#services"]').forEach(link => {
+    // ── Center target vertically in viewport on #services / #service-* clicks
+    document.querySelectorAll('a[href="#services"], a[href^="#service-"]').forEach(link => {
       link.addEventListener('click', e => {
         e.preventDefault();
-        const grid = document.querySelector('.services-grid');
-        if (!grid) return;
-        const rect = grid.getBoundingClientRect();
+        const href = link.getAttribute('href');
+        const target = href === '#services'
+          ? document.querySelector('.services-grid')
+          : document.querySelector(href);
+        if (!target) return;
+        const rect = target.getBoundingClientRect();
         const scrollTop = window.scrollY + rect.top - (window.innerHeight / 2) + (rect.height / 2);
         window.scrollTo({ top: Math.max(0, scrollTop), behavior: 'smooth' });
       });
