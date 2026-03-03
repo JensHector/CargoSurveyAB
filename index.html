@@ -472,6 +472,39 @@
       overflow-wrap: break-word;
     }
 
+    /* Blog dropdown */
+    .mega-dropdown--blog { width: 520px; }
+    .mega-posts {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 10px;
+      gap: 2px;
+    }
+    .mega-posts-loading {
+      padding: 16px;
+      font-size: 12px;
+      color: #bbb;
+    }
+    .mega-post-item {
+      display: flex;
+      flex-direction: column;
+      padding: 10px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+    .mega-post-item:hover { background: var(--beige); }
+    .mega-post-item:hover .mega-item-title { color: var(--orange); }
+    .mega-post-meta {
+      font-size: 10px;
+      color: var(--orange);
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      text-transform: uppercase;
+      margin-bottom: 3px;
+    }
+
     .nav-cta {
       background: var(--orange) !important;
       color: var(--white) !important;
@@ -1836,7 +1869,19 @@
 
           </div>
         </li>
-        <li><a href="blogg.html">Artiklar &amp; Tankar</a></li>
+        <li class="has-dropdown">
+          <a href="blogg.html">Artiklar &amp; Tankar</a>
+          <div class="mega-dropdown mega-dropdown--blog">
+            <div class="mega-left">
+              <p class="mega-label">Artiklar &amp; Tankar</p>
+              <p class="mega-intro">Tankar och perspektiv om ledarskap, gruppdynamik och organisationsutveckling.</p>
+              <a href="blogg.html" class="mega-all">Se alla artiklar <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+            <div class="mega-posts" id="nav-blog-posts">
+              <div class="mega-posts-loading">Laddar…</div>
+            </div>
+          </div>
+        </li>
         <li><a href="#about">Om oss</a></li>
         <li class="nav-mobile-only"><a href="#contact" class="nav-cta">Kontakt</a></li>
       </ul>
@@ -2549,6 +2594,39 @@
     document.querySelectorAll('.modal-cta-btn').forEach(btn => {
       btn.addEventListener('click', closeAllModals);
     });
+
+    // ── Populate blog dropdown with recent posts
+    (async function loadNavBlogPosts() {
+      try {
+        const months = ['jan','feb','mar','apr','maj','jun','jul','aug','sep','okt','nov','dec'];
+        function navDate(str) { const d = new Date(str); return `${d.getDate()} ${months[d.getMonth()]} ${d.getFullYear()}`; }
+        function parseMeta(text) {
+          const m = text.match(/^---\n([\s\S]*?)\n---/);
+          if (!m) return {};
+          const d = {};
+          m[1].split('\n').forEach(line => { const [k,...v] = line.split(':'); if (k&&v.length) d[k.trim()]=v.join(':').trim().replace(/^["']|["']$/g,''); });
+          return d;
+        }
+        const res = await fetch('_posts/index.json');
+        if (!res.ok) return;
+        const files = await res.json();
+        const posts = await Promise.all(files.slice(0,4).map(async f => {
+          const r = await fetch(`_posts/${f}`);
+          const text = await r.text();
+          return { ...parseMeta(text), filename: f };
+        }));
+        const container = document.getElementById('nav-blog-posts');
+        if (!container) return;
+        container.innerHTML = posts.map(p => `
+          <a href="inlagg.html?post=${p.filename}" class="mega-post-item">
+            <p class="mega-post-meta">${p.category || 'Artikel'} · ${navDate(p.date)}</p>
+            <p class="mega-item-title">${p.title || ''}</p>
+          </a>`).join('');
+      } catch(e) {
+        const c = document.getElementById('nav-blog-posts');
+        if (c) c.innerHTML = '';
+      }
+    })();
   </script>
 </body>
 </html>
