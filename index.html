@@ -267,19 +267,26 @@
       display: flex;
       align-items: center;
       justify-content: space-between;
+      position: relative;
     }
 
     /* Logo */
     .nav-logo { display: flex; align-items: center; text-decoration: none; }
     .nav-logo-img { height: 48px; width: auto; display: block; }
 
-    /* Nav links */
+    /* Nav links – centrerade via absolut positionering */
     .nav-links {
       display: flex;
       align-items: center;
       gap: 4px;
       list-style: none;
+      position: absolute;
+      left: 50%;
+      transform: translateX(-50%);
     }
+
+    /* Mobilkopia av Kontakt-knappen (dold på desktop) */
+    .nav-mobile-only { display: none; }
 
     .nav-links > li {
       position: relative;
@@ -1691,6 +1698,7 @@
         flex-direction: column;
         position: absolute;
         top: 68px; left: 0; right: 0;
+        transform: none;
         background: var(--navy);
         padding: 16px 24px 24px;
         border-bottom: 1px solid rgba(255,255,255,0.08);
@@ -1700,6 +1708,8 @@
         pointer-events: none;
         transition: opacity 0.25s ease, visibility 0.25s ease;
       }
+      .nav-cta-right { display: none; }
+      .nav-mobile-only { display: list-item; }
       .nav-links.open {
         opacity: 1;
         visibility: visible;
@@ -1826,8 +1836,10 @@
         </li>
         <li><a href="blogg.html">Artiklar &amp; Tankar</a></li>
         <li><a href="#about">Om oss</a></li>
-        <li><a href="#contact" class="nav-cta">Kontakt</a></li>
+        <li class="nav-mobile-only"><a href="#contact" class="nav-cta">Kontakt</a></li>
       </ul>
+
+      <a href="#contact" class="nav-cta nav-cta-right">Kontakt</a>
 
       <div class="nav-burger" id="navBurger" onclick="toggleMenu()">
         <span></span>
