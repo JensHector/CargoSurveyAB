@@ -96,7 +96,7 @@
     /* Mega-dropdown */
     .mega-dropdown {
       position: absolute; top: 68px; left: 50%; width: 760px;
-      background: var(--white); border-radius: 12px;
+      background: var(--white); border-radius: 12px; overflow: hidden;
       box-shadow: 0 16px 48px rgba(0,0,0,0.20); border-top: 3px solid var(--orange);
       display: flex; opacity: 0; visibility: hidden;
       transform: translateX(-50%) translateY(-8px);
@@ -136,7 +136,7 @@
 
     /* Blog dropdown */
     .mega-dropdown--blog { width: 520px; }
-    .mega-posts { flex: 1; display: flex; flex-direction: column; padding: 10px; gap: 2px; }
+    .mega-posts { flex: 1; min-width: 0; display: flex; flex-direction: column; padding: 10px; gap: 2px; }
     .mega-posts-loading { padding: 16px; font-size: 12px; color: #bbb; }
     .mega-posts .mega-post-item { display: flex; flex-direction: column; padding: 10px 12px; border-radius: 8px; text-decoration: none; transition: background 0.15s; white-space: normal; min-width: 0; }
     .mega-post-item:hover { background: var(--beige); }
