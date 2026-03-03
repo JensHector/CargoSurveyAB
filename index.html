@@ -227,6 +227,7 @@
       --beige:      #F5F1EC;
       --beige-dark: #EDE8E1;
       --white:      #FFFFFF;
+      --light-gray: #F8F8F6;
       --gray:       #464553;
       --gray-light: #706E7C;
       --border:     #DDD8D2;
@@ -808,8 +809,8 @@
     }
 
     .service-card {
-      background: var(--beige);
-      border: 1px solid var(--border);
+      background: var(--light-gray);
+      border: 1px solid rgba(0,0,0,0.06);
       border-radius: 10px;
       padding: 32px;
       transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
@@ -817,25 +818,10 @@
       overflow: hidden;
     }
 
-    .service-card::before {
-      content: '';
-      position: absolute;
-      top: 0; left: 0; right: 0;
-      height: 3px;
-      background: var(--orange);
-      transform: scaleX(0);
-      transform-origin: left;
-      transition: transform 0.3s ease;
-    }
-
     .service-card:hover {
-      transform: translateY(-4px);
-      box-shadow: 0 16px 40px rgba(32,32,50,0.1);
-      border-color: rgba(227,96,32,0.2);
-    }
-
-    .service-card:hover::before {
-      transform: scaleX(1);
+      transform: translateY(-3px);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      border-color: rgba(227,96,32,0.20);
     }
 
     .service-number {
@@ -910,12 +896,8 @@
       color: rgba(255,255,255,0.70);
     }
 
-    .service-card.featured::before {
-      background: var(--orange);
-    }
-
     .service-card.featured:hover {
-      box-shadow: 0 16px 40px rgba(0,0,0,0.25);
+      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
     }
 
     .service-list {
