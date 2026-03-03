@@ -3,7 +3,7 @@ title: Vänlighet är inte motsatsen till tydlighet
 date: 2026-02-24
 category: Ledarskap
 excerpt: Chefer ställer ofta vänlighet mot tydlighet – som om det vore ett val. Men egentligen är tydlighet en av de mest omtänksamma saker en ledare kan erbjuda.
-featured: true
+featured: false
 author: Jens Hector
 readtime: 3 min läsning
 ---

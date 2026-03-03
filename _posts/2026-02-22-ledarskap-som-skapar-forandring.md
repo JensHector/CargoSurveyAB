@@ -4,7 +4,7 @@ date: 2026-02-22
 category: Ledarskap
 excerpt: "De flesta ledare vill skapa forandring. Fa lyckas. Skillnaden ligger sallan i kompetens - den ligger i mod att ha svara samtal och vilja att bli ifragesatt."
 readtime: "5 min lasning"
-featured: true
+featured: false
 ---
 
 ## Varfor de flesta forandringsinitiativ misslyckas

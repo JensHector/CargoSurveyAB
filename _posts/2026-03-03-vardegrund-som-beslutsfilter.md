@@ -3,7 +3,7 @@ title: En genomtänkt värdegrund är ett beslutsfilter
 date: 2026-03-03
 category: Ledarskap
 excerpt: Det är lätt att ha värderingar på hemsidan. Det är svårare att låta dem styra riktiga beslut. Men det är just där de gör skillnad.
-featured: false
+featured: true
 author: Jens Hector
 readtime: 3 min läsning
 ---
