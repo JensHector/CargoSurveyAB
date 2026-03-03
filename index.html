@@ -320,40 +320,138 @@
       transform: rotate(180deg);
     }
 
-    /* Dropdown */
-    .dropdown {
+    /* ── MEGA DROPDOWN ── */
+    .mega-dropdown {
       position: absolute;
       top: calc(100% + 8px);
       left: 0;
+      width: 640px;
       background: var(--white);
-      border-radius: 8px;
-      box-shadow: 0 12px 40px rgba(0,0,0,0.18);
-      min-width: 240px;
-      padding: 8px 0;
+      border-radius: 12px;
+      box-shadow: 0 16px 48px rgba(0,0,0,0.20);
+      border-top: 3px solid var(--orange);
+      display: flex;
       opacity: 0;
       visibility: hidden;
       transform: translateY(-8px);
       transition: opacity 0.2s, transform 0.2s, visibility 0.2s;
-      border-top: 3px solid var(--orange);
+      overflow: hidden;
     }
 
-    .has-dropdown:hover .dropdown {
+    .has-dropdown:hover .mega-dropdown {
       opacity: 1;
       visibility: visible;
       transform: translateY(0);
     }
 
-    .nav-links .dropdown a {
-      color: var(--navy);
-      font-size: 13px;
-      padding: 9px 18px;
-      border-radius: 0;
-      font-weight: 400;
+    /* Left panel */
+    .mega-left {
+      width: 190px;
+      flex-shrink: 0;
+      background: var(--navy);
+      padding: 24px 20px;
+      display: flex;
+      flex-direction: column;
     }
 
-    .nav-links .dropdown a:hover {
-      background: var(--beige);
+    .mega-label {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
       color: var(--orange);
+      margin-bottom: 10px;
+    }
+
+    .mega-intro {
+      font-size: 13px;
+      color: rgba(255,255,255,0.55);
+      line-height: 1.65;
+      flex: 1;
+    }
+
+    .mega-all {
+      display: inline-flex;
+      align-items: center;
+      gap: 6px;
+      margin-top: 20px;
+      font-size: 12px;
+      font-weight: 600;
+      letter-spacing: 0.05em;
+      color: var(--white);
+      text-decoration: none;
+      transition: gap 0.2s, color 0.2s;
+    }
+
+    .mega-all:hover { gap: 10px; color: var(--orange); }
+
+    .mega-all svg {
+      width: 14px;
+      height: 14px;
+      stroke: currentColor;
+      fill: none;
+      stroke-width: 2;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    /* Right grid */
+    .mega-grid {
+      flex: 1;
+      display: grid;
+      grid-template-columns: 1fr 1fr;
+      padding: 10px;
+      gap: 2px;
+      align-content: start;
+    }
+
+    .mega-item {
+      display: flex;
+      align-items: flex-start;
+      gap: 10px;
+      padding: 11px 12px;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: background 0.15s;
+    }
+
+    .mega-item:hover { background: var(--beige); }
+    .mega-item:hover .mega-item-title { color: var(--orange); }
+
+    .mega-icon {
+      width: 32px;
+      height: 32px;
+      background: rgba(227, 96, 32, 0.10);
+      border-radius: 7px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-shrink: 0;
+      margin-top: 1px;
+    }
+
+    .mega-icon svg {
+      width: 16px;
+      height: 16px;
+      stroke: var(--orange);
+      fill: none;
+      stroke-width: 1.8;
+      stroke-linecap: round;
+      stroke-linejoin: round;
+    }
+
+    .mega-item-title {
+      font-size: 12.5px;
+      font-weight: 600;
+      color: var(--navy);
+      margin-bottom: 2px;
+      transition: color 0.15s;
+    }
+
+    .mega-item-desc {
+      font-size: 11px;
+      color: #999;
+      line-height: 1.4;
     }
 
     .nav-cta {
@@ -1597,22 +1695,35 @@
         visibility: visible;
         pointer-events: auto;
       }
-      .nav-links.open .dropdown {
+      .nav-links.open .mega-dropdown {
         position: static;
         opacity: 1;
         visibility: visible;
         transform: none;
         box-shadow: none;
-        background: rgba(255,255,255,0.05);
         border-radius: 6px;
         margin-top: 4px;
         border-top: none;
+        width: auto;
         display: none;
+        overflow: visible;
+        flex-direction: column;
       }
-      .nav-links.open .has-dropdown.open-mob .dropdown {
-        display: block;
+      .nav-links.open .has-dropdown.open-mob .mega-dropdown {
+        display: flex;
       }
-      .nav-links.open .dropdown a { color: rgba(255,255,255,0.6); }
+      .mega-left { display: none; }
+      .mega-grid {
+        grid-template-columns: 1fr;
+        padding: 4px;
+        background: rgba(255,255,255,0.05);
+        border-radius: 6px;
+      }
+      .mega-item { padding: 8px 12px; }
+      .mega-item:hover { background: rgba(255,255,255,0.08); }
+      .mega-item-title { color: rgba(255,255,255,0.75); font-size: 13px; }
+      .mega-item-desc { display: none; }
+      .mega-icon { background: rgba(227,96,32,0.20); }
       .nav-burger { display: flex; }
       .hero { padding: 100px 24px 64px; }
       .hero h1 { font-size: 32px; }
@@ -1646,14 +1757,61 @@
         <li><a href="#hero" class="active">Hem</a></li>
         <li class="has-dropdown">
           <a href="#services">Tjänster</a>
-          <div class="dropdown">
-            <a href="#service-ledarskap">Ledarskapsträning</a>
-            <a href="#service-coaching">Ledarskapscoaching</a>
-            <a href="#service-ledningsgrupp">Ledningsgruppsutveckling</a>
-            <a href="#service-grupputveckling">Grupputveckling</a>
-            <a href="#service-workshops">Workshops</a>
-            <a href="#service-forelasningar">Föreläsningar</a>
-            <a href="#services">Exempel på uppdrag</a>
+          <div class="mega-dropdown">
+
+            <!-- Vänsterpanel -->
+            <div class="mega-left">
+              <p class="mega-label">Tjänster</p>
+              <p class="mega-intro">Expertis som driver verklig förändring i ledarskap, grupper och organisationer.</p>
+              <a href="#services" class="mega-all">Se alla tjänster <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
+            </div>
+
+            <!-- 2×3 grid -->
+            <div class="mega-grid">
+              <a href="#service-ledarskap" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div>
+                  <p class="mega-item-title">Ledarskapsträning</p>
+                  <p class="mega-item-desc">Bygg kompetens och mod att leda</p>
+                </div>
+              </a>
+              <a href="#service-coaching" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                <div>
+                  <p class="mega-item-title">Ledarskapscoaching</p>
+                  <p class="mega-item-desc">Individuell utveckling av ditt ledarskap</p>
+                </div>
+              </a>
+              <a href="#service-ledningsgrupp" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div>
+                  <p class="mega-item-title">Ledningsgruppsutveckling</p>
+                  <p class="mega-item-desc">Stärk er ledningsgrupp och kultur</p>
+                </div>
+              </a>
+              <a href="#service-grupputveckling" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+                <div>
+                  <p class="mega-item-title">Grupputveckling</p>
+                  <p class="mega-item-desc">Bygg effektiva och starka team</p>
+                </div>
+              </a>
+              <a href="#service-workshops" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div>
+                  <p class="mega-item-title">Workshops</p>
+                  <p class="mega-item-desc">Strategiska workshops med tydliga resultat</p>
+                </div>
+              </a>
+              <a href="#service-forelasningar" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+                <div>
+                  <p class="mega-item-title">Föreläsningar</p>
+                  <p class="mega-item-desc">Inspirerande föreläsningar om ledarskap</p>
+                </div>
+              </a>
+            </div>
+
           </div>
         </li>
         <li><a href="blogg.html">Artiklar &amp; Tankar</a></li>
@@ -2310,7 +2468,7 @@
     }
 
     // ── Smooth close dropdown on link click
-    document.querySelectorAll('.dropdown a').forEach(link => {
+    document.querySelectorAll('.mega-dropdown a').forEach(link => {
       link.addEventListener('click', () => {
         document.getElementById('navLinks').classList.remove('open');
       });
