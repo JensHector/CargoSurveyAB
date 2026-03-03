@@ -1,44 +1,44 @@
 ---
-title: "Ledarskap som skapar verklig forandring"
+title: "Ledarskap som skapar verklig förändring"
 date: 2026-02-22
 category: Ledarskap
-excerpt: "De flesta ledare vill skapa forandring. Fa lyckas. Skillnaden ligger sallan i kompetens - den ligger i mod att ha svara samtal och vilja att bli ifragesatt."
-readtime: "5 min lasning"
+excerpt: "De flesta ledare vill skapa förändring. Få lyckas. Skillnaden ligger sällan i kompetens – den ligger i mod att ha svåra samtal och viljan att bli ifrågasatt."
+readtime: "5 min läsning"
 featured: false
 ---
 
-## Varfor de flesta forandringsinitiativ misslyckas
+## Varför de flesta förändringsinitiativ misslyckas
 
-Under mina ar av arbete med ledningsgrupper och chefer har jag sett ett och samma monster upprepas gang pa gang: organisationen vet vad som behover andras, ledningen ar overens om riktningen - men ingenting hander.
+Under mina år av arbete med ledningsgrupper och chefer har jag sett ett och samma mönster upprepas gång på gång: organisationen vet vad som behöver ändras, ledningen är överens om riktningen – men ingenting händer.
 
-Problemet ar sallan strategin. Det ar sallan resurser. Det ar sallan ens kompetens.
+Problemet är sällan strategin. Det är sällan resurser. Det är sällan ens kompetens.
 
-Det ar modets problem.
+Det är modets problem.
 
-## Mod ar inte avsaknad av radsla
+## Mod är inte avsaknad av rädsla
 
-En av de viktigaste insikterna jag buri med mig fran mitt arbete med ledare ar att mod inte innebar att du inte kanner radsla. Det innebar att du handlar trots den.
+En av de viktigaste insikterna jag burit med mig från mitt arbete med ledare är att mod inte innebär att du inte känner rädsla. Det innebär att du handlar trots den.
 
-De ledare som verkligen driver forandring har ett satt att forhalla sig till obehag som skiljer dem fran andra. De sitter kvar i det svara. De stanger inte av diskussionen nar det borjar kanna obekvaml. De inbjuder till ifragesattning - aven av sig sjalva.
+De ledare som verkligen driver förändring har ett sätt att förhålla sig till obehag som skiljer dem från andra. De sitter kvar i det svåra. De stänger inte av diskussionen när det börjar kännas obekvämt. De inbjuder till ifrågasättning – även av sig själva.
 
-> "Det kraver mer mod att lyssna an att tala. Mer mod att fraga an att ha svaret."
+> "Det krävs mer mod att lyssna än att tala. Mer mod att fråga än att ha svaret."
 
-## Tre saker som skiljer transformativa ledare fran andra
+## Tre saker som skiljer transformativa ledare från andra
 
-**1. De prioriterar relation over resultat - kortsiktigt**
+**1. De prioriterar relation över resultat – kortsiktigt**
 
-Det later kontraintuitivt. Men ledare som investerar i relationen - som tar sig tid att forsta vad som driver, skrammer och motiverar sina medarbetare - far battre resultat pa sikt. Alltid.
+Det låter kontraintuitivt. Men ledare som investerar i relationen – som tar sig tid att förstå vad som driver, skrämmer och motiverar sina medarbetare – får bättre resultat på sikt. Alltid.
 
-**2. De ar nyfikna pa motstand**
+**2. De är nyfikna på motstånd**
 
-Narhelst nagon i gruppen visar motstand mot en forandring, ser transformativa ledare det som information - inte som ett hinder. "Vad ser du som vi andra missar?" ar en av de kraftfullaste fragor en ledare kan stalla.
+Närhelst någon i gruppen visar motstånd mot en förändring, ser transformativa ledare det som information – inte som ett hinder. "Vad ser du som vi andra missar?" är en av de kraftfullaste frågorna en ledare kan ställa.
 
 **3. De modellerar det de vill se**
 
-Du kan inte begara transparens av dina medarbetare om du inte sjalv ar transparent. Du kan inte begara att folk ska ta ansvar om du inte sjalv axlar ditt. Ledarskap ar i grunden ett arbete med speglar.
+Du kan inte begära transparens av dina medarbetare om du inte själv är transparent. Du kan inte begära att folk ska ta ansvar om du inte själv axlar ditt. Ledarskap är i grunden ett arbete med speglar.
 
 ## Avslutande tanke
 
-Forandring borjar inte i ett PowerPoint-deck. Den borjar i ett samtal - det dar du som ledare valjer att saga det som behover sagas, aven nar det ar svart.
+Förändring börjar inte i ett PowerPoint-deck. Den börjar i ett samtal – det där du som ledare väljer att säga det som behöver sägas, även när det är svårt.
 
-Vad ar det du vet behover sagas i din organisation - men som du annu inte sagt?
+Vad är det du vet behöver sägas i din organisation – men som du ännu inte sagt?
