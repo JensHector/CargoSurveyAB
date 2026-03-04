@@ -11,7 +11,8 @@
     <meta property="og:locale" content="sv_SE">
     <link rel="icon" type="image/svg+xml" href="/logga_transparent.svg">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #202032;
@@ -30,7 +31,7 @@
         body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); }
         section { padding: 96px 0; }
 
-        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1400; height: 32px; display: flex; align-items: center; justify-content: center; background: #0a1525; border-bottom: 1px solid rgba(227,96,32,0.25); color: rgba(255,255,255,0.55); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
+        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1400; height: 32px; display: flex; align-items: center; justify-content: center; background: #0a1525; border-bottom: 1px solid rgba(227,96,32,0.25); color: rgba(255,255,255,0.55); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
         .nav { position: fixed; top: 32px; left: 0; right: 0; z-index: 1300; will-change: transform; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
         .nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
         .nav-inner { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 24px; }
@@ -39,7 +40,7 @@
 
         .nav-links { display: flex; align-items: center; gap: 34px; margin-left: 40px; }
         .nav-mobile-only { display: none !important; }
-        .nav-links a { display: block; padding: 8px 14px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.80); text-decoration: none; letter-spacing: 0.03em; border-radius: 4px; transition: color 0.2s, background 0.2s; white-space: nowrap; position: relative; }
+        .nav-links a { display: block; padding: 8px 14px; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.80); text-decoration: none; letter-spacing: 0.03em; border-radius: 4px; transition: color 0.2s, background 0.2s; white-space: nowrap; position: relative; }
         .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
         .nav-links a.active { color: var(--accent-dark); }
         .nav-links a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0%; height: 2px; background: var(--accent); transition: .2s; }
@@ -82,7 +83,7 @@
         .cta-btn:hover { background: #d44e16; }
 
         .back-section { text-align: center; padding: 0 48px 60px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-size: 14px; font-weight: 600; text-decoration: none; border: 2px solid rgba(0,0,0,0.15); padding: 10px 24px; border-radius: 100px; transition: all 0.2s; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-size: 14px; font-weight: 700; text-decoration: none; border: 2px solid rgba(0,0,0,0.15); padding: 10px 24px; border-radius: 100px; transition: all 0.2s; }
         .back-btn:hover { border-color: var(--orange); color: var(--orange); }
 
         footer { background: var(--navy); padding: 32px 48px; text-align: center; }
