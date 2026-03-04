@@ -1,0 +1,10 @@
+# Claude Code – lokala inställningar och minne
+.claude/settings.local.json
+.claude/serve.py
+memory/
+
+# macOS
+.DS_Store
+
+# Node
+node_modules/
