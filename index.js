@@ -141,12 +141,15 @@ document.querySelectorAll('a[href="#services"], a[href^="#service-"]').forEach(l
 });
 
 // ── Modal system
+let _lastModalOpenTime = 0; // Skyddar mot ghost clicks på touch-enheter
+
 function openModal(id) {
   closeAllModals();
   const overlay = document.getElementById(id);
   if (!overlay) return;
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
+  _lastModalOpenTime = Date.now();
 }
 
 function closeModal(id) {
@@ -174,9 +177,11 @@ document.querySelectorAll('[data-modal]').forEach(btn => {
   });
 });
 
-// Stäng modal vid klick på dimmat område – men INTE om klicket är inuti panelen
+// Stäng modal vid klick på dimmat område – men INTE om klicket är inuti panelen.
+// 350 ms-skyddet förhindrar att ghost clicks på touch-enheter stänger modalen direkt.
 document.querySelectorAll('.modal-overlay').forEach(overlay => {
   overlay.addEventListener('click', (e) => {
+    if (Date.now() - _lastModalOpenTime < 350) return;
     if (!e.target.closest('.modal-panel')) closeModal(overlay.id);
   });
 });
