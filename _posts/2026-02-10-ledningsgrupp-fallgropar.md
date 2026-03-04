@@ -1,5 +1,5 @@
 ---
-title: De 5 vanligaste fallgroparna för nya ledningsgrupper
+title: De 3 vanliga fallgroparna för nya ledningsgrupper
 date: 2026-02-10
 category: Ledningsgrupp
 excerpt: En ny ledningsgrupp startar med energi och ambition. Sex månader senare har de flesta fastnat i samma mönster. Här är de vanligaste fallgroparna.
