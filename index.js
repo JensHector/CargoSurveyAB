@@ -174,9 +174,11 @@ document.querySelectorAll('[data-modal]').forEach(btn => {
   });
 });
 
-document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
-  const overlay = backdrop.closest('.modal-overlay');
-  if (overlay) backdrop.addEventListener('click', () => closeModal(overlay.id));
+// Stäng modal vid klick på dimmat område – men INTE om klicket är inuti panelen
+document.querySelectorAll('.modal-overlay').forEach(overlay => {
+  overlay.addEventListener('click', (e) => {
+    if (!e.target.closest('.modal-panel')) closeModal(overlay.id);
+  });
 });
 
 document.querySelectorAll('.modal-close').forEach(btn => {
