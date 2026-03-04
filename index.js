@@ -70,25 +70,39 @@ window.addEventListener('scroll', () => {
 // ── Form handler (Netlify Forms)
 async function handleSubmit(e) {
   e.preventDefault();
-  const form = e.target;
-  const btn = form.querySelector('.form-submit');
+  const form     = e.target;
+  const btn      = form.querySelector('.form-submit');
+  const errorEl  = document.getElementById('form-error');
+  const errorMsg = document.getElementById('form-error-msg');
+
+  // Återställ eventuellt tidigare felmeddelande
+  errorEl.style.display = 'none';
   btn.textContent = 'Skickar...';
   btn.disabled = true;
+
   try {
     const response = await fetch('/', {
       method: 'POST',
       headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
       body: new URLSearchParams(new FormData(form)).toString()
     });
+
     if (response.ok) {
+      // 200 OK → tack-state
       form.style.display = 'none';
       document.getElementById('form-success').style.display = 'block';
     } else {
-      btn.textContent = 'Något gick fel (' + response.status + ') – försök igen';
+      // 4xx / 5xx → felmeddelande + Ring/SMS-fallback
+      errorMsg.textContent = 'Något gick fel (' + response.status + ') – meddelandet skickades inte.';
+      errorEl.style.display = 'block';
+      btn.textContent = 'Skicka meddelande';
       btn.disabled = false;
     }
   } catch (err) {
-    btn.textContent = 'Nätverksfel – försök igen';
+    // Nätverksfel → felmeddelande + Ring/SMS-fallback
+    errorMsg.textContent = 'Nätverksfel – meddelandet skickades inte.';
+    errorEl.style.display = 'block';
+    btn.textContent = 'Skicka meddelande';
     btn.disabled = false;
   }
 }
