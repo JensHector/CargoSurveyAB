@@ -1281,17 +1281,18 @@
     .contact .section-divider { background: rgba(255,255,255,0.12); }
     .contact p                { color: rgba(255,255,255,0.65); }
 
-    .contact-item-label     { color: rgba(255,255,255,0.45); }
+    .contact-item-label     { color: rgba(255,255,255,0.65); }
     .contact-item-value,
     .contact-item-value a   { color: var(--white); }
-    .contact-icon           { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.10); }
+    .contact-icon           { background: rgba(255,255,255,0.12); border-color: rgba(255,255,255,0.18); }
 
-    .contact .form-group label                         { color: rgba(255,255,255,0.75); }
+    .contact .form-group label                         { color: rgba(255,255,255,0.85); }
     .contact .form-group input,
     .contact .form-group textarea,
-    .contact .form-group select                        { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); color: var(--white); }
+    .contact .form-group select                        { background: rgba(255,255,255,0.10); border-color: rgba(255,255,255,0.25); color: var(--white); }
     .contact .form-group input::placeholder,
-    .contact .form-group textarea::placeholder         { color: rgba(255,255,255,0.35); }
+    .contact .form-group textarea::placeholder         { color: rgba(255,255,255,0.45); }
+    .contact .form-group select                        { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.55)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 38px; }
     .contact .form-group input:focus,
     .contact .form-group textarea:focus                { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(227,96,32,0.20); }
     .contact .form-submit                              { background: var(--orange); }
@@ -1396,6 +1397,14 @@
       outline: none;
       transition: border-color 0.2s, box-shadow 0.2s;
       appearance: none;
+    }
+
+    .form-group select {
+      background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(32,32,50,0.55)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E");
+      background-repeat: no-repeat;
+      background-position: right 12px center;
+      background-size: 16px;
+      padding-right: 38px;
     }
 
     .form-group input:focus,
@@ -2274,7 +2283,7 @@
           <h2 class="section-title animate">Vi hjälper er gärna</h2>
           <div class="section-divider animate"></div>
 
-          <p class="animate" style="color:var(--gray); font-size:15px; margin-bottom:40px; line-height:1.7;">Med genuint engagemang, nyfikenhet och ett utmanande förhållningssätt hjälper vi er organisation att nå hela vägen fram till sin vision och ambition. Hör av er – vi ser fram emot ett samtal.</p>
+          <p class="animate" style="font-size:15px; margin-bottom:40px; line-height:1.7;">Med genuint engagemang, nyfikenhet och ett utmanande förhållningssätt hjälper vi er organisation att nå hela vägen fram till sin vision och ambition. Hör av er – vi ser fram emot ett samtal.</p>
 
           <div class="contact-item animate">
             <div class="contact-icon">
@@ -2294,7 +2303,7 @@
               <div class="contact-item-label">Maila oss</div>
               <div class="contact-item-value">
                 <a href="mailto:info@ignicon.se">info@ignicon.se</a><br>
-                <a href="mailto:jens.hector@ignicon.se" style="font-size:13px; color:var(--gray-light);">jens.hector@ignicon.se</a>
+                <a href="mailto:jens.hector@ignicon.se" style="font-size:13px; color:rgba(255,255,255,0.65);">jens.hector@ignicon.se</a>
               </div>
             </div>
           </div>
