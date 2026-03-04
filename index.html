@@ -838,7 +838,7 @@
 
     /* ── SERVICES ── */
     .services {
-      background: var(--white);
+      background: var(--light-gray);
     }
 
     .services-grid {
@@ -848,42 +848,33 @@
     }
 
     .service-card {
-      background: var(--light-gray);
-      border: 1px solid rgba(0,0,0,0.06);
+      background: var(--white);
+      border: 1px solid var(--border);
       border-radius: 10px;
-      padding: 32px;
+      padding: 24px;
       transition: transform 0.2s ease, box-shadow 0.2s ease;
       position: relative;
-      overflow: hidden;
+      display: flex;
+      flex-direction: column;
     }
 
     .service-card:hover {
-      transform: translateY(-3px);
-      box-shadow: 0 8px 30px rgba(0,0,0,0.10);
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(0,0,0,0.10);
     }
 
-    .service-number {
-      width: 44px;
-      height: 44px;
-      background: rgba(227, 96, 32, 0.10);
-      border-radius: 10px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      margin-bottom: 18px;
+    .service-cat {
+      font-size: 10px;
+      font-weight: 700;
+      letter-spacing: 0.18em;
+      color: var(--orange);
+      text-transform: uppercase;
+      margin-bottom: 14px;
     }
-    .service-number svg {
-      width: 22px;
-      height: 22px;
-      stroke: var(--orange);
-      fill: none;
-      stroke-width: 1.8;
-      stroke-linecap: round;
-      stroke-linejoin: round;
-    }
+
 
     .service-title {
-      font-size: 18px;
+      font-size: 17px;
       font-weight: 700;
       color: var(--navy);
       margin-bottom: 12px;
@@ -892,24 +883,25 @@
 
     .service-text {
       font-size: 14px;
-      color: var(--gray);
-      line-height: 1.7;
+      color: #666;
+      line-height: 1.6;
       margin-bottom: 20px;
     }
 
     .service-link {
-      font-size: 13px;
+      font-size: 14px;
       font-weight: 600;
       color: var(--orange);
       text-decoration: none;
       letter-spacing: 0.04em;
       display: inline-flex;
       align-items: center;
-      gap: 6px;
+      gap: 8px;
       transition: gap 0.2s;
+      margin-top: auto;
     }
 
-    .service-link:hover { gap: 10px; }
+    .service-link:hover { gap: 12px; }
 
     button.service-link {
       background: none;
@@ -929,43 +921,6 @@
       stroke-linejoin: round;
     }
 
-    /* Featured service (Ledningsgruppsutveckling) */
-    .service-card.featured {
-      background: var(--navy);
-      border-color: var(--navy);
-    }
-
-    .service-card.featured .service-number { background: rgba(255,255,255,0.12); }
-    .service-card.featured .service-title { color: var(--white); }
-
-    .service-card.featured .service-text {
-      color: rgba(255,255,255,0.70);
-    }
-
-    .service-card.featured:hover {
-      box-shadow: 0 8px 30px rgba(0,0,0,0.25);
-    }
-
-    .service-list {
-      list-style: none;
-      margin-bottom: 20px;
-    }
-
-    .service-list li {
-      font-size: 13px;
-      color: rgb(70, 69, 83);
-      padding: 5px 0;
-      padding-left: 18px;
-      position: relative;
-      line-height: 1.5;
-    }
-
-    .service-list li::before {
-      content: '–';
-      position: absolute;
-      left: 0;
-      color: var(--orange);
-    }
 
     /* ── HOW WE WORK ── */
     .how {
@@ -1987,49 +1942,42 @@
 
       <div class="services-grid">
         <div id="service-ledarskap" class="service-card animate">
-          <div class="service-number"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+          <p class="service-cat">Ledarskap</p>
           <h3 class="service-title">Ledare &amp; Chef</h3>
           <p class="service-text">Våra program för ledarskapsutveckling utrustar dig med den kompetens och förståelse som krävs för att vägleda en individ, ett team eller en organisation mot er vision och ambition. Med våra innovativa kurser och program kan du effektivt förverkliga dina eller era mål.</p>
           <button onclick="openModal('modal-ledarskap')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-coaching" class="service-card animate">
-          <div class="service-number"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+          <p class="service-cat">Coaching</p>
           <h3 class="service-title">Coaching</h3>
           <p class="service-text">Ledarskapscoaching ger dig möjlighet att finslipa dina färdigheter och förbättra dina förmågor som chef eller ledare. Vi hjälper dig att sätta upp mål, övervinna utmaningar, utveckla bättre precision i ledarskapet och skapa nya strategier för svåra situationer.</p>
           <button onclick="openModal('modal-coaching')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-ledningsgrupp" class="service-card animate">
-          <div class="service-number"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+          <p class="service-cat">Ledningsgrupp</p>
           <h3 class="service-title">Ledningsgrupper</h3>
-          <ul class="service-list">
-            <li>Tydliggör uppdrag, mandat och förväntningar</li>
-            <li>Synliggör och hanterar de vanligaste fallgroparna</li>
-            <li>Utvecklar tillit, ansvarstagande och produktiv friktion</li>
-            <li>Tar tillvara gruppens olikheter som en strategisk styrka</li>
-          </ul>
-          <div style="display:flex;gap:16px;align-items:center;flex-wrap:wrap;">
-            <button onclick="openModal('modal-ledningsgrupp')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
-                    </div>
+          <p class="service-text">Vi hjälper ledningsgruppen att tydliggöra uppdrag, mandat och förväntningar – och att synliggöra de vanligaste fallgroparna för att skapa tillit, ansvarstagande och produktiv friktion.</p>
+          <button onclick="openModal('modal-ledningsgrupp')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-grupputveckling" class="service-card animate">
-          <div class="service-number"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+          <p class="service-cat">Grupputveckling</p>
           <h3 class="service-title">Grupper &amp; Team</h3>
           <p class="service-text">Våra grupp- och teamutvecklingsprogram är utformade för att hjälpa team att övervinna de 5 vanligaste problemen som hindrar dem från att bli riktigt effektiva. Din grupp utrustas med de färdigheter de behöver för att nå era strategiska mål.</p>
           <button onclick="openModal('modal-grupputveckling')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-workshops" class="service-card animate">
-          <div class="service-number"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+          <p class="service-cat">Workshop</p>
           <h3 class="service-title">Workshop</h3>
           <p class="service-text">Kämpar ni med hur ni ska gå vidare? Hur åstadkommer vi bäst förändring? Vilken kultur bör förstärkas? Med hjälp av våra workshopmetoder guidar vi er till svar på strategiska frågor och skapar konkreta handlingsplaner.</p>
           <button onclick="openModal('modal-workshops')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-forelasningar" class="service-card animate">
-          <div class="service-number"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+          <p class="service-cat">Föreläsning</p>
           <h3 class="service-title">Föreläsningar</h3>
           <p class="service-text">Utnyttja kraften i en inspirerande föreläsning vid ditt nästa möte eller konferens. Våra föreläsningar ger ett unikt och tankeväckande inslag som lyfter och förstärker er fortsatta dialog kring ledarskap, motivation och grupputveckling.</p>
           <button onclick="openModal('modal-forelasningar')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
