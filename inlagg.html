@@ -37,7 +37,7 @@
         .nav-logo-img { height: 56px; width: auto; display: block; }
 
         .nav-links { display: flex; align-items: center; gap: 34px; margin-left: 40px; }
-        .nav-mobile-only { display: none; }
+        .nav-mobile-only { display: none !important; }
         .nav-links a { display: block; padding: 8px 14px; font-size: 13px; font-weight: 500; color: rgba(255,255,255,0.80); text-decoration: none; letter-spacing: 0.03em; border-radius: 4px; transition: color 0.2s, background 0.2s; white-space: nowrap; position: relative; }
         .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
         .nav-links a.active { color: var(--accent-dark); }
@@ -52,7 +52,7 @@
         .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
         .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
-        .post-hero { background: var(--navy); padding: 120px 48px 60px; position: relative; overflow: hidden; }
+        .post-hero { background: var(--navy); padding: 148px 48px 60px; position: relative; overflow: hidden; }
         .post-hero-inner { max-width: 800px; margin: 0 auto; }
         .post-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
         .back-link { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
@@ -109,7 +109,7 @@
             body.nav-open .nav-links { transform: translateY(0); opacity: 1; pointer-events: auto; }
             .nav-burger { display: flex; }
             .nav-cta-right { display: none; }
-            .post-hero { padding: 100px 20px 48px; }
+            .post-hero { padding: 124px 20px 48px; }
             .post-body { padding: 40px 20px 60px; }
             .back-link { color: rgba(255,255,255,0.70); }
             .post-meta { color: rgba(255,255,255,0.62); }
