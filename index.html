@@ -2446,9 +2446,7 @@
           setTimeout(() => {
             entry.target.classList.add('visible');
             entry.target.addEventListener('animationend', function onEnd() {
-              this.style.animation = 'none';
-              this.style.opacity = '1';
-              this.style.transform = 'translateY(0)';
+              this.classList.remove('animate', 'visible');
               this.removeEventListener('animationend', onEnd);
             });
           }, i * 80);
