@@ -652,11 +652,8 @@
     }
 
     .hero h1 {
-      font-size: 64px;
       font-weight: 700;
       color: var(--white);
-      line-height: 1.05;
-      letter-spacing: -0.03em;
       margin-bottom: 20px;
     }
 
@@ -855,11 +852,9 @@
     }
 
     .section-title {
-      font-size: 40px;
       font-weight: 700;
       color: var(--navy);
       line-height: 1.18;
-      letter-spacing: -0.02em;
       margin-bottom: 16px;
     }
 
@@ -1708,6 +1703,11 @@
     }
 
     /* ── RESPONSIVE ── */
+    @media (min-width: 1024px) {
+      .hero h1 { font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
+      .section-title { font-size: 40px; letter-spacing: -0.02em; }
+    }
+
     @media (max-width: 1024px) {
       .hero-inner { grid-template-columns: 1fr; gap: 48px; }
       .hero-pillars { display: grid; grid-template-columns: 1fr 1fr; }
