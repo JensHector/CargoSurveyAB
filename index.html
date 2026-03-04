@@ -6,6 +6,8 @@
   <title>Ledarskapsutveckling & Grupputveckling | Ignicon AB</title>
   <meta name="description" content="Ignicon hjälper chefer, ledare, team och ledningsgrupper att nå framdrift i sina organisationer grundat på mod, nyfikenhet, tillit och tydlighet.">
   <link rel="icon" type="image/svg+xml" href="/logga_transparent.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,700;1,9..40,300&display=swap" rel="stylesheet">
   
   <!-- CANONICAL URL & OPEN GRAPH -->
@@ -1766,7 +1768,7 @@
 
       <a href="#contact" class="nav-cta nav-cta-right">Boka samtal</a>
 
-      <div class="nav-burger" id="navBurger" onclick="toggleMenu()">
+      <div class="nav-burger" id="navBurger">
         <span></span>
         <span></span>
         <span></span>
@@ -1856,42 +1858,42 @@
           <p class="service-cat">Ledarskap</p>
           <h3 class="service-title">Ledare &amp; Chef</h3>
           <p class="service-text">Våra program för ledarskapsutveckling utrustar dig med den kompetens och förståelse som krävs för att vägleda en individ, ett team eller en organisation mot er vision och ambition. Med våra innovativa kurser och program kan du effektivt förverkliga dina eller era mål.</p>
-          <button onclick="openModal('modal-ledarskap')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <button data-modal="modal-ledarskap" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-coaching" class="service-card animate">
           <p class="service-cat">Coaching</p>
           <h3 class="service-title">Coaching</h3>
           <p class="service-text">Ledarskapscoaching ger dig möjlighet att finslipa dina färdigheter och förbättra dina förmågor som chef eller ledare. Vi hjälper dig att sätta upp mål, övervinna utmaningar, utveckla bättre precision i ledarskapet och skapa nya strategier för svåra situationer.</p>
-          <button onclick="openModal('modal-coaching')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <button data-modal="modal-coaching" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-ledningsgrupp" class="service-card animate">
           <p class="service-cat">Ledningsgrupp</p>
           <h3 class="service-title">Ledningsgrupper</h3>
           <p class="service-text">Vi hjälper ledningsgruppen att tydliggöra uppdrag, mandat och förväntningar – och att synliggöra de vanligaste fallgroparna för att skapa tillit, ansvarstagande och produktiv friktion.</p>
-          <button onclick="openModal('modal-ledningsgrupp')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <button data-modal="modal-ledningsgrupp" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-grupputveckling" class="service-card animate">
           <p class="service-cat">Grupputveckling</p>
           <h3 class="service-title">Grupper &amp; Team</h3>
           <p class="service-text">Våra grupp- och teamutvecklingsprogram är utformade för att hjälpa team att övervinna de 5 vanligaste problemen som hindrar dem från att bli riktigt effektiva. Din grupp utrustas med de färdigheter de behöver för att nå era strategiska mål.</p>
-          <button onclick="openModal('modal-grupputveckling')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <button data-modal="modal-grupputveckling" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-workshops" class="service-card animate">
           <p class="service-cat">Workshop</p>
           <h3 class="service-title">Workshop</h3>
           <p class="service-text">Kämpar ni med hur ni ska gå vidare? Hur åstadkommer vi bäst förändring? Vilken kultur bör förstärkas? Med hjälp av våra workshopmetoder guidar vi er till svar på strategiska frågor och skapar konkreta handlingsplaner.</p>
-          <button onclick="openModal('modal-workshops')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <button data-modal="modal-workshops" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
 
         <div id="service-forelasningar" class="service-card animate">
           <p class="service-cat">Föreläsning</p>
           <h3 class="service-title">Föreläsningar</h3>
           <p class="service-text">Utnyttja kraften i en inspirerande föreläsning vid ditt nästa möte eller konferens. Våra föreläsningar ger ett unikt och tankeväckande inslag som lyfter och förstärker er fortsatta dialog kring ledarskap, motivation och grupputveckling.</p>
-          <button onclick="openModal('modal-forelasningar')" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
+          <button data-modal="modal-forelasningar" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></button>
         </div>
       </div>
     </div>
@@ -2040,9 +2042,9 @@
         </div>
 
         <div class="contact-form animate">
-          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field" onsubmit="handleSubmit(event)">
+          <form name="contact" method="POST" data-netlify="true" netlify-honeypot="bot-field">
             <input type="hidden" name="form-name" value="contact">
-            <input type="hidden" name="bot-field" style="display:none">
+            <input type="text" name="bot-field" style="position:absolute;left:-9999px;width:1px;height:1px;opacity:0;" tabindex="-1" autocomplete="off">
             <div class="form-row">
               <div class="form-group">
                 <label for="name">Namn</label>
@@ -2137,10 +2139,10 @@
 
   <!-- ══ MODAL: LEDARSKAPSTRÄNING ══ -->
   <div class="modal-overlay" id="modal-ledarskap">
-    <div class="modal-backdrop" onclick="closeModal('modal-ledarskap')"></div>
+    <div class="modal-backdrop"></div>
     <div class="modal-panel">
       <div class="modal-header">
-        <button class="modal-close" onclick="closeModal('modal-ledarskap')">
+        <button class="modal-close">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="modal-eyebrow">01 / Ledare &amp; Chef</div>
@@ -2164,7 +2166,7 @@
         </ul>
         <div class="modal-cta">
           <p>Varmt välkommen att kontakta oss för att få ytterligare information om våra ledarskapsprogram.</p>
-          <a href="#contact" class="modal-cta-btn" onclick="closeAllModals()">Kontakta oss</a>
+          <a href="#contact" class="modal-cta-btn">Kontakta oss</a>
         </div>
       </div>
     </div>
@@ -2172,10 +2174,10 @@
 
   <!-- ══ MODAL: LEDARSKAPSCOACHING ══ -->
   <div class="modal-overlay" id="modal-coaching">
-    <div class="modal-backdrop" onclick="closeModal('modal-coaching')"></div>
+    <div class="modal-backdrop"></div>
     <div class="modal-panel">
       <div class="modal-header">
-        <button class="modal-close" onclick="closeModal('modal-coaching')">
+        <button class="modal-close">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="modal-eyebrow">02 / Coaching</div>
@@ -2189,7 +2191,7 @@
         <p>Coaching är ett viktigt verktyg för alla som vill förbättra sina ledarskapsförmågor och nå sin vision.</p>
         <div class="modal-cta">
           <p>Kontakta oss i dag för att få veta mer om våra tjänster för ledarskapscoachning.</p>
-          <a href="#contact" class="modal-cta-btn" onclick="closeAllModals()">Kontakta oss</a>
+          <a href="#contact" class="modal-cta-btn">Kontakta oss</a>
         </div>
       </div>
     </div>
@@ -2197,10 +2199,10 @@
 
   <!-- ══ MODAL: LEDNINGSGRUPPSUTVECKLING ══ -->
   <div class="modal-overlay" id="modal-ledningsgrupp">
-    <div class="modal-backdrop" onclick="closeModal('modal-ledningsgrupp')"></div>
+    <div class="modal-backdrop"></div>
     <div class="modal-panel">
       <div class="modal-header">
-        <button class="modal-close" onclick="closeModal('modal-ledningsgrupp')">
+        <button class="modal-close">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="modal-eyebrow">03 / Ledningsgrupper</div>
@@ -2221,7 +2223,7 @@
         <p>Resultatet är en mer samspelt ledningsgrupp med ökad tydlighet, högre exekveringskraft och bättre affärsmässiga resultat.</p>
         <div class="modal-cta">
           <p>Hör av er så berättar vi mer om hur vi kan hjälpa er ledningsgrupp.</p>
-          <a href="#contact" class="modal-cta-btn" onclick="closeAllModals()">Kontakta oss</a>
+          <a href="#contact" class="modal-cta-btn">Kontakta oss</a>
         </div>
       </div>
     </div>
@@ -2229,10 +2231,10 @@
 
   <!-- ══ MODAL: GRUPPUTVECKLING ══ -->
   <div class="modal-overlay" id="modal-grupputveckling">
-    <div class="modal-backdrop" onclick="closeModal('modal-grupputveckling')"></div>
+    <div class="modal-backdrop"></div>
     <div class="modal-panel">
       <div class="modal-header">
-        <button class="modal-close" onclick="closeModal('modal-grupputveckling')">
+        <button class="modal-close">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="modal-eyebrow">04 / Grupper &amp; Team</div>
@@ -2245,7 +2247,7 @@
         <p>Våra program är utformade för att hjälpa team och grupper att bl.a. åtgärda och övervinna de 5 vanligaste dysfunktionerna i en grupp och att därmed förenkla för gruppen att nå sina strategiska och affärsmässiga mål. Med vår hjälp kommer ditt team att kunna nå sin fulla potential och prestera på bästa sätt.</p>
         <div class="modal-cta">
           <p>Kontakta oss idag för att ta reda på hur vi kan hjälpa er att bygga ett bättre team eller grupp.</p>
-          <a href="#contact" class="modal-cta-btn" onclick="closeAllModals()">Kontakta oss</a>
+          <a href="#contact" class="modal-cta-btn">Kontakta oss</a>
         </div>
       </div>
     </div>
@@ -2253,10 +2255,10 @@
 
   <!-- ══ MODAL: WORKSHOPS ══ -->
   <div class="modal-overlay" id="modal-workshops">
-    <div class="modal-backdrop" onclick="closeModal('modal-workshops')"></div>
+    <div class="modal-backdrop"></div>
     <div class="modal-panel">
       <div class="modal-header">
-        <button class="modal-close" onclick="closeModal('modal-workshops')">
+        <button class="modal-close">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="modal-eyebrow">05 / Workshop</div>
@@ -2272,7 +2274,7 @@
         <p>Med andra ord kan vi hjälpa ditt team att komma loss och börja röra er framåt igen. Du behöver inte ägna timmar åt att plågas av vad du ska göra härnäst eller hur du ska ta dig dit. Med vår hjälp kan ni snabbt och enkelt gå vidare med en tydlig handlingsplan som alla är överens om.</p>
         <div class="modal-cta">
           <p>Kontakta oss idag för att få veta mer om våra workshops och hur vi kan hjälpa er komma dit ni vill.</p>
-          <a href="#contact" class="modal-cta-btn" onclick="closeAllModals()">Kontakta oss</a>
+          <a href="#contact" class="modal-cta-btn">Kontakta oss</a>
         </div>
       </div>
     </div>
@@ -2280,10 +2282,10 @@
 
   <!-- ══ MODAL: FÖRELÄSNINGAR ══ -->
   <div class="modal-overlay" id="modal-forelasningar">
-    <div class="modal-backdrop" onclick="closeModal('modal-forelasningar')"></div>
+    <div class="modal-backdrop"></div>
     <div class="modal-panel">
       <div class="modal-header">
-        <button class="modal-close" onclick="closeModal('modal-forelasningar')">
+        <button class="modal-close">
           <svg viewBox="0 0 24 24"><line x1="18" y1="6" x2="6" y2="18"/><line x1="6" y1="6" x2="18" y2="18"/></svg>
         </button>
         <div class="modal-eyebrow">06 / Föreläsningar</div>
@@ -2304,160 +2306,12 @@
         </ul>
         <div class="modal-cta">
           <p>Varmt välkommen att kontakta oss för ytterligare information om våra inspirationsföreläsningar.</p>
-          <a href="#contact" class="modal-cta-btn" onclick="closeAllModals()">Kontakta oss</a>
+          <a href="#contact" class="modal-cta-btn">Kontakta oss</a>
         </div>
       </div>
     </div>
   </div>
 
-  <script>
-    // ── Sticky nav shadow + hero parallax
-    const nav = document.getElementById('mainNav');
-    const heroDecor2 = document.querySelector('.hero-decor-2');
-    window.addEventListener('scroll', () => {
-      const y = window.scrollY;
-      nav.classList.toggle('scrolled', y > 20);
-      if (heroDecor2) heroDecor2.style.transform = `translateY(${y * 0.2}px)`;
-    });
-
-    // ── Mobile menu
-    function setNavOpen(isOpen) {
-      const burger = document.getElementById('navBurger');
-      document.body.classList.toggle('nav-open', isOpen);
-      burger.classList.toggle('open', isOpen);
-    }
-    function toggleMenu() {
-      setNavOpen(!document.body.classList.contains('nav-open'));
-    }
-    document.getElementById('navOverlay')?.addEventListener('click', () => setNavOpen(false));
-    // Stäng menyn när man klickar på en nav-länk
-    document.querySelectorAll('#navLinks a').forEach(a => {
-      a.addEventListener('click', () => setNavOpen(false));
-    });
-
-    // ── Scroll animations
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-            entry.target.addEventListener('animationend', function onEnd() {
-              this.classList.remove('animate', 'visible');
-              this.removeEventListener('animationend', onEnd);
-            });
-          }, i * 80);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.12 });
-
-    document.querySelectorAll('.animate').forEach(el => observer.observe(el));
-
-    // ── Section accent line
-    const sectionObserver = new IntersectionObserver((entries) => {
-      entries.forEach(entry => {
-        entry.target.classList.toggle('visible', entry.isIntersecting);
-      });
-    }, { threshold: 0.15 });
-    document.querySelectorAll('section').forEach(s => sectionObserver.observe(s));
-
-    // ── Active nav link on scroll
-    const sections = document.querySelectorAll('section[id]');
-    const navLinks = document.querySelectorAll('.nav-links a');
-
-    window.addEventListener('scroll', () => {
-      let current = '';
-      sections.forEach(section => {
-        if (window.scrollY >= section.offsetTop - 100) {
-          current = section.getAttribute('id');
-        }
-      });
-      navLinks.forEach(link => {
-        link.classList.remove('active');
-        if (link.getAttribute('href') === '#' + current) {
-          link.classList.add('active');
-        }
-      });
-    });
-
-    // ── Form handler (Netlify Forms)
-    async function handleSubmit(e) {
-      e.preventDefault();
-      const form = e.target;
-      const btn = form.querySelector('.form-submit');
-      btn.textContent = 'Skickar...';
-      btn.disabled = true;
-      try {
-        const response = await fetch('/', {
-          method: 'POST',
-          headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
-          body: new URLSearchParams(new FormData(form)).toString()
-        });
-        if (response.ok) {
-          form.style.display = 'none';
-          document.getElementById('form-success').style.display = 'block';
-        } else {
-          btn.textContent = 'Något gick fel (' + response.status + ') – försök igen';
-          btn.disabled = false;
-        }
-      } catch (err) {
-        btn.textContent = 'Nätverksfel – försök igen';
-        btn.disabled = false;
-      }
-    }
-
-    // ── Center target vertically in viewport on #services / #service-* clicks
-    function getDocTop(el) {
-      let top = 0;
-      while (el) { top += el.offsetTop; el = el.offsetParent; }
-      return top;
-    }
-    document.querySelectorAll('a[href="#services"], a[href^="#service-"]').forEach(link => {
-      link.addEventListener('click', e => {
-        e.preventDefault();
-        const href = link.getAttribute('href');
-        const target = href === '#services'
-          ? document.getElementById('service-ledarskap')
-          : document.querySelector(href);
-        if (!target) return;
-        const navH = document.getElementById('mainNav')?.offsetHeight || 68;
-        window.scrollTo({ top: Math.max(0, getDocTop(target) - navH - 16), behavior: 'smooth' });
-      });
-    });
-
-    // ── Modal system
-    function openModal(id) {
-      closeAllModals();
-      const overlay = document.getElementById(id);
-      if (!overlay) return;
-      overlay.classList.add('active');
-      document.body.style.overflow = 'hidden';
-    }
-
-    function closeModal(id) {
-      const overlay = document.getElementById(id);
-      if (!overlay) return;
-      overlay.classList.remove('active');
-      document.body.style.overflow = '';
-    }
-
-    function closeAllModals() {
-      document.querySelectorAll('.modal-overlay.active').forEach(m => {
-        m.classList.remove('active');
-      });
-      document.body.style.overflow = '';
-    }
-
-    // Close modal on Escape key
-    document.addEventListener('keydown', (e) => {
-      if (e.key === 'Escape') closeAllModals();
-    });
-
-    // Close modal when CTA link is clicked inside modal
-    document.querySelectorAll('.modal-cta-btn').forEach(btn => {
-      btn.addEventListener('click', closeAllModals);
-    });
-
-  </script>
+  <script src="index.js"></script>
 </body>
 </html>

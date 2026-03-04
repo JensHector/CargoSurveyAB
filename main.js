@@ -53,20 +53,18 @@ window.addEventListener('scroll', () => {
     });
 });
 
-// ── Form handler (Formspree)
+// ── Form handler (Netlify Forms)
 async function handleSubmit(e) {
     e.preventDefault();
     const form = e.target;
-    const emailVal = form.querySelector('#email').value;
-    document.getElementById('replyto-field').value = emailVal;
     const btn = form.querySelector('.form-submit');
     btn.textContent = 'Skickar...';
     btn.disabled = true;
     try {
-          const response = await fetch('https://formspree.io/f/mzdajvaw', {
+          const response = await fetch('/', {
                   method: 'POST',
-                  body: new FormData(form),
-                  headers: { 'Accept': 'application/json' }
+                  headers: { 'Content-Type': 'application/x-www-form-urlencoded' },
+                  body: new URLSearchParams(new FormData(form)).toString()
           });
           if (response.ok) {
                   form.style.display = 'none';
