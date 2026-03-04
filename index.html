@@ -1639,6 +1639,19 @@
       .footer { padding: 48px 24px 24px; }
       .footer-top { grid-template-columns: 1fr; gap: 36px; }
       .cta-section { padding: 64px 24px; }
+      #form-success {
+        position: fixed !important;
+        top: 50% !important;
+        left: 50% !important;
+        transform: translate(-50%, -50%) !important;
+        width: calc(100% - 48px) !important;
+        max-width: 360px !important;
+        margin: 0 !important;
+        padding: 40px 28px !important;
+        z-index: 2000;
+        border-radius: 16px !important;
+        box-shadow: 0 0 0 100vmax rgba(10,21,37,0.65), 0 24px 64px rgba(10,21,37,0.4);
+      }
     }
 
     @media (max-width: 480px) {
