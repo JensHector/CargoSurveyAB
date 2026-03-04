@@ -150,6 +150,10 @@ function openModal(id) {
   overlay.classList.add('active');
   document.body.style.overflow = 'hidden';
   _lastModalOpenTime = Date.now();
+  // Chrome-fix: blockera pointer-events under innevarande event-loop så att
+  // klicket som öppnade modalen inte omdirigeras till overlayen av Chromes hit-tester.
+  overlay.style.pointerEvents = 'none';
+  requestAnimationFrame(() => { overlay.style.pointerEvents = ''; });
 }
 
 function closeModal(id) {
