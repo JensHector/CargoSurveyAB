@@ -408,14 +408,31 @@
       stroke-linejoin: round;
     }
 
-    /* Right grid */
-    .mega-grid {
+    /* Right side – grouped columns */
+    .mega-groups {
       flex: 1;
-      display: grid;
-      grid-template-columns: 1fr 1fr;
+      display: flex;
       padding: 10px;
-      gap: 2px;
-      align-content: start;
+    }
+
+    .mega-group {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      padding: 4px 8px;
+    }
+
+    .mega-group + .mega-group {
+      border-left: 1px solid var(--border);
+    }
+
+    .mega-group-title {
+      font-size: 11px;
+      letter-spacing: .08em;
+      text-transform: uppercase;
+      color: var(--gray-light);
+      margin-bottom: 6px;
+      padding: 6px 4px 8px;
     }
 
     .mega-item {
@@ -1717,12 +1734,15 @@
         display: flex;
       }
       .mega-left { display: none; }
-      .mega-grid {
-        grid-template-columns: 1fr;
+      .mega-groups {
+        flex-direction: column;
         padding: 4px;
         background: rgba(255,255,255,0.05);
         border-radius: 6px;
       }
+      .mega-group { padding: 4px 0; }
+      .mega-group + .mega-group { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+      .mega-group-title { color: rgba(255,255,255,0.40); padding: 8px 12px 4px; margin-bottom: 0; }
       .mega-item { padding: 8px 12px; }
       .mega-item:hover { background: rgba(255,255,255,0.08); }
       .mega-item-title { color: rgba(255,255,255,0.75); font-size: 13px; }
@@ -1861,50 +1881,63 @@
               <a href="#services" class="mega-all">Se alla tjänster <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
             </div>
 
-            <!-- 2×3 grid -->
-            <div class="mega-grid" id="servicesMenu">
-              <a href="#service-ledarskap" class="mega-item">
-                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-                <div>
-                  <p class="mega-item-title">Ledare &amp; Chef</p>
-                  <p class="mega-item-desc">Bygg kompetens och mod att leda</p>
-                </div>
-              </a>
-              <a href="#service-coaching" class="mega-item">
-                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-                <div>
-                  <p class="mega-item-title">Coaching</p>
-                  <p class="mega-item-desc">Individuell utveckling av ditt ledarskap</p>
-                </div>
-              </a>
-              <a href="#service-ledningsgrupp" class="mega-item">
-                <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-                <div>
-                  <p class="mega-item-title">Ledningsgrupper</p>
-                  <p class="mega-item-desc">Stärk er ledningsgrupp och kultur</p>
-                </div>
-              </a>
-              <a href="#service-grupputveckling" class="mega-item">
-                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
-                <div>
-                  <p class="mega-item-title">Grupper &amp; Team</p>
-                  <p class="mega-item-desc">Bygg effektiva och starka team</p>
-                </div>
-              </a>
-              <a href="#service-workshops" class="mega-item">
-                <div class="mega-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-                <div>
-                  <p class="mega-item-title">Workshop</p>
-                  <p class="mega-item-desc">Strategiska workshops med tydliga resultat</p>
-                </div>
-              </a>
-              <a href="#service-forelasningar" class="mega-item">
-                <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
-                <div>
-                  <p class="mega-item-title">Föreläsningar</p>
-                  <p class="mega-item-desc">Inspirerande föreläsningar om ledarskap</p>
-                </div>
-              </a>
+            <!-- 3 grupper -->
+            <div class="mega-groups" id="servicesMenu">
+
+              <div class="mega-group">
+                <p class="mega-group-title">Utveckla ledare</p>
+                <a href="#service-ledarskap" class="mega-item">
+                  <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                  <div>
+                    <p class="mega-item-title">Ledarskapsträning</p>
+                    <p class="mega-item-desc">Bygg kompetens och mod att leda</p>
+                  </div>
+                </a>
+                <a href="#service-coaching" class="mega-item">
+                  <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                  <div>
+                    <p class="mega-item-title">Ledarskapscoaching</p>
+                    <p class="mega-item-desc">Individuell utveckling av ditt ledarskap</p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-group">
+                <p class="mega-group-title">Utveckla grupper</p>
+                <a href="#service-grupputveckling" class="mega-item">
+                  <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+                  <div>
+                    <p class="mega-item-title">Grupputveckling</p>
+                    <p class="mega-item-desc">Bygg effektiva och starka team</p>
+                  </div>
+                </a>
+                <a href="#service-ledningsgrupp" class="mega-item">
+                  <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                  <div>
+                    <p class="mega-item-title">Ledningsgruppsutveckling</p>
+                    <p class="mega-item-desc">Stärk er ledningsgrupp och kultur</p>
+                  </div>
+                </a>
+              </div>
+
+              <div class="mega-group">
+                <p class="mega-group-title">Inspiration</p>
+                <a href="#service-workshops" class="mega-item">
+                  <div class="mega-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                  <div>
+                    <p class="mega-item-title">Workshops</p>
+                    <p class="mega-item-desc">Strategiska workshops med tydliga resultat</p>
+                  </div>
+                </a>
+                <a href="#service-forelasningar" class="mega-item">
+                  <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+                  <div>
+                    <p class="mega-item-title">Föreläsningar</p>
+                    <p class="mega-item-desc">Inspirerande föreläsningar om ledarskap</p>
+                  </div>
+                </a>
+              </div>
+
             </div>
 
           </div>
