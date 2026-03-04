@@ -1681,21 +1681,20 @@
         flex-direction: column;
         position: absolute;
         top: 68px; left: 0; right: 0;
-        transform: none;
         background: var(--navy);
         padding: 16px 24px 24px;
         border-bottom: 1px solid rgba(255,255,255,0.08);
         gap: 4px;
+        transform: translateY(-8px);
         opacity: 0;
-        visibility: hidden;
         pointer-events: none;
-        transition: opacity 0.25s ease, visibility 0.25s ease;
+        transition: transform .18s ease, opacity .18s ease;
       }
       .nav-cta-right { display: none; }
       .nav-mobile-only { display: list-item; }
-      .nav-links.open {
+      body.nav-open .nav-links {
+        transform: translateY(0);
         opacity: 1;
-        visibility: visible;
         pointer-events: auto;
       }
       .nav-links.open .mega-dropdown {
