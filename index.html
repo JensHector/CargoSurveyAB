@@ -2593,11 +2593,11 @@
         e.preventDefault();
         const href = link.getAttribute('href');
         const target = href === '#services'
-          ? document.querySelector('.services-grid')
+          ? document.getElementById('service-ledarskap')
           : document.querySelector(href);
         if (!target) return;
-        const scrollTop = getDocTop(target) - (window.innerHeight / 2) + (target.offsetHeight / 2);
-        window.scrollTo({ top: Math.max(0, scrollTop), behavior: 'smooth' });
+        const navH = document.getElementById('mainNav')?.offsetHeight || 68;
+        window.scrollTo({ top: Math.max(0, getDocTop(target) - navH - 16), behavior: 'smooth' });
       });
     });
 
