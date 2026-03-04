@@ -260,8 +260,8 @@
       height: 100%;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 140px; }
-    #services, #how, #about, #contact { scroll-margin-top: 140px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
+    .scroll-anchor { display: block; height: 0; overflow: hidden; visibility: hidden; scroll-margin-top: 100px; }
 
     body {
       font-family: 'DM Sans', sans-serif;
@@ -1842,8 +1842,9 @@
   </section>
 
   <!-- ══ SERVICES ══ -->
-  <section class="section services" id="services">
+  <section class="section services">
     <div class="section-inner">
+      <span id="services" class="scroll-anchor"></span>
       <p class="section-eyebrow animate">Våra tjänster</p>
       <h2 class="section-title animate">Expertis som driver<br>verklig förändring</h2>
       <div class="section-divider animate"></div>
@@ -1896,8 +1897,9 @@
   </section>
 
   <!-- ══ HOW WE WORK ══ -->
-  <section class="how" id="how">
+  <section class="how">
     <div class="section-inner">
+      <span id="how" class="scroll-anchor"></span>
       <p class="section-eyebrow animate">Hur vi arbetar</p>
       <h2 class="section-title animate">Beprövad erfarenhet –<br>hela vägen till resultat</h2>
 
@@ -1927,8 +1929,9 @@
   </section>
 
   <!-- ══ ABOUT ══ -->
-  <section class="section about" id="about">
+  <section class="section about">
     <div class="section-inner">
+      <span id="about" class="scroll-anchor"></span>
       <div class="about-grid">
         <div class="about-left">
           <p class="section-eyebrow animate">Om oss</p>
@@ -1980,8 +1983,9 @@
   </section>
 
   <!-- ══ CONTACT ══ -->
-  <section class="section contact" id="contact">
+  <section class="section contact">
     <div class="section-inner">
+      <span id="contact" class="scroll-anchor"></span>
       <div class="contact-grid">
         <div class="contact-info">
           <p class="section-eyebrow animate">Kontakt</p>
