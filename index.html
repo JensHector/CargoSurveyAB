@@ -248,7 +248,7 @@
     .nav {
       position: fixed;
       top: 0; left: 0; right: 0;
-      z-index: 1000;
+      z-index: 1300;
       background: var(--navy);
       height: 68px;
       display: flex;
@@ -1752,6 +1752,26 @@
       border-radius: 10px;
     }
 
+    /* ── Mobile overlay ── */
+    .nav-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(15,23,42,0.45);
+      backdrop-filter: blur(4px);
+      -webkit-backdrop-filter: blur(4px);
+      opacity: 0;
+      pointer-events: none;
+      transition: opacity .2s ease;
+      z-index: 1200;
+    }
+    body.nav-open .nav-overlay {
+      opacity: 1;
+      pointer-events: auto;
+    }
+    body.nav-open {
+      overflow: hidden;
+    }
+
     .card, .how-item {
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
       border: 1px solid rgba(226,232,240,.95);
@@ -1768,6 +1788,7 @@
 <!-- deploy-trigger-v2 -->
 </head>
 <body>
+<div class="nav-overlay" id="navOverlay"></div>
 
   <!-- ══ NAVIGATION ══ -->
   <nav class="nav" id="mainNav">
@@ -2406,17 +2427,20 @@
     function toggleMenu() {
       const links  = document.getElementById('navLinks');
       const burger = document.getElementById('navBurger');
-      links.classList.toggle('open');
+      const isOpen = links.classList.toggle('open');
       burger.classList.toggle('open');
+      document.body.classList.toggle('nav-open', isOpen);
     }
 
-    // Stäng menyn vid klick/tap utanför
+    // Stäng menyn vid klick/tap på overlay eller utanför
     document.addEventListener('click', function(e) {
-      const burger = document.getElementById('navBurger');
-      const links  = document.getElementById('navLinks');
-      if (!burger.contains(e.target) && !links.contains(e.target)) {
+      const burger  = document.getElementById('navBurger');
+      const links   = document.getElementById('navLinks');
+      const overlay = document.getElementById('navOverlay');
+      if (e.target === overlay || (!burger.contains(e.target) && !links.contains(e.target))) {
         links.classList.remove('open');
         burger.classList.remove('open');
+        document.body.classList.remove('nav-open');
       }
     });
 
