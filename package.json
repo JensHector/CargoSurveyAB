@@ -1,0 +1,12 @@
+{
+  "name": "ignicon-hemsida",
+  "version": "1.0.0",
+  "private": true,
+  "description": "Ignicon AB – statisk hemsida",
+  "scripts": {
+    "build": "node build-posts-index.js"
+  },
+  "dependencies": {
+    "marked": "^15.0.7"
+  }
+}
