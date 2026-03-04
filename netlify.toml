@@ -13,6 +13,37 @@
     to = "/admin/index.html"
     status = 200
 
+# ── Tjänstesidor – rena URL:er till sektionsankare ──
+[[redirects]]
+  from = "/ledare-chef"
+  to = "/#service-ledarskap"
+  status = 302
+
+[[redirects]]
+  from = "/coaching"
+  to = "/#service-coaching"
+  status = 302
+
+[[redirects]]
+  from = "/ledningsgrupper"
+  to = "/#service-ledningsgrupp"
+  status = 302
+
+[[redirects]]
+  from = "/grupper-team"
+  to = "/#service-grupputveckling"
+  status = 302
+
+[[redirects]]
+  from = "/workshop"
+  to = "/#service-workshops"
+  status = 302
+
+[[redirects]]
+  from = "/forelasningar"
+  to = "/#service-forelasningar"
+  status = 302
+
 [[redirects]]
     from = "/blogg-mall"
     to = "/"

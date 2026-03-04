@@ -155,7 +155,10 @@ document.addEventListener('keydown', (e) => {
 });
 
 document.querySelectorAll('[data-modal]').forEach(btn => {
-  btn.addEventListener('click', () => openModal(btn.dataset.modal));
+  btn.addEventListener('click', e => {
+    e.preventDefault();
+    openModal(btn.dataset.modal);
+  });
 });
 
 document.querySelectorAll('.modal-backdrop').forEach(backdrop => {
