@@ -27,6 +27,7 @@
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); }
+        section { padding: 96px 0; }
 
         .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1400; height: 32px; display: flex; align-items: center; justify-content: center; background: #0a1525; border-bottom: 1px solid rgba(227,96,32,0.25); color: rgba(255,255,255,0.55); font-size: 10.5px; font-weight: 600; letter-spacing: 0.14em; text-transform: uppercase; }
         .nav { position: fixed; top: 32px; left: 0; right: 0; z-index: 1300; will-change: transform; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
@@ -85,6 +86,11 @@
         footer { background: var(--navy); padding: 32px 48px; text-align: center; }
         footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
         .loading { padding: 140px 48px; text-align: center; color: #999; font-size: 16px; }
+
+        @media (min-width: 1024px) {
+          .hero h1 { font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
+          .section-title { font-size: 40px; letter-spacing: -0.02em; }
+        }
 
         @media (max-width: 768px) {
             .nav-links {

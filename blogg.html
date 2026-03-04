@@ -62,6 +62,7 @@
     }
     * { margin: 0; padding: 0; box-sizing: border-box; }
     body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); }
+    section { padding: 96px 0; }
 
     /* === TOPBAR === */
     .topbar {
@@ -211,6 +212,11 @@
     /* === FOOTER === */
     footer { background: var(--navy); padding: 32px 48px; text-align: center; }
     footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
+
+    @media (min-width: 1024px) {
+      .hero h1 { font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
+      .section-title { font-size: 40px; letter-spacing: -0.02em; }
+    }
 
     /* === RESPONSIV === */
     @media (max-width: 768px) {
