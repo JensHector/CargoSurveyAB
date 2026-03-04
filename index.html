@@ -235,6 +235,7 @@
       --border:     #DDD8D2;
       --accent:     #E36020;
       --accent-dark:#B84A14;
+      --bg-alt:     #181826;
     }
 
     /* ── Section rhythm accent line ── */
@@ -1260,8 +1261,36 @@
 
     /* ── CONTACT ── */
     .contact {
-      background: var(--white);
+      background:
+        radial-gradient(
+          800px 400px at 80% 20%,
+          rgba(14,165,233,.15),
+          transparent
+        ),
+        var(--bg-alt);
     }
+
+    /* Inverterade textfärger på mörk bakgrund */
+    .contact .section-eyebrow { color: var(--orange); }
+    .contact .section-title   { color: var(--white); }
+    .contact .section-divider { background: rgba(255,255,255,0.12); }
+    .contact p                { color: rgba(255,255,255,0.65); }
+
+    .contact-item-label     { color: rgba(255,255,255,0.45); }
+    .contact-item-value,
+    .contact-item-value a   { color: var(--white); }
+    .contact-icon           { background: rgba(255,255,255,0.08); border-color: rgba(255,255,255,0.10); }
+
+    .contact .form-group label                         { color: rgba(255,255,255,0.75); }
+    .contact .form-group input,
+    .contact .form-group textarea,
+    .contact .form-group select                        { background: rgba(255,255,255,0.07); border-color: rgba(255,255,255,0.12); color: var(--white); }
+    .contact .form-group input::placeholder,
+    .contact .form-group textarea::placeholder         { color: rgba(255,255,255,0.35); }
+    .contact .form-group input:focus,
+    .contact .form-group textarea:focus                { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(227,96,32,0.20); }
+    .contact .form-submit                              { background: var(--orange); }
+    .contact .form-submit:hover                        { background: #cc5519; }
 
     .contact-grid {
       display: grid;
