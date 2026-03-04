@@ -591,6 +591,11 @@
     .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
 
     /* ── HERO ── */
+    .hero,
+    .nav {
+      will-change: transform;
+    }
+
     .hero {
       background: var(--navy);
       min-height: 88vh;
@@ -1429,7 +1434,7 @@
     .footer {
       background: var(--navy);
       padding: 60px 48px 32px;
-      border-top: 4px solid var(--orange);
+      border-top: 1px solid var(--border);
     }
 
     .footer-inner {
@@ -1515,6 +1520,14 @@
       color: rgba(227,96,32,0.5);
       font-weight: 300;
       letter-spacing: 0.06em;
+    }
+
+    .footer-tagline {
+      font-size: 14px;
+      color: var(--gray);
+      font-style: italic;
+      margin-top: 16px;
+      letter-spacing: 0.02em;
     }
 
     /* ── SERVICE MODALS ── */
@@ -1917,6 +1930,7 @@
         );
         opacity: 0;
         transition: opacity .25s ease;
+        pointer-events: none;
       }
       .service-card:hover::after {
         opacity: 1;
@@ -2365,6 +2379,7 @@
             <img src="logga_transparent.svg" alt="Ignicon AB" style="height:64px; width:auto; display:block; margin-bottom:16px;">
           </div>
           <p>Med genuint engagemang, nyfikenhet och ett utmanande förhållningssätt hjälper vi ledare, grupper och organisationer att nå hela vägen fram till sin vision och ambition.</p>
+          <p class="footer-tagline">Everything Starts With A Choice</p>
         </div>
 
         <div>
@@ -2577,10 +2592,13 @@
   </div>
 
   <script>
-    // ── Sticky nav shadow
+    // ── Sticky nav shadow + hero parallax
     const nav = document.getElementById('mainNav');
+    const heroDecor2 = document.querySelector('.hero-decor-2');
     window.addEventListener('scroll', () => {
-      nav.classList.toggle('scrolled', window.scrollY > 20);
+      const y = window.scrollY;
+      nav.classList.toggle('scrolled', y > 20);
+      if (heroDecor2) heroDecor2.style.transform = `translateY(${y * 0.2}px)`;
     });
 
     // ── Mobile menu

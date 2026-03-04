@@ -19,11 +19,14 @@
             --white: #FFFFFF;
             --beige: #F5F0E8;
             --light-gray: #F8F8F6;
+            --border:     #DDD8D2;
+            --gray:       #464553;
+            --gray-light: #706E7C;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); }
 
-        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1000; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0 48px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
+        .nav { position: fixed; top: 0; left: 0; right: 0; z-index: 1300; will-change: transform; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0 48px; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
         .nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
         .nav-inner { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; }
         .nav-logo { display: flex; align-items: center; text-decoration: none; }
@@ -46,7 +49,10 @@
         .mega-all { display: inline-flex; align-items: center; gap: 6px; margin-top: 20px; font-size: 12px; font-weight: 600; letter-spacing: 0.05em; color: var(--white); text-decoration: none; transition: gap 0.2s, color 0.2s; }
         .mega-all:hover { gap: 10px; color: var(--orange); }
         .mega-all svg { width: 14px; height: 14px; stroke: currentColor; fill: none; stroke-width: 2; stroke-linecap: round; stroke-linejoin: round; }
-        .mega-grid { flex: 1; display: grid; grid-template-columns: 1fr 1fr; padding: 10px; gap: 2px; align-content: start; }
+        .mega-groups { flex: 1; display: flex; padding: 10px; }
+        .mega-group { flex: 1; display: flex; flex-direction: column; padding: 4px 8px; }
+        .mega-group + .mega-group { border-left: 1px solid var(--border); }
+        .mega-group-title { font-size: 11px; letter-spacing: .08em; text-transform: uppercase; color: var(--gray-light); margin-bottom: 6px; padding: 6px 4px 8px; }
         .mega-item { display: flex; align-items: flex-start; gap: 10px; padding: 11px 12px; border-radius: 8px; text-decoration: none; transition: background 0.15s; }
         .mega-item > div { min-width: 0; }
         .mega-item:hover { background: var(--beige); }
@@ -113,29 +119,45 @@
             .nav { padding: 0 20px; }
             .nav-links {
                 display: flex; flex-direction: column;
-                position: absolute; top: 68px; left: 0; right: 0; transform: none;
+                position: absolute; top: 68px; left: 0; right: 0;
                 background: var(--navy); padding: 16px 24px 24px;
                 border-bottom: 1px solid rgba(255,255,255,0.08);
-                gap: 4px; opacity: 0; visibility: hidden; pointer-events: none;
-                transition: opacity 0.25s ease, visibility 0.25s ease;
+                gap: 4px;
+                transform: translateY(-8px);
+                opacity: 0;
+                pointer-events: none;
+                transition: transform .18s ease, opacity .18s ease;
             }
             .nav-cta-right { display: none; }
             .nav-mobile-only { display: list-item; }
-            .nav-links.open { opacity: 1; visibility: visible; pointer-events: auto; }
+            body.nav-open .nav-links { transform: translateY(0); opacity: 1; pointer-events: auto; }
             .nav-links.open .mega-dropdown { position: static; opacity: 1; visibility: visible; transform: none; box-shadow: none; border-radius: 6px; margin-top: 4px; border-top: none; width: auto; display: none; overflow: visible; flex-direction: column; }
             .nav-links.open .has-dropdown.open-mob .mega-dropdown { display: flex; }
             .mega-left { display: none; }
-            .mega-grid { grid-template-columns: 1fr; padding: 4px; background: rgba(255,255,255,0.05); border-radius: 6px; }
+            .mega-groups { flex-direction: column; padding: 4px; background: rgba(255,255,255,0.05); border-radius: 6px; }
+            .mega-group { padding: 4px 0; }
+            .mega-group + .mega-group { border-left: none; border-top: 1px solid rgba(255,255,255,0.08); }
+            .mega-group-title { color: rgba(255,255,255,0.40); padding: 8px 12px 4px; margin-bottom: 0; }
             .mega-item { padding: 8px 12px; }
             .mega-item:hover { background: rgba(255,255,255,0.08); }
             .mega-item-title { color: rgba(255,255,255,0.75); font-size: 13px; }
             .mega-item-desc { display: none; }
             .mega-icon { background: rgba(227,96,32,0.20); }
             .nav-burger { display: flex; }
+            #servicesMenu .mega-item { padding: 14px; display: flex; align-items: center; }
+            #servicesMenu .mega-item > div { flex: 1; }
+            #servicesMenu .mega-item::after { content: "›"; margin-left: auto; color: rgba(255,255,255,0.35); font-size: 18px; line-height: 1; }
+            #servicesMenu .mega-item + .mega-item { border-top: 1px solid rgba(255,255,255,0.08); }
             .post-hero { padding: 100px 20px 48px; }
             .post-body { padding: 40px 20px 60px; }
             .post-cta { margin: 0 20px 60px; padding: 32px 24px; }
             .back-section { padding: 0 20px 48px; }
+        }
+        .nav-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .2s ease; z-index: 1200; }
+        body.nav-open .nav-overlay { opacity: 1; pointer-events: auto; }
+        body.nav-open { overflow: hidden; }
+        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+            .nav, .nav-overlay { backdrop-filter: none; -webkit-backdrop-filter: none; }
         }
     </style>
 </head>
@@ -157,31 +179,40 @@
             <p class="mega-intro">Expertis som driver verklig förändring. Vi erbjuder skräddarsydda program och insatser för ledare, team och organisationer.</p>
             <a href="/index.html#services" class="mega-all">Se alla tjänster <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
           </div>
-          <div class="mega-grid">
-            <a href="/index.html#service-ledarskap" class="mega-item">
-              <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
-              <div><p class="mega-item-title">Ledare &amp; Chef</p><p class="mega-item-desc">Bygg kompetens och mod att leda</p></div>
-            </a>
-            <a href="/index.html#service-coaching" class="mega-item">
-              <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
-              <div><p class="mega-item-title">Coaching</p><p class="mega-item-desc">Individuell utveckling av ditt ledarskap</p></div>
-            </a>
-            <a href="/index.html#service-ledningsgrupp" class="mega-item">
-              <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
-              <div><p class="mega-item-title">Ledningsgrupper</p><p class="mega-item-desc">Stärk er ledningsgrupp och kultur</p></div>
-            </a>
-            <a href="/index.html#service-grupputveckling" class="mega-item">
-              <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
-              <div><p class="mega-item-title">Grupper &amp; Team</p><p class="mega-item-desc">Bygg effektiva och starka team</p></div>
-            </a>
-            <a href="/index.html#service-workshops" class="mega-item">
-              <div class="mega-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
-              <div><p class="mega-item-title">Workshop</p><p class="mega-item-desc">Strategiska workshops med tydliga resultat</p></div>
-            </a>
-            <a href="/index.html#service-forelasningar" class="mega-item">
-              <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
-              <div><p class="mega-item-title">Föreläsningar</p><p class="mega-item-desc">Inspirerande föreläsningar om ledarskap</p></div>
-            </a>
+          <div class="mega-groups" id="servicesMenu">
+            <div class="mega-group">
+              <p class="mega-group-title">Utveckla ledare</p>
+              <a href="/index.html#service-ledarskap" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="8" r="6"/><path d="M15.477 12.89L17 22l-5-3-5 3 1.523-9.11"/></svg></div>
+                <div><p class="mega-item-title">Ledarskapsträning</p><p class="mega-item-desc">Bygg kompetens och mod att leda</p></div>
+              </a>
+              <a href="/index.html#service-coaching" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="12" cy="12" r="10"/><circle cx="12" cy="12" r="6"/><circle cx="12" cy="12" r="2"/></svg></div>
+                <div><p class="mega-item-title">Ledarskapscoaching</p><p class="mega-item-desc">Individuell utveckling av ditt ledarskap</p></div>
+              </a>
+            </div>
+            <div class="mega-group">
+              <p class="mega-group-title">Utveckla grupper</p>
+              <a href="/index.html#service-grupputveckling" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><circle cx="18" cy="5" r="3"/><circle cx="6" cy="12" r="3"/><circle cx="18" cy="19" r="3"/><line x1="8.59" y1="13.51" x2="15.42" y2="17.49"/><line x1="15.41" y1="6.51" x2="8.59" y2="10.49"/></svg></div>
+                <div><p class="mega-item-title">Grupputveckling</p><p class="mega-item-desc">Bygg effektiva och starka team</p></div>
+              </a>
+              <a href="/index.html#service-ledningsgrupp" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                <div><p class="mega-item-title">Ledningsgruppsutveckling</p><p class="mega-item-desc">Stärk er ledningsgrupp och kultur</p></div>
+              </a>
+            </div>
+            <div class="mega-group">
+              <p class="mega-group-title">Inspiration</p>
+              <a href="/index.html#service-workshops" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><polygon points="13 2 3 14 12 14 11 22 21 10 12 10 13 2"/></svg></div>
+                <div><p class="mega-item-title">Workshops</p><p class="mega-item-desc">Strategiska workshops med tydliga resultat</p></div>
+              </a>
+              <a href="/index.html#service-forelasningar" class="mega-item">
+                <div class="mega-icon"><svg viewBox="0 0 24 24"><path d="M12 1a3 3 0 0 0-3 3v8a3 3 0 0 0 6 0V4a3 3 0 0 0-3-3z"/><path d="M19 10v2a7 7 0 0 1-14 0v-2"/><line x1="12" y1="19" x2="12" y2="23"/><line x1="8" y1="23" x2="16" y2="23"/></svg></div>
+                <div><p class="mega-item-title">Föreläsningar</p><p class="mega-item-desc">Inspirerande föreläsningar om ledarskap</p></div>
+              </a>
+            </div>
           </div>
         </div>
       </li>
@@ -210,6 +241,7 @@
     </div>
   </div>
 </nav>
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
 
 <div id="post-root"><div class="loading">Laddar inl\u00e4gg\u2026</div></div>
 
@@ -395,19 +427,19 @@ window.addEventListener('scroll', () => {
 });
 
 // ── Mobile menu
-function toggleMenu() {
+function setNavOpen(isOpen) {
     const links  = document.getElementById('navLinks');
     const burger = document.getElementById('navBurger');
-    links.classList.toggle('open');
-    burger.classList.toggle('open');
+    document.body.classList.toggle('nav-open', isOpen);
+    links.classList.toggle('open', isOpen);
+    burger.classList.toggle('open', isOpen);
 }
-document.addEventListener('click', function(e) {
-    const burger = document.getElementById('navBurger');
-    const links  = document.getElementById('navLinks');
-    if (!burger.contains(e.target) && !links.contains(e.target)) {
-        links.classList.remove('open');
-        burger.classList.remove('open');
-    }
+function toggleMenu() {
+    setNavOpen(!document.body.classList.contains('nav-open'));
+}
+document.getElementById('navOverlay')?.addEventListener('click', () => setNavOpen(false));
+document.querySelectorAll('#navLinks a').forEach(a => {
+    a.addEventListener('click', () => setNavOpen(false));
 });
 (function () {
     const burger = document.getElementById('navBurger');
