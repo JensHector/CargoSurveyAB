@@ -68,6 +68,9 @@ window.addEventListener('scroll', () => {
 });
 
 // ── Form handler (Netlify Forms)
+const FORM_COOLDOWN_MS = 60_000; // 60 s mellan skickningar
+let _lastSubmitTime = 0;
+
 async function handleSubmit(e) {
   e.preventDefault();
   const form     = e.target;
@@ -75,10 +78,20 @@ async function handleSubmit(e) {
   const errorEl  = document.getElementById('form-error');
   const errorMsg = document.getElementById('form-error-msg');
 
+  // Rate limiting: max 1 skickning per 60 s
+  const now = Date.now();
+  if (now - _lastSubmitTime < FORM_COOLDOWN_MS) {
+    const secsLeft = Math.ceil((FORM_COOLDOWN_MS - (now - _lastSubmitTime)) / 1000);
+    errorMsg.textContent = `Vänta ${secsLeft} sekunder innan du skickar igen.`;
+    errorEl.style.display = 'block';
+    return;
+  }
+
   // Återställ eventuellt tidigare felmeddelande
   errorEl.style.display = 'none';
   btn.textContent = 'Skickar...';
   btn.disabled = true;
+  _lastSubmitTime = now;
 
   try {
     const response = await fetch('/', {
