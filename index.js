@@ -219,7 +219,7 @@ document.querySelectorAll('.modal-cta-btn').forEach(btn => {
 
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      cards[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
+      cards[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
 }());
