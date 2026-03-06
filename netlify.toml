@@ -1,0 +1,114 @@
+# Ignicon AB - Netlify Configuration
+# Uppdaterad 2026-02-27
+
+[build]
+  command = "node build-posts-index.js"
+  publish = "."
+
+# ============================================
+# REDIRECTS
+# ============================================
+[[redirects]]
+    from = "/admin"
+    to = "/admin/index.html"
+    status = 200
+
+# ── Tjänstesidor – rena URL:er till sektionsankare ──
+[[redirects]]
+  from = "/ledare-chef"
+  to = "/#service-ledarskap"
+  status = 302
+
+[[redirects]]
+  from = "/coaching"
+  to = "/#service-coaching"
+  status = 302
+
+[[redirects]]
+  from = "/ledningsgrupper"
+  to = "/#service-ledningsgrupp"
+  status = 302
+
+[[redirects]]
+  from = "/grupper-team"
+  to = "/#service-grupputveckling"
+  status = 302
+
+[[redirects]]
+  from = "/workshop"
+  to = "/#service-workshops"
+  status = 302
+
+[[redirects]]
+  from = "/forelasningar"
+  to = "/#service-forelasningar"
+  status = 302
+
+[[redirects]]
+    from = "/blogg-mall"
+    to = "/"
+    status = 301
+
+[[redirects]]
+    from = "/blogg-mall*"
+    to = "/"
+    status = 301
+
+# ============================================
+# SECURITY HEADERS - Alla sidor
+# ============================================
+[[headers]]
+  for = "/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    X-XSS-Protection = "1; mode=block"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Permissions-Policy = "camera=(), microphone=(), geolocation=()"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' https://cdn.jsdelivr.net; style-src 'self' 'unsafe-inline' https://fonts.googleapis.com; font-src 'self' https://fonts.gstatic.com; img-src 'self' data: https:; connect-src 'self' https://api.netlify.com; frame-ancestors 'none'"
+
+# ============================================
+# SECURITY HEADERS - Admin (utökad CSP för Netlify CMS)
+# ============================================
+[[headers]]
+  for = "/admin/*"
+  [headers.values]
+    Strict-Transport-Security = "max-age=31536000; includeSubDomains; preload"
+    X-Content-Type-Options = "nosniff"
+    X-Frame-Options = "DENY"
+    Referrer-Policy = "strict-origin-when-cross-origin"
+    Content-Security-Policy = "default-src 'self'; script-src 'self' 'unsafe-inline' https://unpkg.com https://identity.netlify.com; style-src 'self' 'unsafe-inline' https://unpkg.com; img-src 'self' data: https:; connect-src 'self' https://api.netlify.com https://identity.netlify.com https://api.github.com; frame-ancestors 'none'"
+
+# ============================================
+# CACHE-HEADERS - Statiska filer
+# ============================================
+[[headers]]
+  for = "*.jpg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.jpeg"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.png"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.webp"
+  [headers.values]
+    Cache-Control = "public, max-age=31536000, immutable"
+
+[[headers]]
+  for = "*.css"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"
+
+[[headers]]
+  for = "*.js"
+  [headers.values]
+    Cache-Control = "public, max-age=2592000"

@@ -1,0 +1,32 @@
+backend:
+  name: github
+  repo: JensHector/ignicon-hemsida
+  branch: main
+
+media_folder: "bilder"
+public_folder: "/bilder"
+
+locale: 'sv'
+
+collections:
+  - name: "inlagg"
+    label: "Blogginlägg"
+    folder: "_posts"
+    create: true
+    slug: "{{year}}-{{month}}-{{day}}-{{slug}}"
+    fields:
+      - { label: "Rubrik", name: "title", widget: "string" }
+      - { label: "Publiceringsdatum", name: "date", widget: "datetime", format: "YYYY-MM-DD", dateFormat: "YYYY-MM-DD", timeFormat: false }
+      - label: "Kategori"
+        name: "category"
+        widget: "select"
+        options:
+          - { label: "Ledarskap", value: "Ledarskap" }
+          - { label: "Grupputveckling", value: "Grupputveckling" }
+          - { label: "Ledningsgrupp", value: "Ledningsgrupp" }
+          - { label: "Coaching", value: "Coaching" }
+          - { label: "Organisation", value: "Organisation" }
+      - { label: "Kort beskrivning", name: "excerpt", widget: "text" }
+      - { label: "Lästid", name: "readtime", widget: "string", default: "4 min läsning" }
+      - { label: "Innehåll", name: "body", widget: "markdown" }
+      - { label: "Utvalt inlägg?", name: "featured", widget: "boolean", default: false, required: false }

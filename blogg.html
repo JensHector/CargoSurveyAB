@@ -1,0 +1,375 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artiklar & Tankar – Ledarskap & Grupputveckling | Ignicon AB</title>
+    <meta name="description" content="Artiklar och insikter om ledarskap, grupputveckling och organisationsutveckling från Ignicon AB. Praktiska tips direkt från fältet.">
+    <link rel="canonical" href="https://ignicon.se/blogg.html">
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Artiklar & Tankar – Ledarskap & Grupputveckling | Ignicon AB">
+    <meta property="og:description" content="Praktiska insikter om ledarskap, gruppdynamik och organisationsutveckling – direkt från fältet.">
+    <meta property="og:url" content="https://ignicon.se/blogg.html">
+    <meta property="og:site_name" content="Ignicon AB">
+    <meta property="og:locale" content="sv_SE">
+    <meta property="og:image" content="https://ignicon.se/og-image.png">
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "Blog",
+      "name": "Artiklar & Tankar",
+      "description": "Praktiska insikter om ledarskap, gruppdynamik och organisationsutveckling.",
+      "url": "https://ignicon.se/blogg.html",
+      "inLanguage": "sv-SE",
+      "publisher": {
+        "@type": "Organization",
+        "name": "Ignicon AB",
+        "url": "https://ignicon.se"
+      },
+      "author": {
+        "@type": "Person",
+        "name": "Jens Hector",
+        "url": "https://ignicon.se/#about"
+      }
+    }
+    </script>
+    <script type="application/ld+json">
+    {
+      "@context": "https://schema.org",
+      "@type": "BreadcrumbList",
+      "itemListElement": [
+        {"@type": "ListItem", "position": 1, "name": "Hem", "item": "https://ignicon.se/"},
+        {"@type": "ListItem", "position": 2, "name": "Artiklar & Tankar"}
+      ]
+    }
+    </script>
+  <link rel="icon" type="image/svg+xml" href="/logga_transparent.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #202032;
+      --orange: #E36020;
+      --white: #FFFFFF;
+      --beige: #F5F0E8;
+      --light-gray: #F8F8F6;
+      --text-muted: rgba(255,255,255,0.55);
+      --border:     #DDD8D2;
+      --gray:       #464553;
+      --gray-light: #706E7C;
+      --accent:      #E36020;
+      --accent-dark: #B84F18;
+    }
+    * { margin: 0; padding: 0; box-sizing: border-box; }
+    html { scroll-behavior: smooth; scroll-padding-top: 116px; }
+    body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); }
+    section { padding: 96px 0; }
+
+    /* === TOPBAR === */
+    .topbar {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1400;
+      height: 32px; display: flex; align-items: center; justify-content: center;
+      background: #0a1525; border-bottom: 1px solid rgba(227,96,32,0.25);
+      color: rgba(255,255,255,0.55); font-size: 10.5px; font-weight: 700;
+      letter-spacing: 0.14em; text-transform: uppercase;
+    }
+
+    /* === NAVBAR === */
+    .nav {
+      position: fixed; top: 32px; left: 0; right: 0; z-index: 1300; will-change: transform;
+      background: var(--navy); height: 68px;
+      display: flex; align-items: center; padding: 0;
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+      transition: box-shadow 0.3s ease;
+    }
+    .nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
+    .nav-inner {
+      width: 100%; max-width: 1200px; margin: 0 auto;
+      display: flex; align-items: center; justify-content: space-between;
+      position: relative; padding: 0 24px;
+    }
+    .nav-logo { display: flex; align-items: center; text-decoration: none; }
+    .nav-links {
+      display: flex; align-items: center; gap: 34px; margin-left: 40px;
+    }
+    .nav-mobile-only { display: none !important; }
+
+    .nav-links a {
+      display: block; padding: 8px 14px; font-size: 13px; font-weight: 400;
+      color: rgba(255,255,255,0.80); text-decoration: none; letter-spacing: 0.03em;
+      border-radius: 4px; transition: color 0.2s, background 0.2s; white-space: nowrap;
+      position: relative;
+    }
+    .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
+    .nav-links a.active { color: var(--accent-dark); }
+    .nav-links a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0%; height: 2px; background: var(--accent); transition: .2s; }
+    .nav-links a:not(.nav-cta):hover::after,
+    .nav-links a:not(.nav-cta).active::after { width: 100%; }
+
+    .nav-cta {
+      background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important;
+      color: var(--white) !important; padding: 10px 22px !important;
+      border-radius: 12px !important; font-size: 13px !important;
+      font-weight: 700 !important; letter-spacing: 0.04em !important;
+      box-shadow: 0 14px 34px rgba(227,96,32,.25); transition: .2s !important;
+      text-decoration: none; white-space: nowrap;
+    }
+    .nav-cta:hover {
+      transform: translateY(-2px); box-shadow: 0 18px 40px rgba(227,96,32,.35);
+      background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important;
+      color: var(--white) !important;
+    }
+
+    /* Burger */
+    .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
+    .nav-burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
+    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
+    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
+    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+
+    /* === HERO === */
+    .hero {
+      background: var(--navy); padding: 148px 48px 80px;
+      position: relative; overflow: hidden;
+    }
+    .hero-inner { max-width: 1200px; margin: 0 auto; }
+    .hero-eyebrow {
+      font-size: 11px; font-weight: 700; letter-spacing: 0.2em;
+      color: var(--orange); text-transform: uppercase; margin-bottom: 20px;
+    }
+    .hero h1 {
+      font-size: clamp(36px, 5vw, 56px); font-weight: 700;
+      color: var(--white); line-height: 1.1; margin-bottom: 20px;
+    }
+    .hero h1 em { color: var(--orange); font-style: normal; }
+    .hero p { font-size: 17px; color: rgba(255,255,255,0.65); max-width: 560px; line-height: 1.7; }
+    .hero-bg-text {
+      position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+      font-size: clamp(80px, 12vw, 160px); font-weight: 900; letter-spacing: -0.04em;
+      color: rgba(255,255,255,0.04); pointer-events: none; white-space: nowrap;
+      text-transform: uppercase;
+    }
+
+    /* === FILTER === */
+    .filter-section { background: var(--white); padding: 32px 48px; border-bottom: 1px solid rgba(0,0,0,0.08); }
+    .filter-inner { max-width: 1200px; margin: 0 auto; display: flex; gap: 10px; flex-wrap: wrap; }
+    .filter-tag {
+      padding: 8px 18px; border-radius: 100px; font-size: 13px; font-weight: 400;
+      border: 1.5px solid rgba(0,0,0,0.15); color: var(--navy); text-decoration: none;
+      transition: all 0.2s; cursor: pointer; background: transparent;
+    }
+    .filter-tag:hover { border-color: var(--orange); color: var(--orange); }
+    .filter-tag.active { background: var(--navy); color: var(--white); border-color: var(--navy); }
+
+    /* === BLOGG-INNEHÅLL === */
+    .blog-section { max-width: 1200px; margin: 0 auto; padding: 60px 48px 80px; }
+
+    /* Featured-kort (stort) */
+    .post-featured {
+      display: grid; grid-template-columns: 1fr 1fr; gap: 0;
+      background: var(--navy); border-radius: 12px; overflow: hidden;
+      margin-bottom: 48px; min-height: 380px;
+      box-shadow: 0 8px 40px rgba(0,0,0,0.12);
+    }
+    .post-featured-content { padding: 48px; display: flex; flex-direction: column; justify-content: center; }
+    .post-cat {
+      font-size: 10px; font-weight: 700; letter-spacing: 0.18em;
+      color: var(--orange); text-transform: uppercase; margin-bottom: 14px;
+    }
+    .post-featured-content h2 {
+      font-size: 28px; font-weight: 700; color: var(--white);
+      line-height: 1.25; margin-bottom: 16px;
+    }
+    .post-featured-content p { font-size: 15px; color: rgba(255,255,255,0.6); line-height: 1.7; margin-bottom: 28px; }
+    .post-featured-meta { font-size: 12px; color: rgba(255,255,255,0.35); margin-bottom: 24px; }
+    .post-read-link {
+      display: inline-flex; align-items: center; gap: 8px;
+      color: var(--orange); font-size: 14px; font-weight: 700;
+      text-decoration: none; letter-spacing: 0.03em;
+      transition: gap 0.2s;
+    }
+    .post-read-link:hover { gap: 12px; }
+
+    /* Grid med kortare inlägg */
+    .posts-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+    .post-card {
+      background: var(--light-gray); border-radius: 10px; overflow: hidden;
+      transition: transform 0.2s, box-shadow 0.2s;
+      border: 1px solid rgba(0,0,0,0.06);
+    }
+    .post-card:hover { transform: translateY(-3px); box-shadow: 0 8px 30px rgba(0,0,0,0.1); }
+    .post-card-content { padding: 24px; }
+    .post-card-content h3 { font-size: 17px; font-weight: 700; margin-bottom: 10px; line-height: 1.3; color: var(--navy); }
+    .post-card-content p { font-size: 14px; color: #666; line-height: 1.6; margin-bottom: 20px; }
+    .post-card-meta { font-size: 11px; color: #999; margin-bottom: 16px; }
+
+    /* Empty / loading / error */
+    .loading { text-align: center; padding: 80px; color: #999; font-size: 15px; display: flex; align-items: center; justify-content: center; gap: 10px; }
+    .spinner { display: inline-block; width: 18px; height: 18px; border: 2px solid #ddd; border-top-color: var(--orange); border-radius: 50%; animation: spin .7s linear infinite; flex-shrink: 0; }
+    @keyframes spin { to { transform: rotate(360deg); } }
+    .empty-state { text-align: center; padding: 80px 20px; }
+    .empty-state h3 { font-size: 22px; margin-bottom: 10px; }
+    .empty-state p { color: #666; }
+    .blog-error { text-align: center; padding: 80px 24px; }
+    .blog-error p { color: #666; font-size: 15px; line-height: 1.7; margin-bottom: 24px; }
+    .retry-btn { background: var(--orange); color: #fff; border: none; padding: 12px 28px; border-radius: 6px; font-size: 15px; font-weight: 700; cursor: pointer; letter-spacing: .02em; }
+    .retry-btn:hover { opacity: .88; }
+
+    /* === FOOTER === */
+    footer { background: var(--navy); padding: 32px 48px; text-align: center; }
+    footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
+
+    @media (min-width: 1024px) {
+      .hero h1 { font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
+      .section-title { font-size: 40px; letter-spacing: -0.02em; }
+    }
+
+    /* === RESPONSIV === */
+    @media (max-width: 768px) {
+      .nav-links {
+        display: flex; flex-direction: column;
+        position: absolute; top: 68px; left: 0; right: 0;
+        background: var(--navy); padding: 16px 24px 24px;
+        border-bottom: 1px solid rgba(255,255,255,0.08);
+        gap: 4px;
+        transform: translateY(-8px);
+        opacity: 0;
+        pointer-events: none;
+        transition: transform .18s ease, opacity .18s ease;
+      }
+
+      body.nav-open .nav-links { transform: translateY(0); opacity: 1; pointer-events: auto; }
+      .nav-burger { display: flex; }
+      .nav-cta-right { display: none; }
+      .nav-mobile-only { display: block !important; }
+      .hero { padding: 124px 20px 60px; }
+      .hero p { font-size: 17px; color: rgba(255,255,255,0.84); }
+      .post-featured-content p { font-size: 16px; color: rgba(255,255,255,0.80); }
+      .post-featured-meta { font-size: 12px; color: rgba(255,255,255,0.55); }
+      .post-card-content p { font-size: 15px; color: #4a4a4a; }
+      .post-card-meta { font-size: 12px; color: #777; }
+      .filter-section { padding: 24px 20px; }
+      .blog-section { padding: 40px 20px 60px; }
+      .post-featured { grid-template-columns: 1fr; }
+      .post-featured-content { padding: 28px; }
+      .posts-grid { grid-template-columns: 1fr; }
+      footer { padding: 24px 20px; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .posts-grid { grid-template-columns: repeat(2, 1fr); }
+    }
+    .nav-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .2s ease; z-index: 1200; }
+    body.nav-open .nav-overlay { opacity: 1; pointer-events: auto; }
+    body.nav-open { overflow: hidden; }
+    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
+      .nav, .nav-overlay { backdrop-filter: none; -webkit-backdrop-filter: none; }
+    }
+  </style>
+</head>
+<body>
+
+<div class="topbar">Everything Starts With A Choice</div>
+
+<!-- NAVBAR -->
+<nav class="nav" id="mainNav">
+  <div class="nav-inner">
+    <a href="/index.html" class="nav-logo">
+      <img src="/logga_transparent.svg" alt="Ignicon AB" class="nav-logo-img" width="380" height="154" fetchpriority="high">
+    </a>
+
+    <div class="nav-links" id="navLinks">
+      <a href="/index.html#services">Tjänster</a>
+      <a href="/index.html#how">Arbetssätt</a>
+      <a href="/blogg.html" class="active">Artiklar</a>
+      <a href="/index.html#about">Om oss</a>
+      <a href="/index.html#contact" class="nav-cta nav-mobile-only">Boka samtal</a>
+    </div>
+
+    <a href="/index.html#contact" class="nav-cta nav-cta-right">Boka samtal</a>
+
+    <div class="nav-burger" id="navBurger">
+      <span></span><span></span><span></span>
+    </div>
+  </div>
+</nav>
+<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-bg-text">INSIKTER</div>
+  <div class="hero-inner">
+    <p class="hero-eyebrow">Artiklar &amp; Tankar</p>
+    <h1>Ledarskap som<br><em>faktiskt fungerar</em></h1>
+    <p>Praktiska insikter om ledarskap, gruppdynamik och organisationsutveckling — direkt från fältet.</p>
+  </div>
+</section>
+
+<!-- FILTER -->
+<div class="filter-section">
+  <div class="filter-inner">
+    <a href="#" class="filter-tag active" data-filter="Alla">Alla</a>
+    <a href="#" class="filter-tag" data-filter="Ledarskap">Ledarskap</a>
+    <a href="#" class="filter-tag" data-filter="Grupputveckling">Grupputveckling</a>
+    <a href="#" class="filter-tag" data-filter="Ledningsgrupp">Ledningsgrupp</a>
+    <a href="#" class="filter-tag" data-filter="Coaching">Coaching</a>
+    <a href="#" class="filter-tag" data-filter="Organisation">Organisation</a>
+  </div>
+</div>
+
+<!-- INLÄGG -->
+<main class="blog-section" id="blog-container">
+  <div class="loading"><span class="spinner"></span> Laddar inlägg…</div>
+</main>
+
+<!-- NOSCRIPT-FALLBACK: visas när JavaScript är avstängt / blockerat -->
+<noscript>
+  <div class="blog-section" style="padding-top:0">
+    <p style="color:#999;font-size:13px;margin-bottom:24px">JavaScript är inaktiverat – visar statisk lista.</p>
+    <div class="post-featured">
+      <div class="post-featured-content">
+        <p class="post-cat">★ Senaste inlägg · Organisation</p>
+        <h2><a href="inlagg.html?post=2026-03-03-vardegrund-som-beslutsfilter.md" style="color:inherit;text-decoration:none;">En genomtänkt värdegrund är ett beslutsfilter</a></h2>
+        <p>Det är lätt att ha värderingar på hemsidan. Det är svårare att låta dem styra riktiga beslut. Men det är just där de gör skillnad.</p>
+        <p class="post-featured-meta">Jens Hector · 3 mar 2026 · 3 min läsning</p>
+        <a href="inlagg.html?post=2026-03-03-vardegrund-som-beslutsfilter.md" class="post-read-link">Läs inlägget →</a>
+      </div>
+    </div>
+    <div class="posts-grid">
+      <div class="post-card"><div class="post-card-content">
+        <p class="post-cat">Ledningsgrupp</p>
+        <h3><a href="inlagg.html?post=2026-02-25-emotionell-intelligens.md" style="color:inherit;text-decoration:none;">Tre sätt att träna emotionell intelligens i ledningsgruppen</a></h3>
+        <p>Emotionell intelligens är inte en talang – det är en färdighet. Och färdigheter går att träna.</p>
+        <a href="inlagg.html?post=2026-02-25-emotionell-intelligens.md" class="post-read-link">Läs inlägget →</a>
+      </div></div>
+      <div class="post-card"><div class="post-card-content">
+        <p class="post-cat">Ledarskap</p>
+        <h3><a href="inlagg.html?post=2026-02-24-vanlighet-tydlighet.md" style="color:inherit;text-decoration:none;">Vänlighet är inte motsatsen till tydlighet</a></h3>
+        <p>Chefer ställer ofta vänlighet mot tydlighet – som om det vore ett val. Men tydlighet är omtänksamt.</p>
+        <a href="inlagg.html?post=2026-02-24-vanlighet-tydlighet.md" class="post-read-link">Läs inlägget →</a>
+      </div></div>
+      <div class="post-card"><div class="post-card-content">
+        <p class="post-cat">Ledarskap</p>
+        <h3><a href="inlagg.html?post=2026-02-22-ledarskap-som-skapar-forandring.md" style="color:inherit;text-decoration:none;">Ledarskap som skapar verklig förändring</a></h3>
+        <p>De flesta ledare vill skapa förändring. Skillnaden ligger sällan i kompetens – den ligger i mod.</p>
+        <a href="inlagg.html?post=2026-02-22-ledarskap-som-skapar-forandring.md" class="post-read-link">Läs inlägget →</a>
+      </div></div>
+      <div class="post-card"><div class="post-card-content">
+        <p class="post-cat">Ledningsgrupp</p>
+        <h3><a href="inlagg.html?post=2026-02-10-ledningsgrupp-fallgropar.md" style="color:inherit;text-decoration:none;">De 3 vanliga fallgroparna för nya ledningsgrupper</a></h3>
+        <p>En ny ledningsgrupp startar med energi och ambition. Sex månader senare har de flesta fastnat.</p>
+        <a href="inlagg.html?post=2026-02-10-ledningsgrupp-fallgropar.md" class="post-read-link">Läs inlägget →</a>
+      </div></div>
+    </div>
+  </div>
+</noscript>
+
+<!-- FOOTER -->
+<footer>
+  <p>Copyright Ignicon AB 2026. Alla rättigheter förbehållna.</p>
+</footer>
+
+<script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"></script>
+<script src="blogg.js"></script>
+</body>
+</html>
