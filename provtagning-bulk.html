@@ -1,0 +1,453 @@
+<!DOCTYPE html>
+<html lang="sv">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Provtagning & Bulk — Cargo Survey AB</title>
+  <meta name="description" content="Oberoende provtagning och besiktning av bulklaster — spannmål, mineraler, kemikalier och mer.">
+  <link rel="icon" type="image/svg+xml" href="/logga_transparent.svg">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
+  <style>
+    /* ═══════════════════════════════════════════════════════════
+       CARGO SURVEY AB — Shared Page Styles
+       Navy #1C3C5A · Orange #D4622A
+       Cinzel · Cormorant Garamond · Lora · DM Mono
+       ═══════════════════════════════════════════════════════════ */
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    a, button { cursor: pointer; }
+
+    :root {
+      --navy:        #1C3C5A;
+      --navy-deep:   #122840;
+      --navy-dark:   #0D1E30;
+      --navy-mid:    #2A5178;
+      --steel:       #3E6585;
+      --mist:        #8FAABE;
+      --mist-lt:     #B8CEDF;
+      --orange:      #D4622A;
+      --orange-lt:   #E07A42;
+      --orange-dk:   #B5501E;
+      --cream:       #F5F0EB;
+      --offwhite:    #FAF8F5;
+      --white:       #FFFFFF;
+      --black:       #0A1520;
+      --border-dk:   rgba(143,170,190,0.15);
+      --border-lt:   rgba(28,60,90,0.10);
+      --display:     'Cinzel', serif;
+      --heading:     'Cormorant Garamond', serif;
+      --body:        'Lora', serif;
+      --mono:        'DM Mono', monospace;
+    }
+
+    html { scroll-behavior: smooth; }
+    body {
+      font-family: var(--body);
+      font-weight: 400;
+      background: var(--offwhite);
+      color: var(--navy);
+      font-size: 16px;
+      line-height: 1.7;
+      overflow-x: hidden;
+      -webkit-font-smoothing: antialiased;
+    }
+    a { color: inherit; text-decoration: none; }
+    img { max-width: 100%; display: block; }
+
+    /* ─── NAV ────────────────────────────────────── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3.5%; height: 72px;
+      background: rgba(13,30,48,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+      border-bottom: 1px solid rgba(255,255,255,0.06);
+    }
+    .nav-brand { display: flex; align-items: center; gap: 16px; text-decoration: none; }
+    .nav-brand-logo { height: 38px; width: auto; }
+    .nav-brand-text { display: flex; flex-direction: column; gap: 1px; }
+    .nav-logo {
+      font-family: var(--display); font-weight: 700; font-size: 1rem;
+      letter-spacing: 0.16em; text-transform: uppercase; color: var(--white); line-height: 1;
+    }
+    .nav-logo .dot { color: var(--orange); }
+    .nav-tagline {
+      font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--mist); opacity: 0.7;
+    }
+    .nav-links {
+      display: flex; gap: 0; list-style: none; align-items: center; height: 72px;
+    }
+    .nav-links li { height: 100%; display: flex; align-items: center; }
+    .nav-links a {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--mist); text-decoration: none;
+      padding: 0 1.1rem; height: 100%; display: flex; align-items: center;
+      position: relative; transition: color 0.25s;
+    }
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.1rem; right: 1.1rem;
+      height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.3s;
+    }
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+    .nav-cta {
+      background: var(--orange) !important; color: var(--white) !important;
+      padding: 0.5rem 1.3rem !important; height: auto !important;
+      font-weight: 500 !important; transition: background 0.25s !important;
+    }
+    .nav-cta:hover { background: var(--orange-lt) !important; }
+    .nav-cta::after { display: none !important; }
+
+    .nav-burger {
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001;
+    }
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
+
+    /* Mobile overlay */
+    .mobile-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(13,30,48,0.98);
+      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+    }
+    .mobile-overlay.open { display: flex; }
+    .mobile-overlay a {
+      font-family: var(--display); font-size: 1.2rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--mist-lt); transition: color 0.2s;
+    }
+    .mobile-overlay a:hover { color: var(--orange); }
+
+    /* ─── PAGE HERO ──────────────────────────────── */
+    .page-hero {
+      padding: 10rem 6% 5rem;
+      background: linear-gradient(170deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+      color: var(--white); position: relative; overflow: hidden;
+    }
+    .page-hero::before {
+      content: ''; position: absolute; top: -50%; right: -20%;
+      width: 80%; height: 200%;
+      background: radial-gradient(ellipse, rgba(212,98,42,0.06) 0%, transparent 60%);
+      pointer-events: none;
+    }
+    .page-hero .hero-label {
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .page-hero .hero-label::before { content: ''; width: 28px; height: 1px; background: var(--orange); }
+    .page-hero h1 {
+      font-family: var(--display); font-size: clamp(2.2rem, 5vw, 3.6rem);
+      font-weight: 700; line-height: 1.15; letter-spacing: 0.04em;
+      text-transform: uppercase; max-width: 700px;
+    }
+    .page-hero h1 em {
+      font-family: var(--heading); font-style: italic; font-weight: 300;
+      letter-spacing: 0.02em; text-transform: none; display: block;
+      color: var(--mist-lt); font-size: 0.55em; margin-top: 0.3rem;
+    }
+    .page-hero .hero-desc {
+      font-family: var(--body); font-size: 1.05rem; color: var(--mist-lt);
+      max-width: 540px; margin-top: 1.5rem; line-height: 1.75;
+    }
+
+    /* ─── SECTIONS ───────────────────────────────── */
+    .section { padding: 6rem 6%; }
+    .section-dark { background: var(--navy); color: var(--white); }
+    .section-cream { background: var(--cream); }
+    .section-white { background: var(--white); }
+
+    .section-label {
+      font-family: var(--mono); font-size: 0.58rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 0.8rem;
+      display: flex; align-items: center; gap: 0.8rem;
+    }
+    .section-label::before { content: ''; width: 22px; height: 1px; background: var(--orange); }
+    .section-title {
+      font-family: var(--display); font-size: clamp(1.6rem, 3.5vw, 2.5rem);
+      font-weight: 700; letter-spacing: 0.04em; text-transform: uppercase;
+      line-height: 1.2; margin-bottom: 1.2rem;
+    }
+    .section-subtitle {
+      font-family: var(--heading); font-size: 1.2rem; font-weight: 300;
+      font-style: italic; color: var(--steel); max-width: 600px; margin-bottom: 2.5rem;
+    }
+
+    /* ─── CONTENT GRID ───────────────────────────── */
+    .content-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 3rem; align-items: start; }
+    .content-grid-3 { display: grid; grid-template-columns: repeat(3, 1fr); gap: 2rem; }
+
+    /* ─── CARDS ───────────────────────────────────── */
+    .card {
+      background: var(--white); border: 1px solid var(--border-lt);
+      padding: 2.5rem 2rem; position: relative; transition: transform 0.3s, box-shadow 0.3s;
+    }
+    .card:hover { transform: translateY(-3px); box-shadow: 0 12px 40px rgba(28,60,90,0.08); }
+    .card::before {
+      content: ''; position: absolute; top: 0; left: 0; right: 0; height: 3px;
+      background: var(--orange); transform: scaleX(0); transform-origin: left; transition: transform 0.4s;
+    }
+    .card:hover::before { transform: scaleX(1); }
+    .card-number {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.2em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 1rem;
+    }
+    .card h3 {
+      font-family: var(--display); font-size: 1.05rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; margin-bottom: 0.8rem; line-height: 1.3;
+    }
+    .card p { font-size: 0.92rem; color: var(--steel); line-height: 1.7; }
+
+    /* ─── SERVICE SUB-NAV ────────────────────────── */
+    .service-sub {
+      padding: 1.2rem 6%; border-bottom: 1px solid var(--border-lt);
+      background: var(--cream);
+      display: flex; flex-wrap: wrap; gap: 0.5rem; align-items: center;
+    }
+    .service-sub-label {
+      font-family: var(--mono); font-size: 0.5rem; letter-spacing: 0.15em;
+      text-transform: uppercase; color: var(--orange); margin-right: 0.5rem;
+    }
+    .service-tab {
+      font-family: var(--mono); font-size: 0.56rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--steel); padding: 0.35rem 0.7rem;
+      border: 1px solid transparent; transition: all 0.2s; text-decoration: none;
+    }
+    .service-tab:hover { color: var(--orange); border-color: var(--border-lt); }
+    .service-tab.active { color: var(--orange); border-color: var(--orange); background: rgba(212,98,42,0.06); }
+
+    /* ─── DETAIL CONTENT ─────────────────────────── */
+    .detail-content { max-width: 780px; }
+    .detail-content h2 {
+      font-family: var(--display); font-size: 1.4rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; margin: 2.5rem 0 1rem;
+    }
+    .detail-content h2:first-child { margin-top: 0; }
+    .detail-content p { margin-bottom: 1.2rem; color: var(--navy); line-height: 1.8; }
+    .detail-content ul { margin: 1rem 0 1.5rem 1.2rem; color: var(--steel); }
+    .detail-content li { margin-bottom: 0.5rem; padding-left: 0.3rem; line-height: 1.7; }
+    .detail-content li::marker { color: var(--orange); }
+
+    /* ─── INFO BOX ───────────────────────────────── */
+    .info-box {
+      background: var(--cream); border-left: 3px solid var(--orange);
+      padding: 2rem 2.5rem; margin: 2rem 0;
+    }
+    .info-box h4 {
+      font-family: var(--display); font-size: 0.85rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.06em; margin-bottom: 0.6rem;
+    }
+    .info-box p { font-size: 0.92rem; color: var(--steel); }
+
+    /* ─── CTA BANNER ─────────────────────────────── */
+    .cta-banner {
+      background: var(--navy); padding: 4rem 6%;
+      display: flex; align-items: center; justify-content: space-between;
+      gap: 2rem; flex-wrap: wrap;
+    }
+    .cta-banner h3 {
+      font-family: var(--display); font-size: 1.4rem; font-weight: 700;
+      text-transform: uppercase; letter-spacing: 0.05em; color: var(--white);
+    }
+    .cta-banner p { font-family: var(--heading); font-size: 1rem; font-style: italic; color: var(--mist); margin-top: 0.3rem; }
+
+    /* ─── BUTTONS ────────────────────────────────── */
+    .btn {
+      display: inline-flex; align-items: center; gap: 0.6rem;
+      font-family: var(--mono); font-size: 0.65rem; letter-spacing: 0.14em;
+      text-transform: uppercase; padding: 0.85rem 2rem; border: none;
+      cursor: pointer; transition: all 0.25s; text-decoration: none;
+    }
+    .btn-primary { background: var(--orange); color: var(--white); }
+    .btn-primary:hover { background: var(--orange-lt); transform: translateY(-1px); }
+    .btn-outline-dark { background: transparent; color: var(--navy); border: 1px solid var(--border-lt); }
+    .btn-outline-dark:hover { border-color: var(--orange); color: var(--orange); }
+
+    /* ─── FORM ───────────────────────────────────── */
+    .form-group { margin-bottom: 1.5rem; }
+    .form-group label {
+      display: block; font-family: var(--mono); font-size: 0.58rem;
+      letter-spacing: 0.15em; text-transform: uppercase; color: var(--steel); margin-bottom: 0.5rem;
+    }
+    .form-group input, .form-group textarea, .form-group select {
+      width: 100%; padding: 0.85rem 1rem; font-family: var(--body);
+      font-size: 0.92rem; border: 1px solid var(--border-lt);
+      background: var(--white); color: var(--navy); outline: none; transition: border-color 0.25s;
+    }
+    .form-group input:focus, .form-group textarea:focus, .form-group select:focus { border-color: var(--orange); }
+    .form-group textarea { resize: vertical; min-height: 140px; }
+
+    /* ─── FOOTER ──────────────────────────────────── */
+    .site-footer {
+      background: var(--navy-dark); color: var(--white);
+      padding: 4rem 6% 2rem; border-top: 3px solid var(--orange);
+    }
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand-col .footer-logo-img { height: 42px; width: auto; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+    .footer-brand-col .footer-desc { font-size: 0.88rem; color: var(--mist); line-height: 1.7; max-width: 320px; }
+    .footer-col h4 {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem;
+    }
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a { font-size: 0.85rem; color: var(--mist); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--orange); }
+    .footer-bottom {
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+    }
+    .footer-copy {
+      font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(143,170,190,0.4);
+    }
+    .footer-est { font-family: var(--display); font-size: 0.7rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.15); }
+
+    /* ─── FADE-UP ────────────────────────────────── */
+    .fade-up { opacity: 0; transform: translateY(24px); transition: opacity 0.7s ease, transform 0.7s ease; }
+    .fade-up.visible { opacity: 1; transform: translateY(0); }
+
+    /* ─── RESPONSIVE ─────────────────────────────── */
+    @media (max-width: 1024px) {
+      .content-grid { grid-template-columns: 1fr; }
+      .content-grid-3 { grid-template-columns: 1fr 1fr; }
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .page-hero { padding: 8rem 5% 3.5rem; }
+      .section { padding: 4rem 5%; }
+      .content-grid-3 { grid-template-columns: 1fr; }
+      .cta-banner { padding: 3rem 5%; flex-direction: column; text-align: center; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+      .service-sub { padding: 1rem 5%; }
+    }
+
+  </style>
+</head>
+<body>
+
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+      <img src="logga_transparent.svg" alt="Cargo Survey AB" class="nav-brand-logo" width="380" height="154">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html">Start</a></li>
+      <li><a href="terminal.html" class=\'active\'>Tjänster</a></li>
+      <li><a href="blogg.html">Nyheter</a></li>
+      <li><a href="om-oss.html" >Om oss</a></li>
+      <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+    </ul>
+    <div class="nav-burger" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
+    </div>
+  </nav>
+  <div class="mobile-overlay" id="mobileNav">
+    <a href="index.html">Start</a>
+    <a href="terminal.html">Terminalbesiktning</a>
+    <a href="olja-petroleum.html">Olja & Petroleum</a>
+    <a href="provtagning-bulk.html">Provtagning & Bulk</a>
+    <a href="skadeinspektioner.html">Skadeinspektioner</a>
+    <a href="marina-inspektioner.html">Marina Inspektioner</a>
+    <a href="pre-shipment.html">Pre-shipment</a>
+    <a href="pre-wash-marpol.html">Pre-wash & MARPOL</a>
+    <a href="blogg.html">Nyheter</a>
+    <a href="om-oss.html">Om oss</a>
+    <a href="jobba-at-oss.html">Karriär</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
+
+  <div class="page-hero">
+    <div class="hero-label">03 · Tjänster</div>
+    <h1>Provtagning<br>& Bulk<em>Noggrann dokumentation av varje last</em></h1>
+    <p class="hero-desc">Oberoende provtagning och kvantitetskontroll av torra och flytande bulklaster — från spannmål till kemikalier.</p>
+  </div>
+  
+  <div class="service-sub">
+    <span class="service-sub-label">Tjänster:</span>
+    <a href="terminal.html" class="service-tab">Terminal</a>
+    <a href="olja-petroleum.html" class="service-tab">Olja & Petroleum</a>
+    <a href="provtagning-bulk.html" class="service-tab active">Provtagning & Bulk</a>
+    <a href="skadeinspektioner.html" class="service-tab">Skadeinspektioner</a>
+    <a href="marina-inspektioner.html" class="service-tab">Marina Inspektioner</a>
+    <a href="pre-shipment.html" class="service-tab">Pre-shipment</a>
+    <a href="pre-wash-marpol.html" class="service-tab">Pre-wash & MARPOL</a>
+  </div>
+
+  <div class="section section-white">
+    <div class="content-grid">
+      <div class="detail-content fade-up">
+        <div class="section-label">Tjänsteöversikt</div>
+        <h2>Provtagning</h2>
+        <p>Korrekt provtagning är grunden för kvalitetsbedömning och handelsverifiering. Vi utför representativ provtagning enligt internationella standarder vid lastning, lossning och lagring — för att säkerställa att varje prov korrekt representerar hela partiet.</p>
+        <h2>Bulkbesiktning</h2>
+        <p>Vid hantering av torra bulklaster — som spannmål, pellets, mineraler, kol och malm — genomför vi draft surveys, viktverifiering och lastningskontroll. Vi dokumenterar lastens skick, kvantitet och hantering genom hela kedjan.</p>
+        <ul>
+          <li>Draft surveys för viktberäkning</li>
+          <li>Provtagning av torr- och våtbulk</li>
+          <li>Hold-inspektioner före lastning</li>
+          <li>Dokumentation av lastskick (condition surveys)</li>
+          <li>Tally och kvantitetskontroll</li>
+          <li>Fuktmätningar och temperaturkontroll</li>
+        </ul>
+        <div class="info-box"><h4>Representativa prover</h4><p>Vi följer standardiserade provtagningsmetoder som säkerställer att analysresultaten är tillförlitliga och rättsligt hållbara.</p></div>
+      </div>
+      <div>
+        <div class="card fade-up" style="margin-bottom:1.5rem"><div class="card-number">Metoder</div><h3>ISO-standarder</h3><p>Provtagning enligt ISO 3170, 3171, 5667 och branschspecifika protokoll.</p></div>
+        <div class="card fade-up" style="margin-bottom:1.5rem"><div class="card-number">Bulktyper</div><h3>Torr & Flytande</h3><p>Spannmål, pellets, kemikalier, mineraler, kol, malm och mer.</p></div>
+        <div class="card fade-up"><div class="card-number">Draft survey</div><h3>Viktberäkning</h3><p>Exakt viktbestämning baserad på fartygets djupgående före och efter lastning.</p></div>
+      </div>
+    </div>
+  </div>
+  <div class="cta-banner"><div><h3>Behöver ni provtagning eller bulkbesiktning?</h3><p>Vi ställer upp med kort varsel i hamnar längs hela kusten</p></div><a href="kontakt.html" class="btn btn-primary">Kontakta oss →</a></div>
+
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <img src="logga_transparent.svg" alt="Cargo Survey AB" class="footer-logo-img" width="380" height="154" loading="lazy">
+        <p class="footer-desc">Sedan 1983 levererar vi oberoende besiktnings- och inspektionstjänster i hamnar längs hela Sveriges kust — med precision, integritet och branschledande kompetens.</p>
+      </div>
+      <div class="footer-col">
+        <h4>Tjänster</h4>
+        <ul>
+          <li><a href="terminal.html">Terminalbesiktning</a></li>
+          <li><a href="olja-petroleum.html">Olja &amp; Petroleum</a></li>
+          <li><a href="provtagning-bulk.html">Provtagning &amp; Bulk</a></li>
+          <li><a href="skadeinspektioner.html">Skadeinspektioner</a></li>
+          <li><a href="marina-inspektioner.html">Marina Inspektioner</a></li>
+          <li><a href="pre-shipment.html">Pre-shipment</a></li>
+          <li><a href="pre-wash-marpol.html">Pre-wash &amp; MARPOL</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Företaget</h4>
+        <ul>
+          <li><a href="om-oss.html">Om oss</a></li>
+          <li><a href="blogg.html">Nyheter</a></li>
+          <li><a href="jobba-at-oss.html">Jobba hos oss</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="mailto:info@cargosurvey.se">info@cargosurvey.se</a></li>
+          <li><a href="tel:+4626XXXXXX">026-XX XX XX</a></li>
+          <li><span style="font-size:0.85rem;color:var(--mist);">Gävle, Sverige</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 Cargo Survey AB. Alla rättigheter förbehållna.</span>
+      <span class="footer-est">EST. 1983 · GÄVLE</span>
+    </div>
+  </footer>
+
+  <script>
+  const obs = new IntersectionObserver((entries) => {
+    entries.forEach(e => { if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); } });
+  }, { threshold: 0.1 });
+  document.querySelectorAll('.fade-up').forEach(el => obs.observe(el));
+  </script>
+</body>
+</html>
