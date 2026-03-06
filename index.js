@@ -131,9 +131,7 @@ document.querySelectorAll('a[href="#services"], a[href^="#service-"]').forEach(l
   link.addEventListener('click', e => {
     e.preventDefault();
     const href = link.getAttribute('href');
-    const target = href === '#services'
-      ? document.getElementById('service-ledarskap')
-      : document.querySelector(href);
+    const target = document.querySelector(href);
     if (!target) return;
     const navH = document.getElementById('mainNav')?.offsetHeight || 68;
     window.scrollTo({ top: Math.max(0, getDocTop(target) - navH - 16), behavior: 'smooth' });
