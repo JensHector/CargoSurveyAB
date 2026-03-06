@@ -222,4 +222,11 @@ document.querySelectorAll('.modal-cta-btn').forEach(btn => {
       cards[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'center' });
     });
   });
+
+  // Reset to first card when navigating to #services via any link
+  document.querySelectorAll('a[href="#services"]').forEach(link => {
+    link.addEventListener('click', () => {
+      requestAnimationFrame(() => { grid.scrollLeft = 0; });
+    });
+  });
 }());
