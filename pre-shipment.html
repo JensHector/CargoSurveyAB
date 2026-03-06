@@ -282,7 +282,7 @@
       padding: 4rem 6% 2rem; border-top: 3px solid var(--orange);
     }
     .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
-    .footer-brand-col .footer-logo-img { height: 42px; width: auto; margin-bottom: 1rem; filter: brightness(0) invert(1); }
+    /* footer logo is now inline SVG */
     .footer-brand-col .footer-desc { font-size: 0.88rem; color: var(--mist); line-height: 1.7; max-width: 320px; }
     .footer-col h4 {
       font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.18em;
@@ -329,7 +329,17 @@
 
   <nav class="site-nav">
     <a href="index.html" class="nav-brand">
-      <img src="logga_transparent.svg" alt="Cargo Survey AB" class="nav-brand-logo" width="380" height="154">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 65" role="img" aria-label="Cargo Survey – Independent Marine Surveyors" style="height:38px;width:auto;">
+  <g>
+    <path d="M28,15 C28,15 20,15 15,22 C10,29 10,37 15,43 C20,49 28,50 28,50" 
+          fill="none" stroke="#D85A22" stroke-width="7" stroke-linecap="round"/>
+    <path d="M28,22 C28,22 22,22 19,27 C16,32 18,38 24,39 C27,39.5 30,38 30,38" 
+          fill="none" stroke="#D85A22" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="30" cy="32" r="4.5" fill="#D85A22"/>
+  </g>
+  <text x="52" y="28" font-family="Montserrat,Arial Black,sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" letter-spacing="-0.4">CARGO</text>
+  <text x="52" y="52" font-family="Montserrat,Arial Black,sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" letter-spacing="-0.4">SURVEY</text>
+</svg>
     </a>
     <ul class="nav-links">
       <li><a href="index.html">Start</a></li>
@@ -405,7 +415,17 @@
   <footer class="site-footer">
     <div class="footer-grid">
       <div class="footer-brand-col">
-        <img src="logga_transparent.svg" alt="Cargo Survey AB" class="footer-logo-img" width="380" height="154" loading="lazy">
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 300 65" role="img" aria-label="Cargo Survey AB" style="height:42px;width:auto;margin-bottom:1rem;">
+  <g>
+    <path d="M28,15 C28,15 20,15 15,22 C10,29 10,37 15,43 C20,49 28,50 28,50" 
+          fill="none" stroke="#D85A22" stroke-width="7" stroke-linecap="round"/>
+    <path d="M28,22 C28,22 22,22 19,27 C16,32 18,38 24,39 C27,39.5 30,38 30,38" 
+          fill="none" stroke="#D85A22" stroke-width="5" stroke-linecap="round"/>
+    <circle cx="30" cy="32" r="4.5" fill="#D85A22"/>
+  </g>
+  <text x="52" y="28" font-family="Montserrat,Arial Black,sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" letter-spacing="-0.4">CARGO</text>
+  <text x="52" y="52" font-family="Montserrat,Arial Black,sans-serif" font-weight="800" font-size="22" fill="#FFFFFF" letter-spacing="-0.4">SURVEY</text>
+</svg>
         <p class="footer-desc">Sedan 1983 levererar vi oberoende besiktnings- och inspektionstjänster i hamnar längs hela Sveriges kust — med precision, integritet och branschledande kompetens.</p>
       </div>
       <div class="footer-col">
