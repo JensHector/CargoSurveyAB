@@ -202,20 +202,24 @@ document.querySelectorAll('.modal-cta-btn').forEach(btn => {
 // ── Services carousel dots
 (function () {
   const grid = document.querySelector('.services-grid');
-  const dots = document.querySelectorAll('.services-dot');
+  const cards = Array.from(document.querySelectorAll('.service-card'));
+  const dots = Array.from(document.querySelectorAll('.services-dot'));
   if (!grid || !dots.length) return;
 
-  function updateDot() {
-    const cardWidth = grid.querySelector('.service-card')?.offsetWidth || 1;
-    const index = Math.round(grid.scrollLeft / (cardWidth + 14));
-    dots.forEach((d, i) => d.classList.toggle('active', i === index));
-  }
+  const observer = new IntersectionObserver(entries => {
+    entries.forEach(entry => {
+      if (entry.intersectionRatio >= 0.6) {
+        const i = cards.indexOf(entry.target);
+        if (i >= 0) dots.forEach((d, j) => d.classList.toggle('active', j === i));
+      }
+    });
+  }, { root: grid, threshold: 0.6 });
 
-  grid.addEventListener('scroll', updateDot, { passive: true });
+  cards.forEach(card => observer.observe(card));
+
   dots.forEach((dot, i) => {
     dot.addEventListener('click', () => {
-      const cardWidth = grid.querySelector('.service-card')?.offsetWidth || 1;
-      grid.scrollTo({ left: i * (cardWidth + 14), behavior: 'smooth' });
+      cards[i]?.scrollIntoView({ behavior: 'smooth', block: 'nearest', inline: 'start' });
     });
   });
 }());
