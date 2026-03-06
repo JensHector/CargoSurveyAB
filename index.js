@@ -198,3 +198,24 @@ document.querySelectorAll('.modal-close').forEach(btn => {
 document.querySelectorAll('.modal-cta-btn').forEach(btn => {
   btn.addEventListener('click', closeAllModals);
 });
+
+// ── Services carousel dots
+(function () {
+  const grid = document.querySelector('.services-grid');
+  const dots = document.querySelectorAll('.services-dot');
+  if (!grid || !dots.length) return;
+
+  function updateDot() {
+    const cardWidth = grid.querySelector('.service-card')?.offsetWidth || 1;
+    const index = Math.round(grid.scrollLeft / (cardWidth + 14));
+    dots.forEach((d, i) => d.classList.toggle('active', i === index));
+  }
+
+  grid.addEventListener('scroll', updateDot, { passive: true });
+  dots.forEach((dot, i) => {
+    dot.addEventListener('click', () => {
+      const cardWidth = grid.querySelector('.service-card')?.offsetWidth || 1;
+      grid.scrollTo({ left: i * (cardWidth + 14), behavior: 'smooth' });
+    });
+  });
+}());

@@ -718,6 +718,8 @@
       gap: 24px;
     }
 
+    .services-dots { display: none; }
+
     .service-card {
       background: var(--white);
       border: 1px solid var(--border);
@@ -1625,7 +1627,39 @@
       .how-text { font-size: 15px; color: rgba(255,255,255,0.86); line-height: 1.7; }
       .service-text { font-size: 15px; color: #4a4a4a; }
       .clients { padding: 48px 24px; }
-      .services-grid { grid-template-columns: 1fr; }
+      .services-grid {
+        display: flex;
+        overflow-x: scroll;
+        scroll-snap-type: x mandatory;
+        -webkit-overflow-scrolling: touch;
+        scrollbar-width: none;
+        gap: 14px;
+        padding: 4px 18px 20px;
+        margin: 0 -18px;
+      }
+      .services-grid::-webkit-scrollbar { display: none; }
+      .service-card {
+        flex: 0 0 85vw;
+        scroll-snap-align: start;
+        min-width: 0;
+      }
+      .services-dots {
+        display: flex;
+        justify-content: center;
+        gap: 8px;
+        margin-top: 16px;
+      }
+      .services-dot {
+        width: 8px;
+        height: 8px;
+        border-radius: 50%;
+        background: #cbd5e1;
+        transition: background 0.25s ease, transform 0.25s ease;
+      }
+      .services-dot.active {
+        background: var(--orange);
+        transform: scale(1.35);
+      }
       .how-grid { grid-template-columns: 1fr 1fr; }
       .form-row { grid-template-columns: 1fr; }
       input, textarea, button { font-size: 16px; }
@@ -1887,6 +1921,14 @@
           <p class="service-text">Utnyttja kraften i en inspirerande föreläsning vid ditt nästa möte eller konferens. Våra föreläsningar ger ett unikt och tankeväckande inslag som lyfter och förstärker er fortsatta dialog kring ledarskap, motivation och grupputveckling.</p>
           <a href="/forelasningar" data-modal="modal-forelasningar" class="service-link">Läs mer <svg viewBox="0 0 24 24"><line x1="5" y1="12" x2="19" y2="12"/><polyline points="12 5 19 12 12 19"/></svg></a>
         </div>
+      </div>
+      <div class="services-dots" aria-hidden="true">
+        <span class="services-dot active"></span>
+        <span class="services-dot"></span>
+        <span class="services-dot"></span>
+        <span class="services-dot"></span>
+        <span class="services-dot"></span>
+        <span class="services-dot"></span>
       </div>
     </div>
   </section>
