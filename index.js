@@ -133,8 +133,13 @@ document.querySelectorAll('a[href="#services"], a[href^="#service-"]').forEach(l
     const href = link.getAttribute('href');
     const target = document.querySelector(href);
     if (!target) return;
-    const navH = document.getElementById('mainNav')?.offsetHeight || 68;
-    window.scrollTo({ top: Math.max(0, getDocTop(target) - navH - 16), behavior: 'smooth' });
+    if (href === '#services') {
+      // Use scrollIntoView so scroll-margin-top: 100px is respected (same as native hash nav)
+      target.scrollIntoView({ behavior: 'smooth', block: 'start' });
+    } else {
+      const navH = document.getElementById('mainNav')?.offsetHeight || 68;
+      window.scrollTo({ top: Math.max(0, getDocTop(target) - navH - 16), behavior: 'smooth' });
+    }
   });
 });
 
