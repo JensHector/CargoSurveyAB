@@ -349,7 +349,7 @@
       right: -100px; top: -100px;
       width: 500px; height: 500px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(227,96,32,0.08) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212,98,42,0.08) 0%, transparent 70%);
     }
 
     .hero-decor-2 {
@@ -359,7 +359,7 @@
       width: 300px;
       height: 300px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(227,96,32,0.05) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212,98,42,0.05) 0%, transparent 70%);
       pointer-events: none;
     }
 
@@ -376,39 +376,64 @@
     }
 
     .hero-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--orange);
       margin-bottom: 20px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .hero-label::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--orange);
+      flex-shrink: 0;
     }
 
     .hero h1 {
+      font-family: var(--display);
       font-weight: 700;
+      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--white);
+      line-height: 1.15;
       margin-bottom: 20px;
     }
 
     .hero h1 em {
-      color: var(--orange);
-      font-style: normal;
+      font-family: var(--heading);
+      font-style: italic;
+      font-weight: 300;
+      letter-spacing: 0.02em;
+      text-transform: none;
+      display: block;
+      color: var(--mist-lt);
+      font-size: 0.6em;
+      margin-top: 0.3rem;
     }
 
     .hero-desc {
-      font-size: 17px;
-      color: rgba(255,255,255,0.78);
-      font-weight: 300;
-      line-height: 1.7;
+      font-family: var(--body);
+      font-size: 1.05rem;
+      color: var(--mist-lt);
+      font-weight: 400;
+      line-height: 1.75;
       margin-bottom: 12px;
       max-width: 500px;
     }
 
     .hero-desc-2 {
-      font-size: 15px;
-      color: rgba(255,255,255,0.62);
-      font-weight: 300;
-      line-height: 1.7;
+      font-family: var(--body);
+      font-size: 0.92rem;
+      color: rgba(184,206,223,0.75);
+      font-weight: 400;
+      line-height: 1.75;
       margin-bottom: 40px;
       max-width: 500px;
     }
@@ -436,7 +461,7 @@
     .btn-primary:hover {
       background: #cc5519;
       transform: translateY(-2px);
-      box-shadow: 0 8px 24px rgba(227,96,32,0.35);
+      box-shadow: 0 8px 24px rgba(212,98,42,0.35);
     }
 
     .btn-ghost {
@@ -473,13 +498,13 @@
 
     .pillar-card:hover {
       background: rgba(255,255,255,0.07);
-      border-color: rgba(227,96,32,0.3);
+      border-color: rgba(212,98,42,0.3);
     }
 
     .pillar-icon {
       width: 32px;
       height: 32px;
-      background: rgba(227,96,32,0.15);
+      background: rgba(212,98,42,0.15);
       border-radius: 6px;
       display: flex;
       align-items: center;
@@ -498,18 +523,21 @@
     }
 
     .pillar-title {
-      font-size: 13px;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
       color: var(--white);
       margin-bottom: 6px;
-      letter-spacing: 0.02em;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
     }
 
     .pillar-text {
-      font-size: 12px;
-      color: rgba(255,255,255,0.62);
-      line-height: 1.5;
-      font-weight: 300;
+      font-family: var(--body);
+      font-size: 0.82rem;
+      color: var(--mist-lt);
+      line-height: 1.6;
+      font-weight: 400;
     }
 
     /* ── CLIENTS ── */
@@ -526,11 +554,12 @@
     }
 
     .clients-label {
-      font-size: 11px;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 400;
       letter-spacing: 0.18em;
       text-transform: uppercase;
-      color: var(--gray-light);
+      color: var(--steel);
       text-align: center;
       margin-bottom: 36px;
     }
@@ -576,27 +605,42 @@
     }
 
     .section-eyebrow {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.22em;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
       text-transform: uppercase;
       color: var(--orange);
-      margin-bottom: 12px;
+      margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      gap: 0.8rem;
+    }
+    .section-eyebrow::before {
+      content: '';
+      width: 28px;
+      height: 1px;
+      background: var(--orange);
+      flex-shrink: 0;
     }
 
     .section-title {
+      font-family: var(--display);
       font-weight: 700;
       color: var(--navy);
-      line-height: 1.18;
+      line-height: 1.15;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       margin-bottom: 16px;
     }
 
     .section-lead {
-      font-size: 17px;
-      color: var(--gray);
-      font-weight: 300;
+      font-family: var(--body);
+      font-size: 1.05rem;
+      color: var(--navy);
+      font-weight: 400;
       max-width: 580px;
-      line-height: 1.7;
+      line-height: 1.75;
       margin-bottom: 56px;
     }
 
@@ -638,33 +682,38 @@
     }
 
     .service-cat {
-      font-size: 10px;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 400;
       letter-spacing: 0.18em;
       color: var(--orange);
       text-transform: uppercase;
       margin-bottom: 14px;
     }
 
-
     .service-title {
-      font-size: 17px;
-      font-weight: 700;
+      font-family: var(--heading);
+      font-size: 1.2rem;
+      font-weight: 600;
       color: var(--navy);
       margin-bottom: 12px;
       line-height: 1.3;
     }
 
     .service-text {
-      font-size: 14px;
-      color: #666;
-      line-height: 1.6;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--navy);
+      line-height: 1.7;
       margin-bottom: 20px;
     }
 
     .service-link {
-      font-size: 14px;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.58rem;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      font-weight: 400;
       color: var(--orange);
       text-decoration: none;
       letter-spacing: 0.04em;
@@ -702,7 +751,7 @@
       right: -100px; bottom: -100px;
       width: 400px; height: 400px;
       border-radius: 50%;
-      background: radial-gradient(circle, rgba(227,96,32,0.07) 0%, transparent 70%);
+      background: radial-gradient(circle, rgba(212,98,42,0.07) 0%, transparent 70%);
     }
 
     .how .section-eyebrow { color: var(--orange); }
@@ -730,26 +779,29 @@
     }
 
     .how-num {
-      font-size: 40px;
+      font-family: var(--display);
+      font-size: 2.5rem;
       font-weight: 700;
-      color: rgba(227,96,32,0.40);
+      color: rgba(212,98,42,0.45);
       line-height: 1;
       margin-bottom: 16px;
-      font-variant-numeric: tabular-nums;
+      letter-spacing: 0.04em;
     }
 
     .how-title {
-      font-size: 15px;
-      font-weight: 700;
+      font-family: var(--heading);
+      font-size: 1.15rem;
+      font-weight: 600;
       color: var(--white);
       margin-bottom: 10px;
     }
 
     .how-text {
-      font-size: 13px;
-      color: rgba(255,255,255,0.65);
-      line-height: 1.65;
-      font-weight: 300;
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--mist-lt);
+      line-height: 1.7;
+      font-weight: 400;
     }
 
     /* ── ABOUT ── */
@@ -765,9 +817,10 @@
     }
 
     .about-left p {
-      font-size: 16px;
-      color: var(--gray);
-      line-height: 1.75;
+      font-family: var(--body);
+      font-size: 1rem;
+      color: var(--navy);
+      line-height: 1.85;
       margin-bottom: 20px;
     }
 
@@ -785,14 +838,15 @@
       position: absolute;
       top: -10px; left: 20px;
       font-size: 100px;
-      color: rgba(227,96,32,0.15);
+      color: rgba(212,98,42,0.15);
       line-height: 1;
       font-weight: 700;
     }
 
     .about-quote-text {
+      font-family: var(--heading);
       font-size: 18px;
-      font-weight: 300;
+      font-weight: 400;
       color: var(--orange);
       font-style: italic;
       line-height: 1.5;
@@ -825,15 +879,19 @@
     }
 
     .founder-name {
-      font-size: 17px;
+      font-family: var(--display);
+      font-size: 0.95rem;
       font-weight: 700;
+      letter-spacing: 0.06em;
+      text-transform: uppercase;
       color: var(--navy);
       letter-spacing: 0.03em;
       margin-bottom: 5px;
     }
 
     .founder-title {
-      font-size: 10px;
+      font-family: var(--mono);
+      font-size: 0.5rem;
       color: var(--orange);
       letter-spacing: 0.18em;
       text-transform: uppercase;
@@ -851,8 +909,9 @@
     .tools-header {
       background: var(--navy);
       padding: 14px 20px;
-      font-size: 11px;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 400;
       letter-spacing: 0.15em;
       text-transform: uppercase;
       color: var(--white);
@@ -899,8 +958,12 @@
     }
 
     .partner-tag {
-      font-size: 12px;
-      color: var(--gray);
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 0.1em;
+      text-transform: uppercase;
+      color: var(--navy);
       background: var(--beige);
       padding: 5px 12px;
       border-radius: 20px;
@@ -942,27 +1005,37 @@
     }
 
     .cta-label {
-      font-size: 11px;
-      font-weight: 700;
+      font-family: var(--mono);
+      font-size: 0.6rem;
+      font-weight: 400;
       letter-spacing: 0.22em;
       text-transform: uppercase;
       color: rgba(255,255,255,0.85);
       margin-bottom: 16px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 0.8rem;
     }
+    .cta-label::before { content: ''; width: 28px; height: 1px; background: rgba(255,255,255,0.6); }
 
     .cta-title {
-      font-size: clamp(26px, 3vw, 38px);
+      font-family: var(--display);
+      font-size: clamp(1.6rem, 3vw, 2.4rem);
       font-weight: 700;
+      letter-spacing: 0.04em;
+      text-transform: uppercase;
       color: var(--white);
-      line-height: 1.2;
+      line-height: 1.15;
       margin-bottom: 20px;
     }
 
     .cta-text {
-      font-size: 16px;
+      font-family: var(--body);
+      font-size: 1rem;
       color: rgba(255,255,255,0.90);
-      font-weight: 300;
-      line-height: 1.7;
+      font-weight: 400;
+      line-height: 1.75;
       margin-bottom: 36px;
     }
 
@@ -1014,7 +1087,7 @@
     .contact .form-group textarea::placeholder         { color: rgba(255,255,255,0.45); }
     .contact .form-group select                        { background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='rgba(255,255,255,0.55)' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpolyline points='6 9 12 15 18 9'/%3E%3C/svg%3E"); background-repeat: no-repeat; background-position: right 12px center; background-size: 16px; padding-right: 38px; }
     .contact .form-group input:focus,
-    .contact .form-group textarea:focus                { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(227,96,32,0.20); }
+    .contact .form-group textarea:focus                { border-color: var(--orange); box-shadow: 0 0 0 3px rgba(212,98,42,0.20); }
     .contact .form-submit                              { background: var(--orange); }
     .contact .form-submit:hover                        { background: #cc5519; }
 
@@ -1057,11 +1130,12 @@
     }
 
     .contact-item-label {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.12em;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      font-weight: 400;
+      letter-spacing: 0.16em;
       text-transform: uppercase;
-      color: var(--gray-light);
+      color: var(--mist);
       margin-bottom: 4px;
     }
 
@@ -1131,7 +1205,7 @@
     .form-group textarea:focus,
     .form-group select:focus {
       border-color: var(--orange);
-      box-shadow: 0 0 0 3px rgba(227,96,32,0.1);
+      box-shadow: 0 0 0 3px rgba(212,98,42,0.1);
     }
 
     .form-group textarea {
@@ -1282,9 +1356,12 @@
     }
 
     .modal-tagline {
-      font-size: 14px;
-      color: rgba(255,255,255,0.5);
-      font-weight: 300;
+      font-family: var(--mono);
+      font-size: 0.55rem;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--mist);
+      font-weight: 400;
       line-height: 1.6;
     }
 
@@ -1294,8 +1371,10 @@
     }
 
     .modal-body p {
-      font-size: 15px;
-      color: var(--gray);
+      font-family: var(--body);
+      font-size: 0.95rem;
+      color: var(--navy);
+      font-weight: 400;
       line-height: 1.75;
       margin-bottom: 18px;
     }
@@ -1355,8 +1434,10 @@
     }
 
     .modal-cta p {
-      font-size: 14px;
-      color: var(--gray);
+      font-family: var(--body);
+      font-size: 0.9rem;
+      color: var(--navy);
+      font-weight: 400;
       margin-bottom: 16px;
     }
 
@@ -1797,7 +1878,7 @@
             <div class="about-quote-text">"Vi mäter fartyget före och efter lossning och fastställer vikten. Det är vad vi gör – och vi gör det rätt, varje gång."</div>
           </div>
 
-          <p class="animate" style="font-size:15px; color:var(--gray-light);">— Anna-Karin Hector, VD</p>
+          <p class="animate" style="font-family:var(--mono); font-size:0.55rem; letter-spacing:0.12em; text-transform:uppercase; color:var(--steel);">— Anna-Karin Hector, VD</p>
         </div>
 
         <div class="about-right">
@@ -1932,7 +2013,7 @@
           </form>
           <div id="form-success" style="display:none; background:var(--beige); border:1px solid var(--border); border-radius:8px; padding:24px; margin-top:16px; text-align:center;">
             <p style="font-size:15px; color:var(--navy); font-weight:600; margin-bottom:6px;">Tack för ditt meddelande!</p>
-            <p style="font-size:13px; color:var(--gray);">Vi återkommer till dig så snart som möjligt.</p>
+            <p style="font-size:13px; color:var(--navy);">Vi återkommer till dig så snart som möjligt.</p>
           </div>
           <div id="form-error" style="display:none; background:rgba(255,255,255,0.07); border:1px solid rgba(232,87,26,0.45); border-radius:8px; padding:18px 22px; margin-top:16px;">
             <p id="form-error-msg" style="font-size:14px; color:#f87c5a; font-weight:600; margin-bottom:6px;">Något gick fel – meddelandet skickades inte.</p>
