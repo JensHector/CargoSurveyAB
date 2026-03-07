@@ -9,7 +9,7 @@
     <meta property="og:type" content="article">
     <meta property="og:site_name" content="Cargo Survey AB">
     <meta property="og:locale" content="sv_SE">
-    <link rel="icon" type="image/png" href="/logo.png">
+    <link rel="icon" type="image/png" href="logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
@@ -31,141 +31,232 @@
             --black:       #0A1520;
             --light-gray:  #F8F8F6;
             --border:      #DDD8D2;
-            --accent:      #D4622A;
-            --accent-dark: #B5501E;
+            --display:     'Cinzel', serif;
+            --heading:     'Cormorant Garamond', serif;
+            --body:        'Lora', serif;
+            --mono:        'DM Mono', monospace;
         }
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-        html { scroll-behavior: smooth; scroll-padding-top: 116px; }
-        body { font-family: 'Lora', serif; background: var(--offwhite); color: var(--navy); }
-        section { padding: 96px 0; }
+        *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+        a, button { cursor: pointer; }
+        html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+        body { font-family: 'Lora', serif; background: var(--offwhite); color: var(--navy); font-size: 16px; line-height: 1.7; overflow-x: hidden; -webkit-font-smoothing: antialiased; }
+        a { color: inherit; text-decoration: none; }
+        img { max-width: 100%; display: block; }
 
-        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1400; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--navy-dark); border-bottom: 1px solid rgba(212,98,42,0.25); color: rgba(255,255,255,0.55); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
-        .nav { position: fixed; top: 32px; left: 0; right: 0; z-index: 1300; will-change: transform; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
-        .nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
-        .nav-inner { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 24px; }
-        .nav-logo { display: flex; align-items: center; text-decoration: none; }
-        .nav-logo-img { height: 56px; width: auto; display: block; }
+        /* ─── NAV ────────────────────────────────────── */
+        .site-nav {
+            position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+            display: flex; align-items: center; justify-content: space-between;
+            padding: 0 3.5%; height: 72px;
+            background: rgba(13,30,48,0.97);
+            backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
+            border-bottom: 1px solid rgba(255,255,255,0.06);
+        }
+        .nav-brand { display: flex; align-items: center; text-decoration: none; }
+        .nav-links { display: flex; gap: 0; list-style: none; align-items: center; height: 72px; }
+        .nav-links li { height: 100%; display: flex; align-items: center; }
+        .nav-links a {
+            font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
+            text-transform: uppercase; color: var(--mist); text-decoration: none;
+            padding: 0 1.1rem; height: 100%; display: flex; align-items: center;
+            position: relative; transition: color 0.25s;
+        }
+        .nav-links a::after {
+            content: ''; position: absolute; bottom: 0; left: 1.1rem; right: 1.1rem;
+            height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.3s;
+        }
+        .nav-links a:hover, .nav-links a.active { color: var(--white); }
+        .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
+        .nav-cta {
+            background: var(--orange) !important; color: var(--white) !important;
+            padding: 0.5rem 1.3rem !important; height: auto !important;
+            font-weight: 500 !important; transition: background 0.25s !important;
+        }
+        .nav-cta:hover { background: var(--orange-lt) !important; }
+        .nav-cta::after { display: none !important; }
+        .nav-burger {
+            display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001;
+        }
+        .nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
+        .mobile-overlay {
+            display: none; position: fixed; inset: 0; background: rgba(13,30,48,0.98);
+            z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
+        }
+        .mobile-overlay.open { display: flex; }
+        .mobile-overlay a {
+            font-family: var(--display); font-size: 1.2rem; letter-spacing: 0.1em;
+            text-transform: uppercase; color: var(--mist-lt); transition: color 0.2s;
+        }
+        .mobile-overlay a:hover { color: var(--orange); }
 
-        .nav-links { display: flex; align-items: center; gap: 34px; margin-left: 40px; }
-        .nav-mobile-only { display: none !important; }
-        .nav-links a { display: block; padding: 8px 14px; font-size: 13px; font-weight: 400; color: rgba(255,255,255,0.80); text-decoration: none; letter-spacing: 0.03em; border-radius: 4px; transition: color 0.2s, background 0.2s; white-space: nowrap; position: relative; }
-        .nav-links a:hover { color: var(--white); background: rgba(255,255,255,0.06); }
-        .nav-links a.active { color: var(--accent-dark); }
-        .nav-links a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0%; height: 2px; background: var(--accent); transition: .2s; }
-        .nav-links a:not(.nav-cta):hover::after, .nav-links a:not(.nav-cta).active::after { width: 100%; }
-
-        .nav-cta { background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important; color: var(--white) !important; padding: 10px 22px !important; border-radius: 12px !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.04em !important; box-shadow: 0 14px 34px rgba(212,98,42,.25); transition: .2s !important; text-decoration: none; white-space: nowrap; }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(212,98,42,.35); background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important; color: var(--white) !important; }
-        .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
-        .nav-burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
-        .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-        .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-        .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
-
-        .post-hero { background: var(--navy); padding: 148px 48px 60px; position: relative; overflow: hidden; }
+        /* ─── POST HERO ───────────────────────────── */
+        .post-hero {
+            background: linear-gradient(170deg, var(--navy-dark) 0%, var(--navy) 60%, var(--navy-mid) 100%);
+            padding: 130px 48px 60px; position: relative; overflow: hidden;
+        }
         .post-hero-inner { max-width: 800px; margin: 0 auto; }
         .post-eyebrow { display: flex; align-items: center; gap: 16px; margin-bottom: 24px; }
-        .back-link { font-size: 13px; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s; }
+        .back-link {
+            font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.1em;
+            text-transform: uppercase; color: rgba(255,255,255,0.45); text-decoration: none; transition: color 0.2s;
+        }
         .back-link:hover { color: var(--orange); }
-        .post-category { font-size: 11px; font-weight: 700; letter-spacing: 0.18em; color: var(--orange); text-transform: uppercase; }
-        .post-hero h1 { font-size: clamp(28px, 4vw, 46px); font-weight: 700; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
-        .post-meta { font-size: 13px; color: rgba(255,255,255,0.4); }
+        .post-category {
+            font-family: var(--mono); font-size: 0.55rem; font-weight: 400; letter-spacing: 0.18em;
+            color: var(--orange); text-transform: uppercase;
+        }
+        .post-hero h1 {
+            font-family: var(--heading); font-size: clamp(1.8rem, 4vw, 3rem); font-weight: 600;
+            color: var(--white); line-height: 1.2; margin-bottom: 20px;
+        }
+        .post-meta { font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.08em; color: rgba(255,255,255,0.4); }
         .post-meta span { margin-right: 16px; }
-        .hero-bg-text { position: absolute; right: -20px; top: 50%; transform: translateY(-50%); font-size: clamp(60px, 10vw, 130px); font-weight: 900; color: rgba(255,255,255,0.03); pointer-events: none; white-space: nowrap; text-transform: uppercase; }
-
-        .post-body { max-width: 800px; margin: 0 auto; padding: 60px 48px 80px; }
-        .post-body h2 { font-size: 24px; font-weight: 700; margin: 40px 0 16px; }
-        .post-body h3 { font-size: 19px; font-weight: 700; margin: 32px 0 12px; }
-        .post-body p { font-size: 17px; line-height: 1.8; color: #333; margin-bottom: 20px; }
-        .post-body strong { color: var(--navy); font-weight: 700; }
-        .post-body ol, .post-body ul { padding-left: 24px; margin-bottom: 20px; }
-        .post-body li { font-size: 17px; line-height: 1.8; color: #333; margin-bottom: 8px; }
-        .post-body a { color: var(--orange); text-decoration: none; border-bottom: 1px solid rgba(232,87,26,0.3); }
-        .post-body blockquote { border-left: 3px solid var(--orange); margin: 32px 0; padding: 16px 24px; background: var(--light-gray); border-radius: 0 8px 8px 0; }
-        .post-body blockquote p { color: var(--navy); font-style: italic; margin: 0; }
-
-        .post-cta { background: var(--navy); border-radius: 12px; padding: 48px; text-align: center; max-width: 800px; margin: 0 auto 80px; }
-        .post-cta h3 { font-size: 24px; font-weight: 700; color: var(--white); margin-bottom: 12px; }
-        .post-cta p { color: rgba(255,255,255,0.6); font-size: 15px; margin-bottom: 28px; }
-        .cta-btn { display: inline-block; background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; font-weight: 700; font-size: 15px; text-decoration: none; transition: background 0.2s; }
-        .cta-btn:hover { background: #d44e16; }
-
-        .back-section { text-align: center; padding: 0 48px 60px; }
-        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-size: 14px; font-weight: 700; text-decoration: none; border: 2px solid rgba(0,0,0,0.15); padding: 10px 24px; border-radius: 100px; transition: all 0.2s; }
-        .back-btn:hover { border-color: var(--orange); color: var(--orange); }
-
-        footer { background: var(--navy); padding: 32px 48px; text-align: center; }
-        footer p { color: rgba(255,255,255,0.4); font-size: 13px; }
-        .loading { padding: 140px 48px; text-align: center; color: #999; font-size: 16px; }
-
-        @media (min-width: 1024px) {
-          .hero h1 { font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
-          .section-title { font-size: 40px; letter-spacing: -0.02em; }
+        .hero-bg-text {
+            position: absolute; right: -20px; top: 50%; transform: translateY(-50%);
+            font-family: var(--display); font-size: clamp(60px, 10vw, 130px); font-weight: 700;
+            color: rgba(255,255,255,0.03); pointer-events: none; white-space: nowrap; text-transform: uppercase;
         }
 
-        @media (max-width: 768px) {
-            .nav-links {
-                display: flex; flex-direction: column;
-                position: absolute; top: 68px; left: 0; right: 0;
-                background: var(--navy); padding: 16px 24px 24px;
-                border-bottom: 1px solid rgba(255,255,255,0.08);
-                gap: 4px;
-                transform: translateY(-8px);
-                opacity: 0;
-                pointer-events: none;
-                transition: transform .18s ease, opacity .18s ease;
-            }
+        /* ─── POST BODY ───────────────────────────── */
+        .post-body { max-width: 800px; margin: 0 auto; padding: 60px 48px 80px; }
+        .post-body h2 { font-family: var(--heading); font-size: 1.6rem; font-weight: 600; margin: 40px 0 16px; color: var(--navy); }
+        .post-body h3 { font-family: var(--heading); font-size: 1.25rem; font-weight: 600; margin: 32px 0 12px; color: var(--navy); }
+        .post-body p { font-size: 1rem; line-height: 1.85; color: var(--steel); margin-bottom: 20px; }
+        .post-body strong { color: var(--navy); font-weight: 600; }
+        .post-body ol, .post-body ul { padding-left: 24px; margin-bottom: 20px; }
+        .post-body li { font-size: 1rem; line-height: 1.8; color: var(--steel); margin-bottom: 8px; }
+        .post-body a { color: var(--orange); text-decoration: none; border-bottom: 1px solid rgba(212,98,42,0.3); }
+        .post-body blockquote {
+            border-left: 3px solid var(--orange); margin: 32px 0; padding: 16px 24px;
+            background: var(--cream); border-radius: 0 8px 8px 0;
+        }
+        .post-body blockquote p { color: var(--navy); font-style: italic; margin: 0; }
 
-            body.nav-open .nav-links { transform: translateY(0); opacity: 1; pointer-events: auto; }
+        /* ─── POST CTA ────────────────────────────── */
+        .post-cta { background: var(--navy); border-radius: 12px; padding: 48px; text-align: center; max-width: 800px; margin: 0 auto 80px; }
+        .post-cta h3 { font-family: var(--display); font-size: 1.3rem; font-weight: 700; color: var(--white); margin-bottom: 12px; text-transform: uppercase; letter-spacing: 0.06em; }
+        .post-cta p { color: rgba(255,255,255,0.6); font-size: 0.95rem; margin-bottom: 28px; }
+        .cta-btn { display: inline-block; background: var(--orange); color: var(--white); padding: 14px 32px; border-radius: 8px; font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; transition: background 0.2s; }
+        .cta-btn:hover { background: var(--orange-lt); }
+
+        .back-section { text-align: center; padding: 0 48px 60px; }
+        .back-btn { display: inline-flex; align-items: center; gap: 8px; color: var(--navy); font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.1em; text-transform: uppercase; text-decoration: none; border: 2px solid rgba(28,60,90,0.2); padding: 10px 24px; border-radius: 100px; transition: all 0.2s; }
+        .back-btn:hover { border-color: var(--orange); color: var(--orange); }
+
+        .loading { padding: 140px 48px; text-align: center; color: var(--mist); font-size: 1rem; }
+
+        /* ─── FOOTER ─────────────────────────────── */
+        .site-footer {
+            background: var(--navy-dark); color: var(--white);
+            padding: 4rem 6% 2rem; border-top: 3px solid var(--orange);
+        }
+        .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+        .footer-brand-col .footer-desc { font-size: 0.88rem; color: var(--mist); line-height: 1.7; max-width: 320px; }
+        .footer-col h4 {
+            font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.18em;
+            text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem;
+        }
+        .footer-col ul { list-style: none; }
+        .footer-col li { margin-bottom: 0.6rem; }
+        .footer-col a { font-size: 0.85rem; color: var(--mist); transition: color 0.2s; }
+        .footer-col a:hover { color: var(--orange); }
+        .footer-bottom {
+            border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem;
+            display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
+        }
+        .footer-copy {
+            font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.08em;
+            text-transform: uppercase; color: rgba(143,170,190,0.4);
+        }
+        .footer-est { font-family: var(--display); font-size: 0.7rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.15); }
+
+        /* === RESPONSIV === */
+        @media (max-width: 768px) {
+            .nav-links { display: none; }
             .nav-burger { display: flex; }
-            .nav-cta-right { display: none; }
-            .nav-mobile-only { display: block !important; }
-            .post-hero { padding: 124px 20px 48px; }
+            .post-hero { padding: 110px 20px 48px; }
             .post-body { padding: 40px 20px 60px; }
             .back-link { color: rgba(255,255,255,0.70); }
             .post-meta { color: rgba(255,255,255,0.62); }
-            .post-cta p { font-size: 16px; color: rgba(255,255,255,0.82); }
+            .post-cta p { font-size: 0.95rem; color: rgba(255,255,255,0.82); }
             .post-cta { margin: 0 20px 60px; padding: 32px 24px; }
             .back-section { padding: 0 20px 48px; }
+            .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
         }
-        .nav-overlay { position: fixed; inset: 0; background: rgba(15,23,42,0.45); backdrop-filter: blur(4px); -webkit-backdrop-filter: blur(4px); opacity: 0; pointer-events: none; transition: opacity .2s ease; z-index: 1200; }
-        body.nav-open .nav-overlay { opacity: 1; pointer-events: auto; }
-        body.nav-open { overflow: hidden; }
-        @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-            .nav, .nav-overlay { backdrop-filter: none; -webkit-backdrop-filter: none; }
+        @media (min-width: 769px) and (max-width: 1024px) {
+            .footer-grid { grid-template-columns: 1fr 1fr; }
         }
     </style>
 </head>
 <body>
 
-<div class="topbar">Oberoende. Precis. På plats.</div>
-
-<nav class="nav" id="mainNav">
-  <div class="nav-inner">
-    <a href="index.html" class="nav-logo">
-      <img src="logo.png" alt="Cargo Survey AB" class="nav-logo-img" width="380" height="154" fetchpriority="high">
-    </a>
-
-    <div class="nav-links" id="navLinks">
-      <a href="index.html">Start</a>
-      <a href="terminal.html">Tjänster</a>
-      <a href="blogg.html" class="active">Nyheter</a>
-      <a href="om-oss.html">Om oss</a>
-      <a href="kontakt.html" class="nav-cta nav-mobile-only">Kontakt</a>
-    </div>
-
-    <a href="kontakt.html" class="nav-cta nav-cta-right">Kontakt</a>
-
-    <div class="nav-burger" id="navBurger">
-      <span></span><span></span><span></span>
-    </div>
+<nav class="site-nav">
+  <a href="index.html" class="nav-brand">
+    <img src="logo.png" alt="Cargo Survey AB" style="height:48px;width:auto;">
+  </a>
+  <ul class="nav-links">
+    <li><a href="index.html">Start</a></li>
+    <li><a href="terminal.html">Tjänster</a></li>
+    <li><a href="blogg.html" class="active">Nyheter</a></li>
+    <li><a href="om-oss.html">Om oss</a></li>
+    <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+  </ul>
+  <div class="nav-burger" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+    <span></span><span></span><span></span>
   </div>
 </nav>
-<div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+<div class="mobile-overlay" id="mobileNav">
+  <a href="index.html">Start</a>
+  <a href="terminal.html">Tjänster</a>
+  <a href="blogg.html">Nyheter</a>
+  <a href="om-oss.html">Om oss</a>
+  <a href="jobba-at-oss.html">Karriär</a>
+  <a href="kontakt.html">Kontakt</a>
+</div>
 
-<div id="post-root"><div class="loading">Laddar inl\u00e4gg\u2026</div></div>
+<div id="post-root"><div class="loading">Laddar inlägg…</div></div>
 
-<footer><p>Copyright L.W. Cargo Survey AB 2026. Alla rättigheter förbehållna.</p></footer>
+<footer class="site-footer">
+  <div class="footer-grid">
+    <div class="footer-brand-col">
+      <img src="logo.png" alt="Cargo Survey AB" style="height:52px;width:auto;margin-bottom:1rem;">
+      <p class="footer-desc">Sedan 1983 levererar vi oberoende besiktnings- och inspektionstjänster i hamnar längs hela Sveriges kust — med precision, integritet och branschledande kompetens.</p>
+    </div>
+    <div class="footer-col">
+      <h4>Tjänster</h4>
+      <ul>
+        <li><a href="terminal.html">Terminalbesiktning</a></li>
+        <li><a href="olja-petroleum.html">Olja &amp; Petroleum</a></li>
+        <li><a href="provtagning-bulk.html">Provtagning &amp; Bulk</a></li>
+        <li><a href="skadeinspektioner.html">Skadeinspektioner</a></li>
+        <li><a href="marina-inspektioner.html">Marina Inspektioner</a></li>
+        <li><a href="pre-shipment.html">Pre-shipment</a></li>
+        <li><a href="pre-wash-marpol.html">Pre-wash &amp; MARPOL</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Företaget</h4>
+      <ul>
+        <li><a href="om-oss.html">Om oss</a></li>
+        <li><a href="blogg.html">Nyheter</a></li>
+        <li><a href="jobba-at-oss.html">Jobba hos oss</a></li>
+        <li><a href="kontakt.html">Kontakt</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Kontakt</h4>
+      <ul>
+        <li><a href="mailto:info@cargosurvey.se">info@cargosurvey.se</a></li>
+        <li><a href="tel:+46269612000">+46 26 96 120</a></li>
+        <li><span style="font-size:0.85rem;color:var(--mist);">Gävle, Sverige</span></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span class="footer-copy">&copy; 2026 L.W. Cargo Survey AB &middot; Org.nr 556234-9182</span>
+    <span class="footer-est">EST. 1983 &middot; GÄVLE</span>
+  </div>
+</footer>
 
 <script src="https://cdn.jsdelivr.net/npm/marked@15.0.7/marked.min.js"
         integrity="sha384-H+hy9ULve6xfxRkWIh/YOtvDdpXgV2fmAGQkIDTxIgZwNoaoBal14Di2YTMR6MzR"

@@ -5,10 +5,10 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Oberoende Marin Besiktning | Cargo Survey AB</title>
   <meta name="description" content="Cargo Survey AB erbjuder oberoende marin besiktning, terminalbesiktning och oljeinspektion längs hela Sveriges kust. Sedan 1983.">
-  <link rel="icon" type="image/png" href="/logo.png">
+  <link rel="icon" type="image/png" href="logo.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
   
   <!-- CANONICAL URL & OPEN GRAPH -->
   <link rel="canonical" href="https://cargosurvey.se/">
@@ -207,18 +207,35 @@
     a, button, .service-card { cursor: pointer; }
 
     :root {
-      --navy:       #202032;
-      --orange:     #E36020;
-      --beige:      #F5F1EC;
-      --beige-dark: #EDE8E1;
-      --white:      #FFFFFF;
-      --light-gray: #F8F8F6;
-      --gray:       #464553;
-      --gray-light: #706E7C;
-      --border:     #DDD8D2;
-      --accent:     #E36020;
-      --accent-dark:#B84A14;
-      --bg-alt:     #181826;
+      /* CS Brand */
+      --navy:        #1C3C5A;
+      --navy-deep:   #122840;
+      --navy-dark:   #0D1E30;
+      --navy-mid:    #2A5178;
+      --steel:       #3E6585;
+      --mist:        #8FAABE;
+      --mist-lt:     #B8CEDF;
+      --orange:      #D4622A;
+      --orange-lt:   #E07A42;
+      --orange-dk:   #B5501E;
+      --cream:       #F5F0EB;
+      --offwhite:    #FAF8F5;
+      --white:       #FFFFFF;
+      --black:       #0A1520;
+      --display:     'Cinzel', serif;
+      --heading:     'Cormorant Garamond', serif;
+      --body:        'Lora', serif;
+      --mono:        'DM Mono', monospace;
+      /* Compatibility aliases */
+      --beige:       #F5F0EB;
+      --beige-dark:  #EAE5DF;
+      --light-gray:  #F8F8F6;
+      --gray:        #3E6585;
+      --gray-light:  #8FAABE;
+      --border:      #DDD8D2;
+      --accent:      #D4622A;
+      --accent-dark: #B5501E;
+      --bg-alt:      #0D1E30;
     }
 
     /* ── Section rhythm accent line ── */
@@ -243,162 +260,65 @@
       height: 100%;
     }
 
-    html { scroll-behavior: smooth; scroll-padding-top: 100px; }
-    .scroll-anchor { display: block; height: 0; overflow: hidden; visibility: hidden; scroll-margin-top: 100px; }
+    html { scroll-behavior: smooth; scroll-padding-top: 80px; }
+    .scroll-anchor { display: block; height: 0; overflow: hidden; visibility: hidden; scroll-margin-top: 80px; }
 
     body {
-      font-family: 'DM Sans', sans-serif;
-      background: var(--beige);
+      font-family: 'Lora', serif;
+      background: var(--offwhite);
       color: var(--navy);
       font-size: 16px;
       line-height: 1.65;
     }
 
-    /* ── NAVIGATION ── */
-    .topbar {
-      position: fixed;
-      top: 0; left: 0; right: 0;
-      z-index: 1400;
-      height: 32px;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-      background: #0a1525;
-      border-bottom: 1px solid rgba(227,96,32,0.25);
-      color: rgba(255,255,255,0.55);
-      font-size: 10.5px;
-      font-weight: 700;
-      letter-spacing: 0.14em;
-      text-transform: uppercase;
-    }
-
-    .nav {
-      position: fixed;
-      top: 32px; left: 0; right: 0;
-      z-index: 1300;
-      background: var(--navy);
-      height: 68px;
-      display: flex;
-      align-items: center;
-      padding: 0;
+    /* ─── NAV ────────────────────────────────────── */
+    .site-nav {
+      position: fixed; top: 0; left: 0; right: 0; z-index: 1000;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 0 3.5%; height: 72px;
+      background: rgba(13,30,48,0.97);
+      backdrop-filter: blur(18px); -webkit-backdrop-filter: blur(18px);
       border-bottom: 1px solid rgba(255,255,255,0.06);
-      transition: box-shadow 0.3s ease;
     }
-
-    .nav.scrolled {
-      box-shadow: 0 4px 32px rgba(0,0,0,0.3);
-    }
-
-    .nav-inner {
-      width: 100%;
-      max-width: 1200px;
-      margin: 0 auto;
-      display: flex;
-      align-items: center;
-      justify-content: space-between;
-      position: relative;
-      padding: 0 24px;
-    }
-
-    /* Logo */
-    .nav-logo { display: flex; align-items: center; text-decoration: none; }
-    .nav-logo-img { height: 56px; width: auto; display: block; }
-
-    /* Nav links – vänsterjusterade */
-    .nav-links {
-      display: flex;
-      align-items: center;
-      gap: 34px;
-      margin-left: 40px;
-    }
-
-    .nav-mobile-only { display: none !important; }
-
+    .nav-brand { display: flex; align-items: center; text-decoration: none; }
+    .nav-links { display: flex; gap: 0; list-style: none; align-items: center; height: 72px; }
+    .nav-links li { height: 100%; display: flex; align-items: center; }
     .nav-links a {
-      display: block;
-      padding: 8px 14px;
-      font-size: 13px;
-      font-weight: 400;
-      color: rgba(255,255,255,0.80);
-      text-decoration: none;
-      letter-spacing: 0.03em;
-      border-radius: 4px;
-      transition: color 0.2s, background 0.2s;
-      white-space: nowrap;
-      position: relative;
+      font-family: var(--mono); font-size: 0.6rem; letter-spacing: 0.12em;
+      text-transform: uppercase; color: var(--mist); text-decoration: none;
+      padding: 0 1.1rem; height: 100%; display: flex; align-items: center;
+      position: relative; transition: color 0.25s;
     }
-
-    .nav-links a:hover {
-      color: var(--white);
-      background: rgba(255,255,255,0.06);
+    .nav-links a::after {
+      content: ''; position: absolute; bottom: 0; left: 1.1rem; right: 1.1rem;
+      height: 2px; background: var(--orange); transform: scaleX(0); transition: transform 0.3s;
     }
-
-    .nav-links a.active {
-      color: var(--accent-dark);
-    }
-
-    .nav-links a:not(.nav-cta)::after {
-      content: "";
-      position: absolute;
-      left: 0;
-      bottom: -6px;
-      width: 0%;
-      height: 2px;
-      background: var(--accent);
-      transition: .2s;
-    }
-
-    .nav-links a:not(.nav-cta):hover::after,
-    .nav-links a:not(.nav-cta).active::after {
-      width: 100%;
-    }
-
+    .nav-links a:hover, .nav-links a.active { color: var(--white); }
+    .nav-links a:hover::after, .nav-links a.active::after { transform: scaleX(1); }
     .nav-cta {
-      background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important;
-      color: var(--white) !important;
-      padding: 10px 22px !important;
-      border-radius: 12px !important;
-      font-size: 13px !important;
-      font-weight: 700 !important;
-      letter-spacing: 0.04em !important;
-      box-shadow: 0 14px 34px rgba(227,96,32,.25);
-      transition: .2s !important;
-      text-decoration: none;
-      white-space: nowrap;
+      background: var(--orange) !important; color: var(--white) !important;
+      padding: 0.5rem 1.3rem !important; height: auto !important;
+      font-weight: 500 !important; transition: background 0.25s !important;
     }
-
-    .nav-cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 18px 40px rgba(227,96,32,.35);
-      background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important;
-      color: var(--white) !important;
-    }
-
-    /* Mobile menu */
+    .nav-cta:hover { background: var(--orange-lt) !important; }
+    .nav-cta::after { display: none !important; }
     .nav-burger {
-      display: none;
-      flex-direction: column;
-      gap: 5px;
-      cursor: pointer;
-      padding: 4px;
+      display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 8px; z-index: 1001;
     }
-
-    .nav-burger span {
-      display: block;
-      width: 22px;
-      height: 2px;
-      background: var(--white);
-      border-radius: 2px;
-      transition: transform 0.3s ease, opacity 0.3s ease;
+    .nav-burger span { display: block; width: 24px; height: 2px; background: var(--white); transition: 0.3s; }
+    .mobile-overlay {
+      display: none; position: fixed; inset: 0; background: rgba(13,30,48,0.98);
+      z-index: 999; flex-direction: column; align-items: center; justify-content: center; gap: 1.5rem;
     }
-
-    .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
-    .nav-burger.open span:nth-child(2) { opacity: 0; transform: scaleX(0); }
-    .nav-burger.open span:nth-child(3) { transform: translateY(-7px) rotate(-45deg); }
+    .mobile-overlay.open { display: flex; }
+    .mobile-overlay a {
+      font-family: var(--display); font-size: 1.2rem; letter-spacing: 0.1em;
+      text-transform: uppercase; color: var(--mist-lt); transition: color 0.2s;
+    }
+    .mobile-overlay a:hover { color: var(--orange); }
 
     /* ── HERO ── */
-    .hero,
-    .nav {
+    .hero {
       will-change: transform;
     }
 
@@ -409,7 +329,7 @@
       min-height: 88dvh;
       display: flex;
       align-items: center;
-      padding: 148px 48px 80px;
+      padding: 130px 48px 80px;
       position: relative;
       overflow: hidden;
     }
@@ -1191,7 +1111,7 @@
       background: var(--beige);
       border: 1px solid var(--border);
       border-radius: 6px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Lora', serif;
       font-size: 14px;
       color: var(--navy);
       outline: none;
@@ -1224,7 +1144,7 @@
       color: var(--white);
       border: none;
       padding: 14px 32px;
-      font-family: 'DM Sans', sans-serif;
+      font-family: 'Lora', serif;
       font-size: 14px;
       font-weight: 700;
       border-radius: 4px;
@@ -1239,105 +1159,30 @@
       transform: translateY(-1px);
     }
 
-    /* ── FOOTER ── */
-    .footer {
-      background: var(--navy);
-      padding: 60px 48px 32px;
-      border-top: 1px solid var(--border);
+    /* ─── FOOTER ─────────────────────────────────── */
+    .site-footer {
+      background: var(--navy-dark); color: var(--white);
+      padding: 4rem 6% 2rem; border-top: 3px solid var(--orange);
     }
-
-    .footer-inner {
-      max-width: 1200px;
-      margin: 0 auto;
+    .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr 1fr; gap: 3rem; margin-bottom: 3rem; }
+    .footer-brand-col .footer-desc { font-size: 0.88rem; color: var(--mist); line-height: 1.7; max-width: 320px; }
+    .footer-col h4 {
+      font-family: var(--mono); font-size: 0.55rem; letter-spacing: 0.18em;
+      text-transform: uppercase; color: var(--orange); margin-bottom: 1.2rem;
     }
-
-    .footer-top {
-      display: grid;
-      grid-template-columns: 2fr 1fr 1fr;
-      gap: 60px;
-      margin-bottom: 48px;
-    }
-
-    .footer-brand p {
-      font-size: 13px;
-      color: rgba(255,255,255,0.35);
-      line-height: 1.7;
-      font-weight: 300;
-      max-width: 300px;
-    }
-
-    .footer-col-title {
-      font-size: 11px;
-      font-weight: 700;
-      letter-spacing: 0.15em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.3);
-      margin-bottom: 18px;
-    }
-
-    .footer-links {
-      list-style: none;
-    }
-
-    .footer-links li {
-      margin-bottom: 10px;
-    }
-
-    .footer-links a {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-links a:hover { color: var(--orange); }
-
-    .footer-contact-item {
-      font-size: 13px;
-      color: rgba(255,255,255,0.5);
-      margin-bottom: 10px;
-      line-height: 1.5;
-    }
-
-    .footer-contact-item a {
-      color: rgba(255,255,255,0.5);
-      text-decoration: none;
-      transition: color 0.2s;
-    }
-
-    .footer-contact-item a:hover { color: var(--orange); }
-
+    .footer-col ul { list-style: none; }
+    .footer-col li { margin-bottom: 0.6rem; }
+    .footer-col a { font-size: 0.85rem; color: var(--mist); transition: color 0.2s; }
+    .footer-col a:hover { color: var(--orange); }
     .footer-bottom {
-      border-top: 1px solid rgba(255,255,255,0.06);
-      padding-top: 24px;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      flex-wrap: wrap;
-      gap: 12px;
+      border-top: 1px solid rgba(255,255,255,0.06); padding-top: 1.5rem;
+      display: flex; justify-content: space-between; align-items: center; flex-wrap: wrap; gap: 1rem;
     }
-
     .footer-copy {
-      font-size: 12px;
-      color: rgba(255,255,255,0.2);
-      letter-spacing: 0.04em;
+      font-family: var(--mono); font-size: 0.52rem; letter-spacing: 0.08em;
+      text-transform: uppercase; color: rgba(143,170,190,0.4);
     }
-
-    .footer-tagline-small {
-      font-size: 11px;
-      font-style: italic;
-      color: rgba(227,96,32,0.5);
-      font-weight: 300;
-      letter-spacing: 0.06em;
-    }
-
-    .footer-tagline {
-      font-size: 14px;
-      color: var(--gray);
-      font-style: italic;
-      margin-top: 16px;
-      letter-spacing: 0.02em;
-    }
+    .footer-est { font-family: var(--display); font-size: 0.7rem; letter-spacing: 0.12em; color: rgba(255,255,255,0.15); }
 
     /* ── SERVICE MODALS ── */
     .modal-overlay {
@@ -1684,33 +1529,6 @@
       border-radius: 10px;
     }
 
-    /* ── Mobile overlay ── */
-    .nav-overlay {
-      position: fixed;
-      inset: 0;
-      background: rgba(15,23,42,0.45);
-      backdrop-filter: blur(4px);
-      -webkit-backdrop-filter: blur(4px);
-      opacity: 0;
-      pointer-events: none;
-      transition: opacity .2s ease;
-      z-index: 1200;
-    }
-    body.nav-open .nav-overlay {
-      opacity: 1;
-      pointer-events: auto;
-    }
-    body.nav-open {
-      overflow: hidden;
-    }
-
-    @supports not ((backdrop-filter: blur(1px)) or (-webkit-backdrop-filter: blur(1px))) {
-      .nav, .nav-overlay {
-        backdrop-filter: none;
-        -webkit-backdrop-filter: none;
-      }
-    }
-
     .card, .how-item {
       transition: transform .18s ease, box-shadow .18s ease, border-color .18s ease;
       border: 1px solid rgba(226,232,240,.95);
@@ -1752,38 +1570,44 @@
         scroll-behavior: auto !important;
       }
     }
+
+    @media (max-width: 768px) {
+      .nav-links { display: none; }
+      .nav-burger { display: flex; }
+      .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
+    }
+    @media (min-width: 769px) and (max-width: 1024px) {
+      .footer-grid { grid-template-columns: 1fr 1fr; }
+    }
   </style>
 <!-- deploy-trigger-v2 -->
 </head>
 <body>
 
-  <div class="topbar">Oberoende. Precis. På plats.</div>
-
   <!-- ══ NAVIGATION ══ -->
-  <nav class="nav" id="mainNav">
-    <div class="nav-inner">
-      <a href="#hero" class="nav-logo">
-        <img src="logo.png" alt="Cargo Survey AB" class="nav-logo-img" width="380" height="154" fetchpriority="high">
-      </a>
-
-      <div class="nav-links" id="navLinks">
-        <a href="#services">Tjänster</a>
-        <a href="#how">Arbetssätt</a>
-        <a href="blogg.html">Artiklar</a>
-        <a href="#about">Om oss</a>
-        <a href="#contact" class="nav-cta nav-mobile-only">Boka samtal</a>
-      </div>
-
-      <a href="#contact" class="nav-cta nav-cta-right">Boka samtal</a>
-
-      <div class="nav-burger" id="navBurger">
-        <span></span>
-        <span></span>
-        <span></span>
-      </div>
+  <nav class="site-nav">
+    <a href="index.html" class="nav-brand">
+      <img src="logo.png" alt="Cargo Survey AB" style="height:48px;width:auto;" fetchpriority="high">
+    </a>
+    <ul class="nav-links">
+      <li><a href="index.html" class="active">Start</a></li>
+      <li><a href="terminal.html">Tjänster</a></li>
+      <li><a href="blogg.html">Nyheter</a></li>
+      <li><a href="om-oss.html">Om oss</a></li>
+      <li><a href="kontakt.html" class="nav-cta">Kontakt</a></li>
+    </ul>
+    <div class="nav-burger" onclick="document.getElementById('mobileNav').classList.toggle('open')">
+      <span></span><span></span><span></span>
     </div>
   </nav>
-  <div class="nav-overlay" id="navOverlay" aria-hidden="true"></div>
+  <div class="mobile-overlay" id="mobileNav">
+    <a href="index.html">Start</a>
+    <a href="terminal.html">Tjänster</a>
+    <a href="blogg.html">Nyheter</a>
+    <a href="om-oss.html">Om oss</a>
+    <a href="jobba-at-oss.html">Karriär</a>
+    <a href="kontakt.html">Kontakt</a>
+  </div>
 
   <!-- ══ HERO ══ -->
   <section class="hero" id="hero">
@@ -2120,49 +1944,46 @@
   </section>
 
   <!-- ══ FOOTER ══ -->
-  <footer class="footer">
-    <div class="footer-inner">
-      <div class="footer-top">
-        <div class="footer-brand">
-          <div>
-            <img src="logo.png" alt="Cargo Survey AB" width="380" height="154" style="height:64px; width:auto; display:block; margin-bottom:16px;" loading="lazy">
-          </div>
-          <p>Oberoende marin besiktning och inspektionstjänster för sjöfarts- och energibranschen. Sedan 1983, med bas i Gävle och verksamma längs hela Sveriges kust.</p>
-          <p class="footer-tagline">Oberoende. Precis. På plats.</p>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Meny</div>
-          <ul class="footer-links">
-            <li><a href="#hero">Hem</a></li>
-            <li><a href="#service-terminal">Terminalbesiktning</a></li>
-            <li><a href="#service-olja">Olja &amp; Petroleum</a></li>
-            <li><a href="#service-bulk">Provtagning &amp; Bulk</a></li>
-            <li><a href="#service-skada">Skadeinspektioner</a></li>
-            <li><a href="#service-marina">Marina Inspektioner</a></li>
-            <li><a href="#service-preshipment">Pre-shipment</a></li>
-            <li><a href="#service-marpol">Pre-wash &amp; MARPOL</a></li>
-            <li><a href="#about">Om oss</a></li>
-            <li><a href="blogg.html">Nyheter</a></li>
-          </ul>
-        </div>
-
-        <div>
-          <div class="footer-col-title">Kontakta oss</div>
-          <div class="footer-contact-item"><a href="tel:+4626961200">+46 (0) 26 96 120</a></div>
-          <div class="footer-contact-item"><a href="mailto:info@cargosurvey.se">info@cargosurvey.se</a></div>
-          <div class="footer-contact-item"><a href="https://se.linkedin.com/in/anna-karin-hector-a4b9b710b" target="_blank" rel="noopener noreferrer">LinkedIn</a></div>
-          <div style="margin-top:20px;">
-            <div class="footer-col-title">Bolag</div>
-            <div class="footer-contact-item">L.W. Cargo Survey AB<br><span style="font-size:12px; opacity:0.65;">Org.nr 556234-9182</span></div>
-          </div>
-        </div>
+  <footer class="site-footer">
+    <div class="footer-grid">
+      <div class="footer-brand-col">
+        <img src="logo.png" alt="Cargo Survey AB" style="height:52px;width:auto;margin-bottom:1rem;" loading="lazy">
+        <p class="footer-desc">Sedan 1983 levererar vi oberoende besiktnings- och inspektionstjänster i hamnar längs hela Sveriges kust — med precision, integritet och branschledande kompetens.</p>
       </div>
-
-      <div class="footer-bottom">
-        <span class="footer-copy">Copyright L.W. Cargo Survey AB 2026. Alla rättigheter förbehållna.</span>
-        <span class="footer-tagline-small">Oberoende. Precis. På plats.</span>
+      <div class="footer-col">
+        <h4>Tjänster</h4>
+        <ul>
+          <li><a href="terminal.html">Terminalbesiktning</a></li>
+          <li><a href="olja-petroleum.html">Olja &amp; Petroleum</a></li>
+          <li><a href="provtagning-bulk.html">Provtagning &amp; Bulk</a></li>
+          <li><a href="skadeinspektioner.html">Skadeinspektioner</a></li>
+          <li><a href="marina-inspektioner.html">Marina Inspektioner</a></li>
+          <li><a href="pre-shipment.html">Pre-shipment</a></li>
+          <li><a href="pre-wash-marpol.html">Pre-wash &amp; MARPOL</a></li>
+        </ul>
       </div>
+      <div class="footer-col">
+        <h4>Företaget</h4>
+        <ul>
+          <li><a href="om-oss.html">Om oss</a></li>
+          <li><a href="blogg.html">Nyheter</a></li>
+          <li><a href="jobba-at-oss.html">Jobba hos oss</a></li>
+          <li><a href="kontakt.html">Kontakt</a></li>
+        </ul>
+      </div>
+      <div class="footer-col">
+        <h4>Kontakt</h4>
+        <ul>
+          <li><a href="tel:+4626961200">+46 (0) 26 96 120</a></li>
+          <li><a href="mailto:info@cargosurvey.se">info@cargosurvey.se</a></li>
+          <li><a href="https://se.linkedin.com/in/anna-karin-hector-a4b9b710b" target="_blank" rel="noopener noreferrer">LinkedIn</a></li>
+          <li><span style="font-size:0.85rem;color:var(--mist);">L.W. Cargo Survey AB · 556234-9182</span></li>
+        </ul>
+      </div>
+    </div>
+    <div class="footer-bottom">
+      <span class="footer-copy">&copy; 2026 L.W. Cargo Survey AB &middot; Org.nr 556234-9182</span>
+      <span class="footer-est">EST. 1983 &middot; GÄVLE</span>
     </div>
   </footer>
 
