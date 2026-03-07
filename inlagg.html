@@ -12,26 +12,34 @@
     <link rel="icon" type="image/png" href="/logo.png">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,700;1,300&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@400;600;700&family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;0,700;1,300;1,400&family=Lora:ital,wght@0,400;0,500;0,600;1,400&family=DM+Mono:wght@400;500&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #202032;
-            --orange: #E36020;
-            --white: #FFFFFF;
-            --beige: #F5F0E8;
-            --light-gray: #F8F8F6;
-            --border:     #DDD8D2;
-            --gray:       #464553;
-            --gray-light: #706E7C;
-            --accent:      #E36020;
-            --accent-dark: #B84F18;
+            --navy:        #1C3C5A;
+            --navy-deep:   #122840;
+            --navy-dark:   #0D1E30;
+            --navy-mid:    #2A5178;
+            --steel:       #3E6585;
+            --mist:        #8FAABE;
+            --mist-lt:     #B8CEDF;
+            --orange:      #D4622A;
+            --orange-lt:   #E07A42;
+            --orange-dk:   #B5501E;
+            --cream:       #F5F0EB;
+            --offwhite:    #FAF8F5;
+            --white:       #FFFFFF;
+            --black:       #0A1520;
+            --light-gray:  #F8F8F6;
+            --border:      #DDD8D2;
+            --accent:      #D4622A;
+            --accent-dark: #B5501E;
         }
         * { margin: 0; padding: 0; box-sizing: border-box; }
         html { scroll-behavior: smooth; scroll-padding-top: 116px; }
-        body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--navy); }
+        body { font-family: 'Lora', serif; background: var(--offwhite); color: var(--navy); }
         section { padding: 96px 0; }
 
-        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1400; height: 32px; display: flex; align-items: center; justify-content: center; background: #0a1525; border-bottom: 1px solid rgba(227,96,32,0.25); color: rgba(255,255,255,0.55); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
+        .topbar { position: fixed; top: 0; left: 0; right: 0; z-index: 1400; height: 32px; display: flex; align-items: center; justify-content: center; background: var(--navy-dark); border-bottom: 1px solid rgba(212,98,42,0.25); color: rgba(255,255,255,0.55); font-size: 10.5px; font-weight: 700; letter-spacing: 0.14em; text-transform: uppercase; }
         .nav { position: fixed; top: 32px; left: 0; right: 0; z-index: 1300; will-change: transform; background: var(--navy); height: 68px; display: flex; align-items: center; padding: 0; border-bottom: 1px solid rgba(255,255,255,0.06); transition: box-shadow 0.3s ease; }
         .nav.scrolled { box-shadow: 0 4px 32px rgba(0,0,0,0.3); }
         .nav-inner { width: 100%; max-width: 1200px; margin: 0 auto; display: flex; align-items: center; justify-content: space-between; position: relative; padding: 0 24px; }
@@ -46,8 +54,8 @@
         .nav-links a:not(.nav-cta)::after { content: ""; position: absolute; left: 0; bottom: -6px; width: 0%; height: 2px; background: var(--accent); transition: .2s; }
         .nav-links a:not(.nav-cta):hover::after, .nav-links a:not(.nav-cta).active::after { width: 100%; }
 
-        .nav-cta { background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important; color: var(--white) !important; padding: 10px 22px !important; border-radius: 12px !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.04em !important; box-shadow: 0 14px 34px rgba(227,96,32,.25); transition: .2s !important; text-decoration: none; white-space: nowrap; }
-        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(227,96,32,.35); background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important; color: var(--white) !important; }
+        .nav-cta { background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important; color: var(--white) !important; padding: 10px 22px !important; border-radius: 12px !important; font-size: 13px !important; font-weight: 700 !important; letter-spacing: 0.04em !important; box-shadow: 0 14px 34px rgba(212,98,42,.25); transition: .2s !important; text-decoration: none; white-space: nowrap; }
+        .nav-cta:hover { transform: translateY(-2px); box-shadow: 0 18px 40px rgba(212,98,42,.35); background: linear-gradient(180deg, var(--accent), var(--accent-dark)) !important; color: var(--white) !important; }
         .nav-burger { display: none; flex-direction: column; gap: 5px; cursor: pointer; padding: 4px; }
         .nav-burger span { display: block; width: 22px; height: 2px; background: var(--white); border-radius: 2px; transition: transform 0.3s ease, opacity 0.3s ease; }
         .nav-burger.open span:nth-child(1) { transform: translateY(7px) rotate(45deg); }
@@ -134,19 +142,19 @@
 
 <nav class="nav" id="mainNav">
   <div class="nav-inner">
-    <a href="/index.html" class="nav-logo">
-      <img src="/logo.png" alt="Cargo Survey AB" class="nav-logo-img" width="380" height="154" fetchpriority="high">
+    <a href="index.html" class="nav-logo">
+      <img src="logo.png" alt="Cargo Survey AB" class="nav-logo-img" width="380" height="154" fetchpriority="high">
     </a>
 
     <div class="nav-links" id="navLinks">
-      <a href="/index.html#services">Tjänster</a>
-      <a href="/index.html#how">Arbetssätt</a>
-      <a href="/blogg.html">Artiklar</a>
-      <a href="/index.html#about">Om oss</a>
-      <a href="/index.html#contact" class="nav-cta nav-mobile-only">Boka samtal</a>
+      <a href="index.html">Start</a>
+      <a href="terminal.html">Tjänster</a>
+      <a href="blogg.html" class="active">Nyheter</a>
+      <a href="om-oss.html">Om oss</a>
+      <a href="kontakt.html" class="nav-cta nav-mobile-only">Kontakt</a>
     </div>
 
-    <a href="/index.html#contact" class="nav-cta nav-cta-right">Boka samtal</a>
+    <a href="kontakt.html" class="nav-cta nav-cta-right">Kontakt</a>
 
     <div class="nav-burger" id="navBurger">
       <span></span><span></span><span></span>
