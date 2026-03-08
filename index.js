@@ -1,26 +1,28 @@
 // ── Sticky nav shadow + hero parallax
-const nav = document.getElementById('mainNav');
+const nav = document.querySelector('.site-nav');
 const heroDecor2 = document.querySelector('.hero-decor-2');
 window.addEventListener('scroll', () => {
   const y = window.scrollY;
-  nav.classList.toggle('scrolled', y > 20);
+  if (nav) nav.classList.toggle('scrolled', y > 20);
   if (heroDecor2) heroDecor2.style.transform = `translateY(${y * 0.2}px)`;
 });
 
-// ── Mobile menu
-function setNavOpen(isOpen) {
-  const burger = document.getElementById('navBurger');
-  document.body.classList.toggle('nav-open', isOpen);
-  burger.classList.toggle('open', isOpen);
+// ── Mobile menu (site-nav structure)
+const mobileNav = document.getElementById('mobileNav');
+// Close mobile overlay when a link inside it is clicked
+if (mobileNav) {
+  mobileNav.querySelectorAll('a').forEach(a => {
+    a.addEventListener('click', () => mobileNav.classList.remove('open'));
+  });
+  // Close when clicking outside the overlay
+  document.addEventListener('click', (e) => {
+    if (mobileNav.classList.contains('open') &&
+        !mobileNav.contains(e.target) &&
+        !e.target.closest('.nav-burger')) {
+      mobileNav.classList.remove('open');
+    }
+  });
 }
-function toggleMenu() {
-  setNavOpen(!document.body.classList.contains('nav-open'));
-}
-document.getElementById('navBurger').addEventListener('click', toggleMenu);
-document.getElementById('navOverlay')?.addEventListener('click', () => setNavOpen(false));
-document.querySelectorAll('#navLinks a').forEach(a => {
-  a.addEventListener('click', () => setNavOpen(false));
-});
 
 // ── Scroll animations
 const observer = new IntersectionObserver((entries) => {
