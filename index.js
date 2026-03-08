@@ -24,23 +24,38 @@ if (mobileNav) {
   });
 }
 
-// ── Scroll animations
+// ── Scroll animations (CSS transition-based, more reliable than animationend)
 const observer = new IntersectionObserver((entries) => {
   entries.forEach((entry, i) => {
     if (entry.isIntersecting) {
       setTimeout(() => {
         entry.target.classList.add('visible');
-        entry.target.addEventListener('animationend', function onEnd() {
-          this.classList.remove('animate', 'visible');
-          this.removeEventListener('animationend', onEnd);
+        // After the transition completes, strip helper classes so hover/etc. work naturally
+        entry.target.addEventListener('transitionend', function onEnd(e) {
+          if (e.propertyName === 'opacity') {
+            this.classList.remove('animate', 'visible');
+            this.removeEventListener('transitionend', onEnd);
+          }
         });
       }, i * 80);
       observer.unobserve(entry.target);
     }
   });
-}, { threshold: 0.12 });
+}, { threshold: 0.05 });
 
 document.querySelectorAll('.animate').forEach(el => observer.observe(el));
+
+// ── Catch elements that smooth-scroll moved past before the observer could fire
+function revealScrolledPast() {
+  document.querySelectorAll('.animate:not(.visible)').forEach(el => {
+    if (el.getBoundingClientRect().bottom < 80) {
+      el.classList.add('visible');
+    }
+  });
+}
+window.addEventListener('scroll', revealScrolledPast, { passive: true });
+// Also run once at startup in case of back-navigation landing mid-page
+requestAnimationFrame(revealScrolledPast);
 
 // ── Section accent line
 const sectionObserver = new IntersectionObserver((entries) => {
