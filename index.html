@@ -414,9 +414,10 @@
       word-break: keep-all;
       overflow-wrap: normal;
       hyphens: none;
+      white-space: nowrap;
       font-family: var(--display);
       font-weight: 700;
-      font-size: clamp(2rem, 4.5vw, 3.4rem);
+      font-size: clamp(1.4rem, 3.2vw, 3.4rem);
       letter-spacing: 0.04em;
       text-transform: uppercase;
       color: var(--white);
@@ -1500,7 +1501,8 @@
       .hero h1 {
       word-break: keep-all;
       overflow-wrap: normal;
-      hyphens: none; font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
+      white-space: nowrap;
+      hyphens: none; font-size: clamp(1.6rem, 3.8vw, 64px); line-height: 1.05; letter-spacing: -0.03em; }
       .section-title { font-size: 40px; letter-spacing: -0.02em; }
     }
 
@@ -1542,7 +1544,8 @@
       .hero h1 {
       word-break: keep-all;
       overflow-wrap: normal;
-      hyphens: none; font-size: 36px; }
+      white-space: nowrap;
+      hyphens: none; font-size: clamp(1rem, 7vw, 36px); }
       .hero-desc { color: rgba(255,255,255,0.95); }
       .hero-desc-2 { font-size: 16px; color: rgba(255,255,255,0.95); }
       .hero-pillars { grid-template-columns: 1fr 1fr; gap: 10px; }
