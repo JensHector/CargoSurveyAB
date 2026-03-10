@@ -411,6 +411,9 @@
     }
 
     .hero h1 {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none;
       font-family: var(--display);
       font-weight: 700;
       font-size: clamp(2rem, 4.5vw, 3.4rem);
@@ -1494,7 +1497,10 @@
 
     /* ── RESPONSIVE ── */
     @media (min-width: 1024px) {
-      .hero h1 { font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
+      .hero h1 {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none; font-size: 64px; line-height: 1.05; letter-spacing: -0.03em; }
       .section-title { font-size: 40px; letter-spacing: -0.02em; }
     }
 
@@ -1533,7 +1539,10 @@
       .nav-cta-right { display: none; }
       .nav-mobile-only { display: block !important; }
       .hero { padding: 124px 24px 64px; }
-      .hero h1 { font-size: 36px; }
+      .hero h1 {
+      word-break: keep-all;
+      overflow-wrap: normal;
+      hyphens: none; font-size: 36px; }
       .hero-desc { color: rgba(255,255,255,0.95); }
       .hero-desc-2 { font-size: 16px; color: rgba(255,255,255,0.95); }
       .hero-pillars { grid-template-columns: 1fr 1fr; gap: 10px; }
