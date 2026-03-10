@@ -323,7 +323,18 @@
     }
 
     .hero {
-      background: var(--navy);
+      background-color: var(--navy-dark);
+      background-image:
+        linear-gradient(
+          105deg,
+          rgba(13,30,48,0.96) 0%,
+          rgba(13,30,48,0.88) 48%,
+          rgba(13,30,48,0.60) 100%
+        ),
+        url('hamn-bild.jpg');
+      background-size: cover;
+      background-position: center 45%;
+      background-attachment: fixed;
       min-height: 88vh;
       min-height: 88svh;
       min-height: 88dvh;
@@ -332,6 +343,10 @@
       padding: 130px 48px 80px;
       position: relative;
       overflow: hidden;
+    }
+
+    @media (max-width: 900px) {
+      .hero { background-attachment: scroll; }
     }
 
     .hero::before {
@@ -1658,74 +1673,6 @@
       .footer-grid { grid-template-columns: 1fr 1fr; }
     }
 
-    /* ── HARBOR BANNER ── */
-    .harbor-banner {
-      position: relative;
-      width: 100%;
-      height: 420px;
-      overflow: hidden;
-    }
-
-    .harbor-banner-bg {
-      position: absolute;
-      inset: -60px 0;
-      background-image: url('hamn-bild.jpg');
-      background-size: cover;
-      background-position: center 55%;
-      background-attachment: fixed;
-    }
-
-    .harbor-banner::before {
-      content: '';
-      position: absolute;
-      inset: 0;
-      background:
-        linear-gradient(to bottom,
-          rgba(13,30,48,0.52) 0%,
-          rgba(13,30,48,0.18) 35%,
-          rgba(13,30,48,0.18) 65%,
-          rgba(13,30,48,0.50) 100%
-        ),
-        radial-gradient(ellipse at center,
-          rgba(13,30,48,0) 40%,
-          rgba(13,30,48,0.30) 100%
-        );
-      z-index: 1;
-    }
-
-    .harbor-banner-caption {
-      position: absolute;
-      bottom: 28px;
-      right: 44px;
-      z-index: 2;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-
-    .harbor-banner-caption::before {
-      content: '';
-      width: 22px;
-      height: 1px;
-      background: rgba(212,98,42,0.7);
-    }
-
-    .harbor-banner-caption span {
-      font-family: var(--mono);
-      font-size: 0.55rem;
-      letter-spacing: 0.20em;
-      text-transform: uppercase;
-      color: rgba(255,255,255,0.48);
-    }
-
-    @media (max-width: 900px) {
-      .harbor-banner { height: 280px; }
-      .harbor-banner-bg {
-        background-attachment: scroll;
-        inset: 0;
-      }
-      .harbor-banner-caption { right: 20px; bottom: 16px; }
-    }
   </style>
 <!-- deploy-trigger-v2 -->
 </head>
@@ -1822,14 +1769,6 @@
       <div class="clients-divider"></div>
     </div>
   </section>
-
-  <!-- ══ HARBOR BANNER ══ -->
-  <div class="harbor-banner" aria-hidden="true">
-    <div class="harbor-banner-bg"></div>
-    <div class="harbor-banner-caption">
-      <span>Cargo Survey AB &mdash; på plats i hamnen sedan 1983</span>
-    </div>
-  </div>
 
   <!-- ══ SERVICES ══ -->
   <section class="section services">
